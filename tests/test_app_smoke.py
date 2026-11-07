@@ -40,3 +40,21 @@ class DashboardAppSmokeTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BrandAssetTests(unittest.TestCase):
+    def test_brand_assets_are_present(self) -> None:
+        assets = ROOT / "assets"
+        for filename in (
+            "northstar-logo.svg",
+            "northstar-logo-reverse.svg",
+            "northstar-logo-mono.svg",
+            "northstar-mark.svg",
+            "northstar-favicon.png",
+        ):
+            self.assertTrue((assets / filename).is_file(), filename)
+
+    def test_logo_has_accessible_title(self) -> None:
+        logo = (ROOT / "assets" / "northstar-logo.svg").read_text(encoding="utf-8")
+        self.assertIn('role="img"', logo)
+        self.assertIn("<title>Northstar", logo)

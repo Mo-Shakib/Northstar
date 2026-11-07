@@ -1,5 +1,7 @@
 # Northstar — Loan Portfolio Analytics Dashboard
 
+<img src="docs/brand/northstar-logo-preview.png" width="360" alt="Northstar — Credit Analytics logo">
+
 A local-first portfolio analytics workspace for a consumer and commercial lending book. It combines a relational SQLite database, parameterized SQL analytics, Streamlit, Pandas and Plotly into one lightweight application.
 
 The interface is intentionally calm and typography-led: a warm neutral canvas, a light filter sidebar, deep green accents, hairline card borders and compact analytical tables. There are no external UI libraries or font CDNs to configure.
@@ -7,6 +9,12 @@ The interface is intentionally calm and typography-led: a warm neutral canvas, a
 The demo portfolio contains **1,600 loans across 900 customers**, 18 months of month-end snapshots, realistic delinquency and default behaviour, and a complete CSV import/export workflow.
 
 ![Portfolio overview](docs/screenshots/overview.png)
+
+### Brand identity
+
+The product has a custom vector identity: an N monogram built as a continuous route, a small gold north point, and an editorial Fraunces wordmark. The primary lockup, reversed, monochrome, stacked and mark-only cuts are available in [`assets/`](assets/), with palette, clearspace and usage guidance in the [brand guide](docs/brand.md).
+
+![Northstar brand board](docs/brand/northstar-brand-board.png)
 
 ---
 
@@ -287,6 +295,13 @@ The seeded database passes all 15 checks.
 │   ├── csv_io.py                   # CSV validation, template and export helpers
 │   ├── charts.py                   # Plotly chart builders
 │   └── ui.py                       # CSS theme and reusable presentation helpers
+├── assets/                         # Logo SVGs, PNGs, favicon and typeface licences
+│   ├── northstar-logo.svg
+│   ├── northstar-logo-reverse.svg
+│   ├── northstar-mark.svg
+│   ├── northstar-favicon.png
+│   ├── northstar-favicon.ico
+│   └── licenses/
 ├── data/
 │   ├── loan_portfolio.db           # Generated SQLite database
 │   └── sample/
@@ -294,8 +309,11 @@ The seeded database passes all 15 checks.
 │       ├── loans_sample.csv
 │       ├── portfolio_snapshots_sample.csv
 │       └── import_template.csv
-├── docs/screenshots/               # README screenshots
-└── tests/test_dashboard.py         # Database, SQL, CSV and quality tests
+├── docs/
+│   ├── brand.md                    # Identity, palette and usage guidance
+│   ├── brand/                      # Brand board
+│   └── screenshots/                # README screenshots
+└── tests/                          # Database, SQL, CSV, render and quality tests
 ```
 
 ### Design principles

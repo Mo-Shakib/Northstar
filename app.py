@@ -20,6 +20,7 @@ from loan_dashboard.charts import (
 )
 from loan_dashboard.config import (
     APP_TITLE,
+    ASSETS_DIR,
     CHART_CONFIG,
     COLORS,
     DB_PATH,
@@ -73,9 +74,10 @@ from loan_dashboard.ui import (
     render_sidebar_footer,
 )
 
+_favicon = ASSETS_DIR / "northstar-favicon.png"
 st.set_page_config(
     page_title=APP_TITLE,
-    page_icon="✦",
+    page_icon=str(_favicon) if _favicon.exists() else "✦",
     layout="wide",
     initial_sidebar_state="auto",
 )

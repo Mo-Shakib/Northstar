@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from datetime import date
+from functools import lru_cache
 from html import escape
 
 import pandas as pd
 import streamlit as st
 
-from .config import APP_NAME, COLORS, PRODUCT_COLORS
+from .config import ASSETS_DIR, COLORS, PRODUCT_COLORS
 
 # ---------------------------------------------------------------------------
 # Formatting helpers
@@ -238,34 +239,19 @@ def inject_css() -> None:
             margin-left: auto;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.62rem;
-            padding: 0.05rem 0.1rem 0.6rem;
+        .brand-lockup {
+            padding: 0.05rem 0.1rem 0.15rem;
         }
-        .brand-mark {
-            width: 26px;
-            height: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #CFDBD5;
-            border-radius: 7px;
-            background: #F2F7F4;
+        .brand-lockup svg {
+            display: block;
+            width: 178px;
+            height: auto;
         }
-        .brand-name {
+        .brand-fallback {
             color: var(--ink);
-            font-size: 0.98rem;
-            font-weight: 700;
-            letter-spacing: -0.035em;
-            line-height: 1.1;
-        }
-        .brand-sub {
-            color: #858B84;
-            font-size: 0.62rem;
-            letter-spacing: 0.02em;
-            margin-top: 0.17rem;
+            font-size: 1rem;
+            font-weight: 650;
+            padding: 0.3rem 0;
         }
         .side-rule {
             height: 1px;
@@ -1416,17 +1402,18 @@ def inject_css() -> None:
     )
 
 
+@lru_cache(maxsize=1)
+def _brand_svg() -> str:
+    """Inline the primary lockup so it stays crisp and needs no static server."""
+    try:
+        return (ASSETS_DIR / "northstar-logo.svg").read_text(encoding="utf-8")
+    except OSError:
+        return '<div class="brand-fallback">Northstar</div>'
+
+
 def render_brand() -> None:
     st.markdown(
-        '<div class="brand">'
-        '<div class="brand-mark">'
-        '<svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">'
-        '<path d="M10 1.6 11.95 8.05 18.4 10 11.95 11.95 10 18.4 8.05 11.95 1.6 10 8.05 8.05 10 1.6Z" fill="#225C4B"/>'
-        '</svg>'
-        '</div>'
-        f'<div><div class="brand-name">{escape(APP_NAME.lower())}</div>'
-        '<div class="brand-sub">Credit analytics</div></div>'
-        '</div>'
+        f'<div class="brand-lockup">{_brand_svg()}</div>'
         '<div class="side-rule"></div>',
         unsafe_allow_html=True,
     )

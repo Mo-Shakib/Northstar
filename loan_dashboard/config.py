@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "data"
 SAMPLE_DIR = DATA_DIR / "sample"
+ASSETS_DIR = ROOT_DIR / "assets"
 DB_PATH = Path(os.environ.get("LOAN_DB_PATH", DATA_DIR / "loan_portfolio.db"))
 
 APP_TITLE = "Northstar | Loan Portfolio Analytics"
