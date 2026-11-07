@@ -1,0 +1,2 @@
+loan_id,customer_id,loan_type,principal_amount,outstanding_balance,interest_rate,term_months,monthly_payment,disbursement_date,maturity_date,status,days_past_due,risk_grade,purpose,branch,collateral_type,last_payment_date,next_due_date,default_date,closed_date
+IMPORT-0001,CUST-000001,Personal Loan,25000.0,19825.4,11.9,36,829.16,2026-05-12,2029-05-12,Active,0,B,Home Improvement,Downtown,Unsecured,2026-10-25,2026-11-24,,

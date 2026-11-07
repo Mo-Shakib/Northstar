@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+*.log
+.streamlit/secrets.toml
+
+# SQLite runtime files
+*.db-wal
+*.db-shm

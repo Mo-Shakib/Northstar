@@ -1,0 +1,901 @@
+customer_id,full_name,email,phone,city,state,segment,relationship_manager,credit_score,annual_income,customer_since
+CUST-000001,Andre Smith,andre.smith1@example.com,+1 (290) 804-7912,Dallas,TX,SME,Alex Morgan,788,131500.0,2014-04-18
+CUST-000002,James Harris,james.harris2@example.com,+1 (630) 425-8359,Seattle,WA,Retail,Noah Williams,747,53000.0,2014-04-21
+CUST-000003,Aarav Taylor,aarav.taylor3@example.com,+1 (305) 294-7224,Raleigh,NC,SME,Dana Whitfield,704,96000.0,2018-12-23
+CUST-000004,Nadia Reed,nadia.reed4@example.com,+1 (328) 587-2291,Dallas,TX,Retail,Noah Williams,729,102000.0,2014-07-02
+CUST-000005,Nathan Pham,nathan.pham5@example.com,+1 (439) 303-7227,San Antonio,TX,Corporate,Noah Williams,762,1893000.0,2024-09-26
+CUST-000006,Nathan Evans,nathan.evans6@example.com,+1 (824) 850-3803,Jacksonville,FL,Retail,Maya Chen,737,33000.0,2024-12-04
+CUST-000007,Olivia Hill,olivia.hill7@example.com,+1 (435) 232-6168,Miami,FL,Retail,Sofia Alvarez,645,53500.0,2025-04-09
+CUST-000008,James Wong,james.wong8@example.com,+1 (606) 858-8517,Boston,MA,Retail,Jordan Lee,778,67000.0,2015-05-01
+CUST-000009,Jordan Smith,jordan.smith9@example.com,+1 (425) 341-9348,Denver,CO,Retail,Theo Brooks,620,50500.0,2018-05-29
+CUST-000010,Ava White,ava.white10@example.com,+1 (811) 265-7304,Houston,TX,Retail,Sofia Alvarez,723,33500.0,2017-01-21
+CUST-000011,Theo Nguyen,theo.nguyen11@example.com,+1 (501) 645-3591,Dallas,TX,SME,Theo Brooks,703,273000.0,2024-01-10
+CUST-000012,Kai Morgan,kai.morgan12@example.com,+1 (824) 403-3504,Tampa,FL,Retail,Priya Nair,772,66000.0,2015-02-21
+CUST-000013,Aarav Reed,aarav.reed13@example.com,+1 (446) 259-4946,Austin,TX,SME,Dana Whitfield,602,177500.0,2019-08-18
+CUST-000014,Wei Tran,wei.tran14@example.com,+1 (370) 471-9645,Chicago,IL,Retail,Sofia Alvarez,817,28000.0,2014-03-13
+CUST-000015,Isabella Shah,isabella.shah15@example.com,+1 (324) 453-4681,San Jose,CA,Premium,Dana Whitfield,654,344000.0,2016-05-26
+CUST-000016,Javier Rahman,javier.rahman16@example.com,+1 (444) 485-8953,San Diego,CA,Retail,Maya Chen,778,28000.0,2014-12-30
+CUST-000017,Valentina Hassan,valentina.hassan17@example.com,+1 (634) 620-8651,Raleigh,NC,Retail,Alex Morgan,760,43500.0,2018-07-31
+CUST-000018,Daniel Baker,daniel.baker18@example.com,+1 (455) 396-4116,Columbus,OH,SME,Theo Brooks,759,608000.0,2024-01-28
+CUST-000019,Henry Hill,henry.hill19@example.com,+1 (216) 295-4872,Indianapolis,IN,Retail,Jordan Lee,672,33500.0,2014-05-27
+CUST-000020,Victor Gupta,victor.gupta20@example.com,+1 (203) 599-5345,Sacramento,CA,Retail,Theo Brooks,684,41500.0,2018-01-10
+CUST-000021,Wei Diaz,wei.diaz21@example.com,+1 (715) 743-3579,San Antonio,TX,Retail,Alex Morgan,689,51000.0,2015-11-01
+CUST-000022,Charlotte Wang,charlotte.wang22@example.com,+1 (453) 792-1651,Philadelphia,PA,Premium,Dana Whitfield,722,815500.0,2013-10-01
+CUST-000023,Maya Young,maya.young23@example.com,+1 (669) 523-2188,Dallas,TX,Retail,Alex Morgan,694,28000.0,2019-10-19
+CUST-000024,Daniel Bennett,daniel.bennett24@example.com,+1 (271) 450-7054,Denver,CO,Retail,Noah Williams,748,34000.0,2018-09-12
+CUST-000025,Lily Rivera,lily.rivera25@example.com,+1 (471) 318-2753,Raleigh,NC,Retail,Jordan Lee,618,62500.0,2023-07-07
+CUST-000026,Jack Shah,jack.shah26@example.com,+1 (718) 700-5114,Austin,TX,Retail,Alex Morgan,572,28000.0,2020-08-09
+CUST-000027,Sakib Walker,sakib.walker27@example.com,+1 (960) 652-8007,Dallas,TX,Retail,Alex Morgan,800,28000.0,2022-11-26
+CUST-000028,Fatima Patel,fatima.patel28@example.com,+1 (641) 330-1685,Los Angeles,CA,Retail,Noah Williams,808,80000.0,2023-03-16
+CUST-000029,Arjun Wilson,arjun.wilson29@example.com,+1 (836) 967-3532,Jacksonville,FL,Retail,Maya Chen,770,34000.0,2017-05-30
+CUST-000030,Hassan Williams,hassan.williams30@example.com,+1 (592) 239-8711,Charlotte,NC,Corporate,Maya Chen,816,2541500.0,2024-02-07
+CUST-000031,Tariq Kim,tariq.kim31@example.com,+1 (486) 559-9346,San Jose,CA,Retail,Sofia Alvarez,652,28000.0,2024-12-20
+CUST-000032,Mia Zhang,mia.zhang32@example.com,+1 (554) 946-6139,New York,NY,SME,Sofia Alvarez,739,136000.0,2016-10-12
+CUST-000033,Zoe Clark,zoe.clark33@example.com,+1 (752) 903-4228,Columbus,OH,SME,Priya Nair,771,304000.0,2014-11-12
+CUST-000034,Mia Rivera,mia.rivera34@example.com,+1 (720) 516-7691,Austin,TX,Retail,Priya Nair,707,51500.0,2019-10-16
+CUST-000035,Liam Perez,liam.perez35@example.com,+1 (831) 782-5930,Phoenix,AZ,Retail,Sofia Alvarez,620,28000.0,2022-08-16
+CUST-000036,Aarav Jackson,aarav.jackson36@example.com,+1 (677) 652-8244,San Jose,CA,Retail,Maya Chen,756,28000.0,2019-04-20
+CUST-000037,Grace Rodriguez,grace.rodriguez37@example.com,+1 (889) 517-4680,Chicago,IL,Retail,Maya Chen,671,28500.0,2021-04-04
+CUST-000038,Arjun Hassan,arjun.hassan38@example.com,+1 (625) 844-4185,San Francisco,CA,Retail,Sofia Alvarez,672,63500.0,2016-04-24
+CUST-000039,Jordan Diaz,jordan.diaz39@example.com,+1 (252) 770-5082,Miami,FL,Retail,Dana Whitfield,719,58000.0,2016-02-09
+CUST-000040,Theo Rodriguez,theo.rodriguez40@example.com,+1 (637) 761-8305,Seattle,WA,Retail,Jordan Lee,605,60000.0,2015-03-16
+CUST-000041,Valentina Martinez,valentina.martinez41@example.com,+1 (842) 444-5499,Dallas,TX,SME,Theo Brooks,694,958500.0,2015-08-29
+CUST-000042,Laila Hassan,laila.hassan42@example.com,+1 (342) 354-4788,Dallas,TX,Retail,Sofia Alvarez,789,28000.0,2024-09-19
+CUST-000043,James Bennett,james.bennett43@example.com,+1 (599) 988-1320,Charlotte,NC,SME,Sofia Alvarez,677,145000.0,2017-02-07
+CUST-000044,Naomi Jackson,naomi.jackson44@example.com,+1 (752) 965-9947,Tampa,FL,Retail,Maya Chen,709,28000.0,2017-02-16
+CUST-000045,Karen Martin,karen.martin45@example.com,+1 (679) 330-9751,San Francisco,CA,Retail,Alex Morgan,664,28000.0,2022-10-28
+CUST-000046,Andre Brown,andre.brown46@example.com,+1 (252) 466-7211,Miami,FL,Corporate,Priya Nair,702,658500.0,2022-06-14
+CUST-000047,Mei Khan,mei.khan47@example.com,+1 (682) 219-9837,Tampa,FL,Retail,Alex Morgan,747,65500.0,2024-09-09
+CUST-000048,Nadia Harris,nadia.harris48@example.com,+1 (445) 329-8758,Miami,FL,Premium,Dana Whitfield,723,104500.0,2023-02-09
+CUST-000049,James Miller,james.miller49@example.com,+1 (368) 518-2771,Portland,OR,SME,Alex Morgan,594,119500.0,2023-12-16
+CUST-000050,Olivia Lewis,olivia.lewis50@example.com,+1 (305) 913-5941,Portland,OR,Corporate,Dana Whitfield,663,494500.0,2021-01-29
+CUST-000051,Arjun Kim,arjun.kim51@example.com,+1 (702) 308-8102,Denver,CO,SME,Priya Nair,659,159500.0,2017-02-07
+CUST-000052,Tariq Shah,tariq.shah52@example.com,+1 (831) 751-8921,Phoenix,AZ,SME,Theo Brooks,710,139000.0,2020-06-20
+CUST-000053,Karen Johnson,karen.johnson53@example.com,+1 (545) 229-9098,Sacramento,CA,Retail,Priya Nair,690,33500.0,2018-01-10
+CUST-000054,James Kim,james.kim54@example.com,+1 (770) 210-9464,Raleigh,NC,Retail,Maya Chen,614,35500.0,2020-04-30
+CUST-000055,Ravi Moore,ravi.moore55@example.com,+1 (296) 501-4630,Denver,CO,Retail,Sofia Alvarez,649,82000.0,2026-02-20
+CUST-000056,Lucas Rodriguez,lucas.rodriguez56@example.com,+1 (636) 963-6419,Boston,MA,SME,Priya Nair,658,132000.0,2018-10-25
+CUST-000057,Karen Jackson,karen.jackson57@example.com,+1 (397) 421-8933,Dallas,TX,SME,Noah Williams,673,64500.0,2022-05-17
+CUST-000058,Laila Chen,laila.chen58@example.com,+1 (510) 214-9751,Salt Lake City,UT,SME,Jordan Lee,799,118000.0,2022-07-03
+CUST-000059,Ava Perez,ava.perez59@example.com,+1 (788) 491-8690,San Jose,CA,Retail,Theo Brooks,735,53000.0,2026-04-02
+CUST-000060,Henry Baker,henry.baker60@example.com,+1 (611) 703-2213,Dallas,TX,Retail,Alex Morgan,640,82500.0,2025-01-22
+CUST-000061,Lily Brown,lily.brown61@example.com,+1 (654) 504-8025,San Diego,CA,Retail,Noah Williams,700,65000.0,2016-06-03
+CUST-000062,Benjamin Rivera,benjamin.rivera62@example.com,+1 (361) 445-3847,Minneapolis,MN,SME,Dana Whitfield,781,216000.0,2024-09-14
+CUST-000063,Ravi Martinez,ravi.martinez63@example.com,+1 (273) 903-4824,Portland,OR,Retail,Noah Williams,700,49500.0,2016-05-05
+CUST-000064,Isabella Martin,isabella.martin64@example.com,+1 (346) 273-1977,Houston,TX,SME,Jordan Lee,802,206000.0,2020-07-26
+CUST-000065,Laila Martinez,laila.martinez65@example.com,+1 (706) 648-2317,Houston,TX,SME,Alex Morgan,674,171500.0,2014-06-01
+CUST-000066,Mei Reed,mei.reed66@example.com,+1 (984) 888-5415,Dallas,TX,Corporate,Alex Morgan,782,8120000.0,2026-01-23
+CUST-000067,Hassan Mitchell,hassan.mitchell67@example.com,+1 (294) 681-6700,Seattle,WA,SME,Sofia Alvarez,744,1228000.0,2015-07-01
+CUST-000068,David Wang,david.wang68@example.com,+1 (879) 610-1601,Philadelphia,PA,Retail,Theo Brooks,759,30000.0,2020-01-23
+CUST-000069,Julia Johnson,julia.johnson69@example.com,+1 (674) 623-1888,Houston,TX,Retail,Maya Chen,535,79500.0,2014-05-11
+CUST-000070,Yara Roberts,yara.roberts70@example.com,+1 (335) 494-8178,Indianapolis,IN,Retail,Theo Brooks,674,57000.0,2014-03-17
+CUST-000071,Jiah Shah,jiah.shah71@example.com,+1 (864) 357-9165,Philadelphia,PA,Retail,Noah Williams,705,41500.0,2023-11-22
+CUST-000072,Karen Lopez,karen.lopez72@example.com,+1 (765) 348-7284,Salt Lake City,UT,Retail,Maya Chen,666,44000.0,2016-04-13
+CUST-000073,Zoe Smith,zoe.smith73@example.com,+1 (474) 202-5634,Phoenix,AZ,Corporate,Noah Williams,770,2840500.0,2015-02-20
+CUST-000074,Wei White,wei.white74@example.com,+1 (766) 981-9903,Phoenix,AZ,Corporate,Sofia Alvarez,697,1210000.0,2019-01-26
+CUST-000075,Mei White,mei.white75@example.com,+1 (923) 590-7325,San Antonio,TX,Retail,Jordan Lee,647,28000.0,2015-12-02
+CUST-000076,Anika Davis,anika.davis76@example.com,+1 (651) 302-9617,Seattle,WA,Retail,Theo Brooks,716,74500.0,2024-04-10
+CUST-000077,Ethan Lopez,ethan.lopez77@example.com,+1 (839) 909-7512,Sacramento,CA,Retail,Dana Whitfield,539,51500.0,2018-12-07
+CUST-000078,Olivia Johnson,olivia.johnson78@example.com,+1 (237) 832-2121,Miami,FL,Corporate,Maya Chen,785,5029500.0,2014-05-23
+CUST-000079,Laila Harris,laila.harris79@example.com,+1 (230) 247-6314,Minneapolis,MN,SME,Alex Morgan,740,458500.0,2019-10-23
+CUST-000080,Nora Martin,nora.martin80@example.com,+1 (375) 379-2293,Phoenix,AZ,Retail,Sofia Alvarez,710,33000.0,2022-06-27
+CUST-000081,Jiah Moore,jiah.moore81@example.com,+1 (677) 494-9955,Boston,MA,SME,Jordan Lee,710,89000.0,2026-04-26
+CUST-000082,Nadia Rahman,nadia.rahman82@example.com,+1 (668) 509-4263,San Jose,CA,Retail,Sofia Alvarez,734,53500.0,2020-12-01
+CUST-000083,David Hassan,david.hassan83@example.com,+1 (482) 208-1803,Columbus,OH,Corporate,Theo Brooks,804,1776000.0,2017-08-25
+CUST-000084,Laila Thomas,laila.thomas84@example.com,+1 (852) 394-5106,Raleigh,NC,Corporate,Jordan Lee,753,206000.0,2021-08-12
+CUST-000085,Arjun Jackson,arjun.jackson85@example.com,+1 (535) 965-7807,Raleigh,NC,SME,Jordan Lee,709,155000.0,2019-11-28
+CUST-000086,Nathan Nguyen,nathan.nguyen86@example.com,+1 (503) 964-6549,Seattle,WA,Retail,Dana Whitfield,664,28000.0,2015-09-20
+CUST-000087,Carlos Diaz,carlos.diaz87@example.com,+1 (578) 888-5295,Tampa,FL,Retail,Sofia Alvarez,761,28500.0,2016-04-29
+CUST-000088,Nora Chen,nora.chen88@example.com,+1 (864) 264-8606,Nashville,TN,Corporate,Noah Williams,762,4801000.0,2021-07-24
+CUST-000089,Diego Davis,diego.davis89@example.com,+1 (339) 597-8432,Los Angeles,CA,SME,Priya Nair,685,356000.0,2014-06-21
+CUST-000090,Riley Rahman,riley.rahman90@example.com,+1 (487) 233-7070,Minneapolis,MN,SME,Maya Chen,713,485000.0,2017-05-16
+CUST-000091,Jiah Wang,jiah.wang91@example.com,+1 (326) 665-2501,Jacksonville,FL,Retail,Maya Chen,653,191000.0,2022-04-09
+CUST-000092,Amina Baker,amina.baker92@example.com,+1 (413) 800-4538,Raleigh,NC,SME,Maya Chen,757,264500.0,2014-02-04
+CUST-000093,Ethan Thompson,ethan.thompson93@example.com,+1 (335) 215-6869,Atlanta,GA,Retail,Maya Chen,689,33500.0,2025-12-12
+CUST-000094,Amina Fischer,amina.fischer94@example.com,+1 (660) 996-6931,Dallas,TX,SME,Dana Whitfield,747,200500.0,2015-11-05
+CUST-000095,Jasmine Zhang,jasmine.zhang95@example.com,+1 (691) 611-7984,Atlanta,GA,Retail,Dana Whitfield,545,78000.0,2025-02-28
+CUST-000096,Sara Bennett,sara.bennett96@example.com,+1 (482) 839-9984,Chicago,IL,Retail,Priya Nair,728,38500.0,2023-09-12
+CUST-000097,Liam Miller,liam.miller97@example.com,+1 (939) 420-8046,Seattle,WA,Retail,Theo Brooks,656,49000.0,2014-02-28
+CUST-000098,Ravi Khan,ravi.khan98@example.com,+1 (521) 637-6120,Salt Lake City,UT,Corporate,Noah Williams,647,1251500.0,2024-05-24
+CUST-000099,Fatima Ross,fatima.ross99@example.com,+1 (776) 537-3002,San Francisco,CA,Retail,Sofia Alvarez,617,112500.0,2013-12-06
+CUST-000100,Sakib White,sakib.white100@example.com,+1 (561) 306-9313,Minneapolis,MN,Retail,Maya Chen,663,28500.0,2019-07-09
+CUST-000101,Victor Harris,victor.harris101@example.com,+1 (986) 836-1430,Sacramento,CA,Retail,Noah Williams,595,30000.0,2013-12-11
+CUST-000102,Karen Sanchez,karen.sanchez102@example.com,+1 (386) 346-7566,Tampa,FL,Retail,Dana Whitfield,642,36500.0,2026-05-22
+CUST-000103,Andre Brown,andre.brown103@example.com,+1 (939) 532-2391,Minneapolis,MN,Retail,Alex Morgan,657,46500.0,2019-07-16
+CUST-000104,Ava Ross,ava.ross104@example.com,+1 (822) 652-7785,Chicago,IL,Retail,Noah Williams,699,28000.0,2015-08-20
+CUST-000105,Zoe Clark,zoe.clark105@example.com,+1 (247) 425-7475,Jacksonville,FL,Retail,Alex Morgan,660,42000.0,2019-08-11
+CUST-000106,Lily Zhang,lily.zhang106@example.com,+1 (536) 322-1126,San Antonio,TX,Retail,Theo Brooks,629,102000.0,2020-01-13
+CUST-000107,Hassan Davis,hassan.davis107@example.com,+1 (274) 606-1693,Columbus,OH,SME,Sofia Alvarez,631,188500.0,2018-08-01
+CUST-000108,Carlos White,carlos.white108@example.com,+1 (497) 317-7636,Austin,TX,Retail,Alex Morgan,658,51000.0,2017-02-27
+CUST-000109,Grace Torres,grace.torres109@example.com,+1 (450) 646-7560,Atlanta,GA,Premium,Dana Whitfield,701,407500.0,2024-02-25
+CUST-000110,Lucas Smith,lucas.smith110@example.com,+1 (723) 848-2868,Austin,TX,Retail,Maya Chen,737,28000.0,2024-10-24
+CUST-000111,Nadia Kim,nadia.kim111@example.com,+1 (382) 991-9095,Minneapolis,MN,Corporate,Theo Brooks,812,924000.0,2024-11-01
+CUST-000112,Sofia Ross,sofia.ross112@example.com,+1 (653) 846-5961,Boston,MA,SME,Noah Williams,792,127000.0,2016-01-04
+CUST-000113,Naomi Morgan,naomi.morgan113@example.com,+1 (861) 292-9307,Chicago,IL,SME,Sofia Alvarez,814,124500.0,2024-10-21
+CUST-000114,Arjun Martinez,arjun.martinez114@example.com,+1 (714) 354-2013,Raleigh,NC,Retail,Theo Brooks,728,48000.0,2015-11-10
+CUST-000115,Michael Shah,michael.shah115@example.com,+1 (737) 735-3600,Chicago,IL,Retail,Priya Nair,690,45000.0,2016-09-02
+CUST-000116,Laila Lee,laila.lee116@example.com,+1 (847) 862-6482,Charlotte,NC,Retail,Dana Whitfield,752,83500.0,2025-05-09
+CUST-000117,Omar Hoang,omar.hoang117@example.com,+1 (284) 796-3317,Dallas,TX,Retail,Priya Nair,788,72000.0,2019-01-19
+CUST-000118,Priya Davis,priya.davis118@example.com,+1 (586) 858-6381,Atlanta,GA,Retail,Jordan Lee,624,53000.0,2013-12-28
+CUST-000119,Chloe Robinson,chloe.robinson119@example.com,+1 (550) 984-8967,Nashville,TN,SME,Maya Chen,688,158500.0,2021-09-21
+CUST-000120,Emma Diaz,emma.diaz120@example.com,+1 (753) 956-9626,Chicago,IL,Retail,Alex Morgan,717,28000.0,2015-02-21
+CUST-000121,Elias Reed,elias.reed121@example.com,+1 (939) 648-1715,Columbus,OH,SME,Sofia Alvarez,683,115000.0,2022-10-24
+CUST-000122,Jiah Martinez,jiah.martinez122@example.com,+1 (440) 746-4918,Atlanta,GA,Retail,Noah Williams,613,28000.0,2016-06-16
+CUST-000123,Valentina Wilson,valentina.wilson123@example.com,+1 (592) 714-9641,Salt Lake City,UT,Premium,Sofia Alvarez,685,187500.0,2020-03-16
+CUST-000124,Isabella Torres,isabella.torres124@example.com,+1 (581) 767-2680,Atlanta,GA,Premium,Dana Whitfield,715,292000.0,2015-10-01
+CUST-000125,Gabriel Hill,gabriel.hill125@example.com,+1 (228) 624-1872,Indianapolis,IN,Retail,Sofia Alvarez,701,28000.0,2018-09-08
+CUST-000126,Jiah Lee,jiah.lee126@example.com,+1 (932) 865-6493,Chicago,IL,Retail,Jordan Lee,752,41000.0,2024-04-21
+CUST-000127,Laila Wong,laila.wong127@example.com,+1 (282) 219-5193,Salt Lake City,UT,Retail,Maya Chen,693,40000.0,2026-05-29
+CUST-000128,Sakib Clark,sakib.clark128@example.com,+1 (445) 629-8489,Tampa,FL,Corporate,Dana Whitfield,690,914000.0,2025-06-15
+CUST-000129,Yara Reed,yara.reed129@example.com,+1 (785) 626-4068,Denver,CO,Retail,Dana Whitfield,617,36000.0,2021-02-17
+CUST-000130,Nathan Bennett,nathan.bennett130@example.com,+1 (768) 220-7397,Seattle,WA,Retail,Theo Brooks,724,52000.0,2015-02-21
+CUST-000131,Omar Kumar,omar.kumar131@example.com,+1 (796) 952-6447,Dallas,TX,Retail,Jordan Lee,729,59500.0,2024-03-14
+CUST-000132,Michael Tran,michael.tran132@example.com,+1 (339) 264-8498,Miami,FL,Retail,Alex Morgan,707,41500.0,2022-06-09
+CUST-000133,Arjun Thompson,arjun.thompson133@example.com,+1 (685) 459-1599,San Antonio,TX,Retail,Maya Chen,668,67500.0,2014-05-07
+CUST-000134,Ava White,ava.white134@example.com,+1 (648) 609-8204,Miami,FL,Retail,Sofia Alvarez,744,39000.0,2018-04-10
+CUST-000135,Henry Moore,henry.moore135@example.com,+1 (281) 640-3956,Portland,OR,Retail,Noah Williams,586,44000.0,2017-01-02
+CUST-000136,Charlotte Johnson,charlotte.johnson136@example.com,+1 (371) 906-8272,Nashville,TN,Retail,Priya Nair,677,34500.0,2016-12-20
+CUST-000137,Naomi Rivera,naomi.rivera137@example.com,+1 (347) 822-8179,Charlotte,NC,Retail,Alex Morgan,717,52500.0,2025-10-29
+CUST-000138,Jiah Thomas,jiah.thomas138@example.com,+1 (234) 819-3513,Miami,FL,Retail,Theo Brooks,606,38500.0,2013-10-21
+CUST-000139,Nora Martinez,nora.martinez139@example.com,+1 (954) 390-9176,Tampa,FL,Premium,Sofia Alvarez,715,383000.0,2025-12-11
+CUST-000140,Elena Hernandez,elena.hernandez140@example.com,+1 (911) 702-4279,Tampa,FL,Corporate,Dana Whitfield,835,761500.0,2020-02-14
+CUST-000141,Carlos Martinez,carlos.martinez141@example.com,+1 (884) 555-2063,Philadelphia,PA,Retail,Noah Williams,764,75500.0,2019-05-11
+CUST-000142,Gabriel Shah,gabriel.shah142@example.com,+1 (406) 342-4878,Portland,OR,Corporate,Theo Brooks,802,3246500.0,2023-10-21
+CUST-000143,Nora Miller,nora.miller143@example.com,+1 (789) 275-3053,Raleigh,NC,Retail,Priya Nair,630,34500.0,2017-05-05
+CUST-000144,Sofia Miller,sofia.miller144@example.com,+1 (856) 801-3981,Nashville,TN,SME,Jordan Lee,719,184000.0,2014-02-28
+CUST-000145,Benjamin Walker,benjamin.walker145@example.com,+1 (555) 731-5653,Houston,TX,Retail,Dana Whitfield,761,46000.0,2021-06-20
+CUST-000146,Kevin Davis,kevin.davis146@example.com,+1 (857) 372-3526,Miami,FL,Retail,Jordan Lee,805,33000.0,2015-04-03
+CUST-000147,Michael Walker,michael.walker147@example.com,+1 (710) 842-9938,Boston,MA,SME,Noah Williams,730,266500.0,2025-11-05
+CUST-000148,Lily Mitchell,lily.mitchell148@example.com,+1 (665) 274-1981,San Diego,CA,SME,Jordan Lee,785,503500.0,2019-11-09
+CUST-000149,Victor Miller,victor.miller149@example.com,+1 (609) 333-7070,San Antonio,TX,Retail,Dana Whitfield,722,39500.0,2018-10-12
+CUST-000150,Theo Clark,theo.clark150@example.com,+1 (498) 593-7850,Dallas,TX,Retail,Maya Chen,651,43000.0,2025-05-23
+CUST-000151,Gabriel Tran,gabriel.tran151@example.com,+1 (710) 223-2475,Austin,TX,Premium,Sofia Alvarez,807,325000.0,2019-08-10
+CUST-000152,Jiah Gupta,jiah.gupta152@example.com,+1 (812) 869-8710,Boston,MA,Retail,Noah Williams,688,40000.0,2015-06-05
+CUST-000153,David Martin,david.martin153@example.com,+1 (572) 766-5728,Phoenix,AZ,Retail,Dana Whitfield,628,60500.0,2022-02-28
+CUST-000154,Sofia Taylor,sofia.taylor154@example.com,+1 (604) 582-6555,Denver,CO,Retail,Priya Nair,734,52000.0,2024-05-10
+CUST-000155,Isabella Reed,isabella.reed155@example.com,+1 (732) 667-3440,Seattle,WA,SME,Jordan Lee,800,161500.0,2015-11-26
+CUST-000156,Maya Evans,maya.evans156@example.com,+1 (746) 701-5911,Columbus,OH,Retail,Theo Brooks,712,36000.0,2015-02-04
+CUST-000157,Nora Khan,nora.khan157@example.com,+1 (812) 685-5350,Nashville,TN,Corporate,Maya Chen,711,546000.0,2025-12-05
+CUST-000158,Victor Evans,victor.evans158@example.com,+1 (352) 897-4968,Seattle,WA,SME,Alex Morgan,828,258000.0,2017-12-31
+CUST-000159,Diego Garcia,diego.garcia159@example.com,+1 (827) 682-2020,New York,NY,SME,Jordan Lee,678,161500.0,2015-04-10
+CUST-000160,Mei Rodriguez,mei.rodriguez160@example.com,+1 (671) 745-6608,San Francisco,CA,Retail,Priya Nair,710,46000.0,2022-08-23
+CUST-000161,Kai Rivera,kai.rivera161@example.com,+1 (496) 921-4396,San Francisco,CA,SME,Theo Brooks,673,116500.0,2019-11-07
+CUST-000162,Nadia Perez,nadia.perez162@example.com,+1 (589) 604-6654,Raleigh,NC,Retail,Jordan Lee,675,56500.0,2014-05-06
+CUST-000163,Laila Shah,laila.shah163@example.com,+1 (752) 477-5450,Chicago,IL,Retail,Jordan Lee,687,37000.0,2021-12-29
+CUST-000164,Jiah Hassan,jiah.hassan164@example.com,+1 (254) 302-7771,Los Angeles,CA,Retail,Priya Nair,756,58500.0,2021-04-21
+CUST-000165,Daniel Ross,daniel.ross165@example.com,+1 (529) 492-1969,Tampa,FL,SME,Dana Whitfield,628,703000.0,2020-01-31
+CUST-000166,Javier Patel,javier.patel166@example.com,+1 (238) 606-9116,Minneapolis,MN,SME,Jordan Lee,724,306500.0,2022-08-01
+CUST-000167,Liam Williams,liam.williams167@example.com,+1 (480) 397-2845,Los Angeles,CA,Corporate,Priya Nair,835,1579000.0,2016-01-11
+CUST-000168,Tariq Robinson,tariq.robinson168@example.com,+1 (380) 825-7643,Dallas,TX,Retail,Sofia Alvarez,647,38000.0,2022-03-12
+CUST-000169,Chloe Lewis,chloe.lewis169@example.com,+1 (972) 473-6400,Nashville,TN,Retail,Noah Williams,747,35000.0,2016-07-04
+CUST-000170,Amelia Hernandez,amelia.hernandez170@example.com,+1 (677) 514-3616,Miami,FL,SME,Sofia Alvarez,714,148000.0,2023-11-16
+CUST-000171,Lucas Sanchez,lucas.sanchez171@example.com,+1 (966) 820-7121,Houston,TX,SME,Sofia Alvarez,775,150000.0,2016-04-27
+CUST-000172,Valentina Taylor,valentina.taylor172@example.com,+1 (739) 657-9653,Denver,CO,SME,Priya Nair,694,430000.0,2024-09-09
+CUST-000173,Diego Baker,diego.baker173@example.com,+1 (733) 652-2904,Salt Lake City,UT,Retail,Maya Chen,660,48000.0,2019-03-03
+CUST-000174,Wei Brown,wei.brown174@example.com,+1 (726) 625-8484,Seattle,WA,SME,Alex Morgan,697,169500.0,2023-07-27
+CUST-000175,Lucas Singh,lucas.singh175@example.com,+1 (634) 552-2044,New York,NY,Retail,Alex Morgan,687,30000.0,2025-07-05
+CUST-000176,Camila Young,camila.young176@example.com,+1 (985) 856-7887,San Francisco,CA,Corporate,Priya Nair,679,459500.0,2023-06-28
+CUST-000177,Olivia Martinez,olivia.martinez177@example.com,+1 (337) 869-6697,Sacramento,CA,Premium,Dana Whitfield,835,865500.0,2014-06-07
+CUST-000178,Priya Nguyen,priya.nguyen178@example.com,+1 (975) 223-5888,Phoenix,AZ,Retail,Theo Brooks,762,55500.0,2026-06-13
+CUST-000179,Sakib Patel,sakib.patel179@example.com,+1 (233) 876-7868,Columbus,OH,SME,Alex Morgan,685,284500.0,2023-12-30
+CUST-000180,Camila Chen,camila.chen180@example.com,+1 (612) 649-4839,Atlanta,GA,Retail,Maya Chen,728,52500.0,2025-07-14
+CUST-000181,Benjamin Davis,benjamin.davis181@example.com,+1 (443) 509-3347,Seattle,WA,SME,Maya Chen,623,511500.0,2019-05-03
+CUST-000182,Kevin Baker,kevin.baker182@example.com,+1 (770) 707-1768,Denver,CO,Retail,Priya Nair,643,99500.0,2016-12-11
+CUST-000183,Olivia Thompson,olivia.thompson183@example.com,+1 (685) 446-4692,Seattle,WA,Premium,Noah Williams,775,343000.0,2014-06-18
+CUST-000184,Ethan Torres,ethan.torres184@example.com,+1 (771) 742-3196,Indianapolis,IN,Corporate,Sofia Alvarez,801,5310500.0,2017-03-08
+CUST-000185,Jack Khan,jack.khan185@example.com,+1 (253) 474-7179,Miami,FL,Retail,Alex Morgan,640,28000.0,2022-04-03
+CUST-000186,Ibrahim Torres,ibrahim.torres186@example.com,+1 (691) 413-6455,Tampa,FL,Corporate,Noah Williams,808,2037000.0,2021-08-29
+CUST-000187,Amelia Gupta,amelia.gupta187@example.com,+1 (530) 994-5637,San Antonio,TX,Premium,Sofia Alvarez,778,249000.0,2014-02-22
+CUST-000188,Naomi Jackson,naomi.jackson188@example.com,+1 (301) 939-8692,Dallas,TX,Retail,Priya Nair,813,28000.0,2016-01-28
+CUST-000189,Nora Johnson,nora.johnson189@example.com,+1 (538) 435-7223,Charlotte,NC,Corporate,Maya Chen,746,1676500.0,2022-02-15
+CUST-000190,Michael Hernandez,michael.hernandez190@example.com,+1 (951) 560-3773,Tampa,FL,Retail,Jordan Lee,642,55000.0,2022-10-02
+CUST-000191,Wei Fischer,wei.fischer191@example.com,+1 (983) 206-7756,Denver,CO,SME,Jordan Lee,807,211000.0,2025-06-09
+CUST-000192,Javier Bennett,javier.bennett192@example.com,+1 (583) 261-8916,Portland,OR,Corporate,Theo Brooks,804,747000.0,2016-04-19
+CUST-000193,Ravi Ahmed,ravi.ahmed193@example.com,+1 (384) 309-2578,New York,NY,Retail,Jordan Lee,700,46500.0,2016-11-13
+CUST-000194,Julia Tran,julia.tran194@example.com,+1 (616) 670-4984,Jacksonville,FL,Retail,Maya Chen,688,34000.0,2018-02-27
+CUST-000195,Charlotte Robinson,charlotte.robinson195@example.com,+1 (258) 852-1154,Sacramento,CA,Retail,Jordan Lee,643,50500.0,2015-11-07
+CUST-000196,Samantha Robinson,samantha.robinson196@example.com,+1 (687) 477-1762,Raleigh,NC,Retail,Dana Whitfield,721,66500.0,2013-10-24
+CUST-000197,Kevin Wilson,kevin.wilson197@example.com,+1 (802) 347-7525,Denver,CO,SME,Dana Whitfield,757,193000.0,2021-11-17
+CUST-000198,Jiah Pham,jiah.pham198@example.com,+1 (540) 593-3292,Salt Lake City,UT,Retail,Dana Whitfield,668,98000.0,2014-05-27
+CUST-000199,Nadia Baker,nadia.baker199@example.com,+1 (535) 230-5478,Houston,TX,Retail,Theo Brooks,636,34000.0,2017-08-18
+CUST-000200,Naomi Perez,naomi.perez200@example.com,+1 (288) 990-5839,Columbus,OH,Retail,Maya Chen,773,38500.0,2018-01-01
+CUST-000201,Charlotte Hill,charlotte.hill201@example.com,+1 (310) 293-1085,Phoenix,AZ,SME,Noah Williams,744,99500.0,2018-06-09
+CUST-000202,Karen Chen,karen.chen202@example.com,+1 (769) 724-7685,Phoenix,AZ,Retail,Dana Whitfield,737,28000.0,2014-01-13
+CUST-000203,Naomi Perez,naomi.perez203@example.com,+1 (598) 997-2387,Chicago,IL,Retail,Maya Chen,695,62000.0,2017-03-31
+CUST-000204,Grace Ross,grace.ross204@example.com,+1 (705) 349-2036,Columbus,OH,SME,Jordan Lee,705,111500.0,2020-07-04
+CUST-000205,Riley Jackson,riley.jackson205@example.com,+1 (809) 831-4203,San Francisco,CA,Retail,Theo Brooks,777,62000.0,2015-05-29
+CUST-000206,Lily Ahmed,lily.ahmed206@example.com,+1 (651) 542-8055,Columbus,OH,Retail,Jordan Lee,658,32500.0,2019-02-19
+CUST-000207,Isabella Mitchell,isabella.mitchell207@example.com,+1 (790) 448-6339,Austin,TX,Retail,Sofia Alvarez,650,30500.0,2015-07-07
+CUST-000208,Priya Kumar,priya.kumar208@example.com,+1 (385) 898-1440,Houston,TX,Retail,Theo Brooks,775,66500.0,2014-04-16
+CUST-000209,Jack Martinez,jack.martinez209@example.com,+1 (890) 711-3280,Raleigh,NC,Premium,Noah Williams,785,242500.0,2017-05-08
+CUST-000210,Fatima Shah,fatima.shah210@example.com,+1 (797) 610-9755,Charlotte,NC,Retail,Sofia Alvarez,596,56500.0,2015-10-12
+CUST-000211,Nathan Sanchez,nathan.sanchez211@example.com,+1 (371) 862-1725,Raleigh,NC,Retail,Sofia Alvarez,775,48500.0,2018-07-25
+CUST-000212,Mia Thompson,mia.thompson212@example.com,+1 (795) 904-4621,Charlotte,NC,Premium,Theo Brooks,792,163000.0,2014-01-04
+CUST-000213,Theo Thomas,theo.thomas213@example.com,+1 (503) 625-2406,Nashville,TN,Retail,Dana Whitfield,682,51000.0,2024-03-07
+CUST-000214,Ethan Kim,ethan.kim214@example.com,+1 (695) 556-8801,San Jose,CA,Corporate,Dana Whitfield,766,503000.0,2014-11-03
+CUST-000215,Sofia Johnson,sofia.johnson215@example.com,+1 (894) 368-4996,Chicago,IL,Retail,Jordan Lee,774,28000.0,2024-01-28
+CUST-000216,Mia Perez,mia.perez216@example.com,+1 (845) 388-4053,Charlotte,NC,Retail,Sofia Alvarez,764,69000.0,2017-06-10
+CUST-000217,Isabella Martinez,isabella.martinez217@example.com,+1 (792) 304-9796,Boston,MA,Retail,Jordan Lee,700,43000.0,2025-02-14
+CUST-000218,Isabella Miller,isabella.miller218@example.com,+1 (826) 601-2871,Houston,TX,Retail,Priya Nair,735,47500.0,2017-10-23
+CUST-000219,Tariq Rivera,tariq.rivera219@example.com,+1 (889) 337-6131,Philadelphia,PA,Retail,Dana Whitfield,666,97000.0,2024-08-16
+CUST-000220,Diego Fischer,diego.fischer220@example.com,+1 (811) 341-7286,Jacksonville,FL,Retail,Sofia Alvarez,766,60000.0,2017-02-22
+CUST-000221,Hassan Perez,hassan.perez221@example.com,+1 (568) 209-8939,Philadelphia,PA,Retail,Jordan Lee,664,44500.0,2025-04-28
+CUST-000222,Omar Perez,omar.perez222@example.com,+1 (626) 927-8272,Seattle,WA,Retail,Theo Brooks,748,54000.0,2015-07-01
+CUST-000223,Andre Thompson,andre.thompson223@example.com,+1 (763) 723-2854,Tampa,FL,Retail,Dana Whitfield,704,34000.0,2015-06-02
+CUST-000224,Nathan Patel,nathan.patel224@example.com,+1 (760) 423-7965,Salt Lake City,UT,Retail,Dana Whitfield,616,97500.0,2016-08-17
+CUST-000225,Jordan Jackson,jordan.jackson225@example.com,+1 (415) 955-6744,Sacramento,CA,SME,Sofia Alvarez,540,75000.0,2021-03-18
+CUST-000226,Emma Thompson,emma.thompson226@example.com,+1 (373) 531-5794,San Antonio,TX,Retail,Noah Williams,759,50000.0,2014-06-11
+CUST-000227,Zoe Wilson,zoe.wilson227@example.com,+1 (484) 871-3078,Nashville,TN,SME,Jordan Lee,712,265500.0,2025-03-13
+CUST-000228,Mei Walker,mei.walker228@example.com,+1 (346) 791-5402,San Diego,CA,Retail,Sofia Alvarez,630,80500.0,2015-07-20
+CUST-000229,Carlos Roberts,carlos.roberts229@example.com,+1 (536) 795-1040,Raleigh,NC,Retail,Dana Whitfield,741,45500.0,2015-07-31
+CUST-000230,Tariq Roberts,tariq.roberts230@example.com,+1 (608) 423-8039,Nashville,TN,SME,Maya Chen,690,730000.0,2014-07-16
+CUST-000231,Mei Walker,mei.walker231@example.com,+1 (899) 980-1793,San Jose,CA,Retail,Alex Morgan,628,34000.0,2018-10-26
+CUST-000232,Tariq Ali,tariq.ali232@example.com,+1 (296) 870-6905,Houston,TX,Retail,Noah Williams,663,28000.0,2020-05-19
+CUST-000233,Grace Baker,grace.baker233@example.com,+1 (921) 297-1017,Columbus,OH,Retail,Maya Chen,692,62500.0,2024-06-24
+CUST-000234,Elias Rahman,elias.rahman234@example.com,+1 (913) 551-2975,San Diego,CA,Retail,Sofia Alvarez,628,46000.0,2026-05-06
+CUST-000235,Victor Bennett,victor.bennett235@example.com,+1 (341) 591-3181,San Diego,CA,SME,Jordan Lee,752,113500.0,2019-10-25
+CUST-000236,Amelia Rivera,amelia.rivera236@example.com,+1 (844) 966-3480,Miami,FL,Retail,Sofia Alvarez,720,31000.0,2021-09-30
+CUST-000237,Sara White,sara.white237@example.com,+1 (344) 453-5537,San Antonio,TX,SME,Dana Whitfield,600,346500.0,2019-06-22
+CUST-000238,Laila Thomas,laila.thomas238@example.com,+1 (394) 965-7418,Portland,OR,Retail,Noah Williams,789,63500.0,2015-02-05
+CUST-000239,Jiah Moore,jiah.moore239@example.com,+1 (570) 524-3162,Columbus,OH,SME,Sofia Alvarez,652,79000.0,2026-04-04
+CUST-000240,Riley Kumar,riley.kumar240@example.com,+1 (218) 801-2106,Denver,CO,Corporate,Alex Morgan,716,4141500.0,2024-11-21
+CUST-000241,Arjun Young,arjun.young241@example.com,+1 (634) 918-7590,Los Angeles,CA,Retail,Dana Whitfield,669,77000.0,2017-03-17
+CUST-000242,Fatima Hill,fatima.hill242@example.com,+1 (360) 749-6353,Chicago,IL,SME,Sofia Alvarez,801,119000.0,2021-12-20
+CUST-000243,Camila Jackson,camila.jackson243@example.com,+1 (319) 664-1901,Portland,OR,SME,Noah Williams,715,43000.0,2016-10-12
+CUST-000244,Hassan Clark,hassan.clark244@example.com,+1 (709) 555-9568,New York,NY,SME,Noah Williams,755,377500.0,2022-11-07
+CUST-000245,Elias Smith,elias.smith245@example.com,+1 (709) 666-9368,Tampa,FL,Retail,Priya Nair,645,36500.0,2024-10-18
+CUST-000246,Grace Kumar,grace.kumar246@example.com,+1 (434) 958-9336,Philadelphia,PA,Retail,Alex Morgan,683,37000.0,2023-12-10
+CUST-000247,Amelia Hassan,amelia.hassan247@example.com,+1 (767) 931-7870,Los Angeles,CA,Retail,Maya Chen,768,43500.0,2025-09-25
+CUST-000248,Riley Wong,riley.wong248@example.com,+1 (323) 714-1862,Minneapolis,MN,Retail,Jordan Lee,798,28000.0,2018-03-01
+CUST-000249,Arjun Lewis,arjun.lewis249@example.com,+1 (406) 498-5979,Chicago,IL,Retail,Maya Chen,744,60000.0,2018-04-02
+CUST-000250,Yara Thomas,yara.thomas250@example.com,+1 (620) 224-4817,Tampa,FL,Retail,Priya Nair,723,57500.0,2026-05-20
+CUST-000251,Amelia Zhang,amelia.zhang251@example.com,+1 (630) 703-1981,Austin,TX,SME,Jordan Lee,768,702000.0,2021-03-08
+CUST-000252,Chloe Anderson,chloe.anderson252@example.com,+1 (670) 965-2391,San Diego,CA,SME,Dana Whitfield,755,434000.0,2018-03-04
+CUST-000253,Priya Bennett,priya.bennett253@example.com,+1 (523) 602-6345,Boston,MA,Retail,Priya Nair,731,49000.0,2020-09-02
+CUST-000254,Javier Bennett,javier.bennett254@example.com,+1 (749) 566-4401,San Antonio,TX,Retail,Theo Brooks,680,42500.0,2023-10-26
+CUST-000255,Kai Wang,kai.wang255@example.com,+1 (352) 293-5066,Houston,TX,Retail,Priya Nair,657,28000.0,2019-03-05
+CUST-000256,Ava Ross,ava.ross256@example.com,+1 (770) 966-5093,San Jose,CA,Retail,Dana Whitfield,665,28000.0,2016-05-20
+CUST-000257,Emma Clark,emma.clark257@example.com,+1 (797) 800-5240,New York,NY,Retail,Dana Whitfield,618,35000.0,2024-08-22
+CUST-000258,Camila Garcia,camila.garcia258@example.com,+1 (326) 243-8552,Miami,FL,Retail,Alex Morgan,741,43000.0,2019-02-02
+CUST-000259,Samantha Tran,samantha.tran259@example.com,+1 (392) 481-5585,Minneapolis,MN,Retail,Theo Brooks,675,41500.0,2021-09-17
+CUST-000260,Anika Rivera,anika.rivera260@example.com,+1 (622) 763-8848,Atlanta,GA,Corporate,Alex Morgan,723,2232000.0,2015-05-04
+CUST-000261,Omar Davis,omar.davis261@example.com,+1 (931) 567-8859,Charlotte,NC,Retail,Theo Brooks,723,47500.0,2017-12-12
+CUST-000262,Zara Johnson,zara.johnson262@example.com,+1 (260) 683-9674,Columbus,OH,Retail,Priya Nair,592,48500.0,2020-03-23
+CUST-000263,Javier Evans,javier.evans263@example.com,+1 (983) 424-7363,Houston,TX,SME,Priya Nair,611,126500.0,2025-04-09
+CUST-000264,Hassan Fischer,hassan.fischer264@example.com,+1 (806) 228-6761,San Diego,CA,Corporate,Jordan Lee,734,2740500.0,2018-06-24
+CUST-000265,Ibrahim Walker,ibrahim.walker265@example.com,+1 (258) 438-4584,Raleigh,NC,SME,Alex Morgan,687,400500.0,2024-07-02
+CUST-000266,Aarav Khan,aarav.khan266@example.com,+1 (532) 260-1359,Atlanta,GA,Retail,Jordan Lee,752,35000.0,2022-07-19
+CUST-000267,Ethan Thomas,ethan.thomas267@example.com,+1 (545) 509-6285,Houston,TX,SME,Jordan Lee,766,393500.0,2024-04-05
+CUST-000268,Samantha Thompson,samantha.thompson268@example.com,+1 (588) 514-5825,Miami,FL,Premium,Jordan Lee,721,652000.0,2022-08-05
+CUST-000269,Aarav Zhang,aarav.zhang269@example.com,+1 (387) 816-6213,Portland,OR,Retail,Maya Chen,835,76500.0,2025-10-19
+CUST-000270,David Young,david.young270@example.com,+1 (212) 471-4435,San Francisco,CA,SME,Maya Chen,706,664000.0,2016-07-05
+CUST-000271,Nadia Hernandez,nadia.hernandez271@example.com,+1 (588) 559-9946,Raleigh,NC,SME,Sofia Alvarez,830,114500.0,2015-06-20
+CUST-000272,Victor Thompson,victor.thompson272@example.com,+1 (367) 662-2207,Sacramento,CA,Retail,Alex Morgan,666,57000.0,2021-06-20
+CUST-000273,Maya Hernandez,maya.hernandez273@example.com,+1 (547) 808-8909,Houston,TX,Retail,Alex Morgan,571,32000.0,2024-06-09
+CUST-000274,Grace Reed,grace.reed274@example.com,+1 (940) 947-9849,Charlotte,NC,Retail,Noah Williams,653,34500.0,2014-02-05
+CUST-000275,Lily Hassan,lily.hassan275@example.com,+1 (204) 637-2435,Houston,TX,SME,Noah Williams,729,59000.0,2018-06-08
+CUST-000276,Victor Garcia,victor.garcia276@example.com,+1 (516) 607-8715,Houston,TX,Corporate,Theo Brooks,727,1017500.0,2023-12-08
+CUST-000277,Kai Brown,kai.brown277@example.com,+1 (246) 469-8204,Miami,FL,Corporate,Theo Brooks,797,1511000.0,2016-07-12
+CUST-000278,Karen Pham,karen.pham278@example.com,+1 (288) 884-6632,Los Angeles,CA,Retail,Sofia Alvarez,653,28000.0,2024-05-10
+CUST-000279,Javier Perez,javier.perez279@example.com,+1 (688) 506-2293,Los Angeles,CA,Premium,Sofia Alvarez,786,390000.0,2021-03-29
+CUST-000280,Anika Morgan,anika.morgan280@example.com,+1 (976) 659-3832,Boston,MA,Corporate,Jordan Lee,707,2702500.0,2023-10-30
+CUST-000281,Ibrahim Davis,ibrahim.davis281@example.com,+1 (290) 597-7510,Los Angeles,CA,Premium,Priya Nair,735,948500.0,2025-01-09
+CUST-000282,Tariq Wong,tariq.wong282@example.com,+1 (625) 353-3428,Sacramento,CA,Corporate,Dana Whitfield,835,2461500.0,2024-01-02
+CUST-000283,Daniel Thompson,daniel.thompson283@example.com,+1 (239) 376-5512,San Jose,CA,Corporate,Sofia Alvarez,713,2883000.0,2015-12-01
+CUST-000284,Rafael Anderson,rafael.anderson284@example.com,+1 (251) 963-8785,Columbus,OH,Retail,Noah Williams,627,68500.0,2021-03-13
+CUST-000285,Amina Khan,amina.khan285@example.com,+1 (434) 337-5923,Salt Lake City,UT,Corporate,Theo Brooks,819,2549500.0,2024-04-28
+CUST-000286,Mei Hill,mei.hill286@example.com,+1 (653) 416-7671,Minneapolis,MN,SME,Theo Brooks,616,140000.0,2022-04-24
+CUST-000287,Nora Tran,nora.tran287@example.com,+1 (737) 782-1474,Los Angeles,CA,SME,Jordan Lee,686,183500.0,2023-06-26
+CUST-000288,Isabella Walker,isabella.walker288@example.com,+1 (922) 403-5488,Los Angeles,CA,Retail,Priya Nair,753,32500.0,2018-06-11
+CUST-000289,Zara Lewis,zara.lewis289@example.com,+1 (801) 764-6730,Miami,FL,Corporate,Priya Nair,616,688000.0,2015-11-19
+CUST-000290,Kai Smith,kai.smith290@example.com,+1 (251) 366-4511,Salt Lake City,UT,Retail,Maya Chen,738,54500.0,2017-11-09
+CUST-000291,Jack Hill,jack.hill291@example.com,+1 (686) 335-3837,Miami,FL,SME,Alex Morgan,730,163000.0,2026-04-30
+CUST-000292,Lucas Shah,lucas.shah292@example.com,+1 (558) 670-5128,Portland,OR,Retail,Maya Chen,592,54000.0,2018-01-30
+CUST-000293,Priya Rahman,priya.rahman293@example.com,+1 (266) 544-5529,Houston,TX,Retail,Priya Nair,672,50000.0,2015-09-21
+CUST-000294,Kai Robinson,kai.robinson294@example.com,+1 (259) 814-7620,Portland,OR,Corporate,Priya Nair,835,564500.0,2021-02-19
+CUST-000295,Andre Robinson,andre.robinson295@example.com,+1 (552) 943-4643,San Francisco,CA,SME,Theo Brooks,800,156000.0,2022-04-08
+CUST-000296,Naomi Morgan,naomi.morgan296@example.com,+1 (683) 331-5237,San Jose,CA,Corporate,Jordan Lee,776,2673000.0,2024-05-03
+CUST-000297,Mia Robinson,mia.robinson297@example.com,+1 (581) 466-5817,Chicago,IL,Premium,Theo Brooks,783,328500.0,2019-02-04
+CUST-000298,Valentina Baker,valentina.baker298@example.com,+1 (684) 399-9199,Sacramento,CA,Corporate,Dana Whitfield,712,2196500.0,2024-12-05
+CUST-000299,Olivia Nguyen,olivia.nguyen299@example.com,+1 (620) 783-8496,San Jose,CA,Corporate,Jordan Lee,835,543500.0,2018-11-03
+CUST-000300,Henry Thomas,henry.thomas300@example.com,+1 (521) 849-1950,Chicago,IL,Retail,Alex Morgan,835,44000.0,2022-07-24
+CUST-000301,Jack Taylor,jack.taylor301@example.com,+1 (614) 639-8821,Tampa,FL,Retail,Sofia Alvarez,758,43500.0,2016-11-23
+CUST-000302,Isabella Singh,isabella.singh302@example.com,+1 (893) 204-5076,Jacksonville,FL,Retail,Maya Chen,732,67000.0,2026-02-15
+CUST-000303,Nadia Jackson,nadia.jackson303@example.com,+1 (506) 497-8469,Phoenix,AZ,SME,Priya Nair,704,77000.0,2025-07-02
+CUST-000304,Emma Khan,emma.khan304@example.com,+1 (220) 433-4675,San Francisco,CA,Retail,Jordan Lee,710,39500.0,2017-06-24
+CUST-000305,Amina Rahman,amina.rahman305@example.com,+1 (748) 838-1796,Seattle,WA,Retail,Alex Morgan,680,31000.0,2020-10-15
+CUST-000306,Amina Baker,amina.baker306@example.com,+1 (761) 458-8772,Portland,OR,SME,Jordan Lee,699,86500.0,2023-10-03
+CUST-000307,Amelia Jackson,amelia.jackson307@example.com,+1 (629) 307-9381,Charlotte,NC,Retail,Dana Whitfield,680,63500.0,2023-06-14
+CUST-000308,David Moore,david.moore308@example.com,+1 (407) 566-7713,San Antonio,TX,Retail,Noah Williams,768,64000.0,2014-10-17
+CUST-000309,Yara Wong,yara.wong309@example.com,+1 (314) 787-9095,San Antonio,TX,Retail,Jordan Lee,690,58500.0,2024-07-12
+CUST-000310,Zoe Bennett,zoe.bennett310@example.com,+1 (471) 675-1820,Minneapolis,MN,Premium,Dana Whitfield,751,591000.0,2019-11-20
+CUST-000311,Arjun Wang,arjun.wang311@example.com,+1 (210) 341-3793,San Jose,CA,Corporate,Priya Nair,730,762000.0,2025-07-01
+CUST-000312,Sara Rivera,sara.rivera312@example.com,+1 (610) 667-5453,Dallas,TX,Retail,Sofia Alvarez,702,59500.0,2017-07-15
+CUST-000313,Victor Torres,victor.torres313@example.com,+1 (364) 306-7816,Charlotte,NC,SME,Theo Brooks,779,392500.0,2025-03-18
+CUST-000314,Sara Fischer,sara.fischer314@example.com,+1 (901) 944-3140,Atlanta,GA,SME,Theo Brooks,770,147500.0,2025-11-17
+CUST-000315,Diego Williams,diego.williams315@example.com,+1 (986) 961-4669,Charlotte,NC,Corporate,Priya Nair,750,1280500.0,2014-10-03
+CUST-000316,Daniel Martin,daniel.martin316@example.com,+1 (353) 771-1894,Nashville,TN,Retail,Alex Morgan,682,61500.0,2017-11-23
+CUST-000317,Gabriel Morgan,gabriel.morgan317@example.com,+1 (447) 538-5557,Sacramento,CA,SME,Alex Morgan,761,168500.0,2019-05-03
+CUST-000318,Olivia Lewis,olivia.lewis318@example.com,+1 (291) 710-8324,Salt Lake City,UT,Retail,Priya Nair,773,31500.0,2016-06-23
+CUST-000319,Yara Smith,yara.smith319@example.com,+1 (819) 833-5990,Miami,FL,Retail,Maya Chen,761,28000.0,2024-06-27
+CUST-000320,Tariq Zhang,tariq.zhang320@example.com,+1 (666) 539-8751,Austin,TX,SME,Priya Nair,728,154500.0,2021-07-11
+CUST-000321,Diego Chen,diego.chen321@example.com,+1 (919) 308-1750,Tampa,FL,SME,Jordan Lee,734,118000.0,2018-02-21
+CUST-000322,Ravi Chen,ravi.chen322@example.com,+1 (421) 668-4122,Dallas,TX,Retail,Priya Nair,620,49500.0,2017-09-18
+CUST-000323,Riley Anderson,riley.anderson323@example.com,+1 (338) 710-1071,Miami,FL,Retail,Alex Morgan,698,81500.0,2015-03-21
+CUST-000324,Samantha Walker,samantha.walker324@example.com,+1 (909) 792-3845,Boston,MA,Retail,Jordan Lee,627,44000.0,2022-07-21
+CUST-000325,Mei Morgan,mei.morgan325@example.com,+1 (552) 501-8419,Columbus,OH,Retail,Jordan Lee,674,38500.0,2017-08-08
+CUST-000326,Zoe Jackson,zoe.jackson326@example.com,+1 (848) 422-4291,Salt Lake City,UT,Retail,Maya Chen,649,127500.0,2014-02-10
+CUST-000327,Liam Ross,liam.ross327@example.com,+1 (776) 691-7839,Jacksonville,FL,SME,Noah Williams,652,85000.0,2018-08-17
+CUST-000328,Sakib Torres,sakib.torres328@example.com,+1 (255) 886-1927,New York,NY,Corporate,Maya Chen,686,1446500.0,2023-04-08
+CUST-000329,Gabriel Hoang,gabriel.hoang329@example.com,+1 (234) 567-8415,Nashville,TN,Retail,Dana Whitfield,672,28000.0,2014-05-22
+CUST-000330,Jasmine Smith,jasmine.smith330@example.com,+1 (910) 880-1769,Miami,FL,SME,Sofia Alvarez,666,196000.0,2020-01-28
+CUST-000331,Maya Perez,maya.perez331@example.com,+1 (974) 802-9955,Los Angeles,CA,Retail,Maya Chen,764,67000.0,2018-04-12
+CUST-000332,Ibrahim Hoang,ibrahim.hoang332@example.com,+1 (378) 952-9418,Indianapolis,IN,SME,Dana Whitfield,632,61000.0,2022-05-02
+CUST-000333,Sakib Hill,sakib.hill333@example.com,+1 (927) 358-1654,Denver,CO,Retail,Jordan Lee,693,37000.0,2016-01-25
+CUST-000334,Ava Thomas,ava.thomas334@example.com,+1 (787) 763-6866,Miami,FL,Corporate,Dana Whitfield,750,2265000.0,2015-07-11
+CUST-000335,Maya Nguyen,maya.nguyen335@example.com,+1 (750) 613-2506,San Diego,CA,SME,Priya Nair,719,496000.0,2014-05-07
+CUST-000336,James Rodriguez,james.rodriguez336@example.com,+1 (687) 774-1144,Austin,TX,Retail,Dana Whitfield,656,38000.0,2014-08-18
+CUST-000337,Sofia Hassan,sofia.hassan337@example.com,+1 (591) 316-7322,Miami,FL,SME,Noah Williams,796,247500.0,2019-04-30
+CUST-000338,Laila Ali,laila.ali338@example.com,+1 (657) 698-1718,Seattle,WA,Retail,Noah Williams,667,65000.0,2015-02-12
+CUST-000339,Ibrahim Johnson,ibrahim.johnson339@example.com,+1 (902) 634-2702,Seattle,WA,Corporate,Maya Chen,775,1586500.0,2021-09-29
+CUST-000340,Samantha Robinson,samantha.robinson340@example.com,+1 (239) 289-2200,Salt Lake City,UT,Retail,Alex Morgan,769,28500.0,2019-02-01
+CUST-000341,Julia Perez,julia.perez341@example.com,+1 (644) 523-1276,Chicago,IL,Retail,Sofia Alvarez,686,48500.0,2017-06-15
+CUST-000342,Aarav Robinson,aarav.robinson342@example.com,+1 (918) 274-6860,Minneapolis,MN,SME,Dana Whitfield,769,301500.0,2025-07-04
+CUST-000343,Lily Reed,lily.reed343@example.com,+1 (340) 964-7406,Chicago,IL,Retail,Noah Williams,723,28000.0,2021-08-05
+CUST-000344,Ethan Jackson,ethan.jackson344@example.com,+1 (767) 768-3316,Nashville,TN,Premium,Dana Whitfield,748,1230500.0,2026-04-11
+CUST-000345,Priya Patel,priya.patel345@example.com,+1 (417) 622-9397,Denver,CO,Retail,Jordan Lee,688,71500.0,2018-10-25
+CUST-000346,Jasmine Rivera,jasmine.rivera346@example.com,+1 (256) 969-9992,Salt Lake City,UT,Retail,Theo Brooks,564,37000.0,2013-10-20
+CUST-000347,Carlos Hoang,carlos.hoang347@example.com,+1 (303) 491-2143,Nashville,TN,SME,Maya Chen,697,287500.0,2021-04-07
+CUST-000348,Sofia Khan,sofia.khan348@example.com,+1 (780) 780-6971,Atlanta,GA,Retail,Priya Nair,716,65500.0,2023-02-09
+CUST-000349,Grace Ahmed,grace.ahmed349@example.com,+1 (338) 895-6432,Austin,TX,Premium,Theo Brooks,738,338000.0,2018-06-19
+CUST-000350,Naomi Thomas,naomi.thomas350@example.com,+1 (488) 343-9824,San Jose,CA,Retail,Maya Chen,628,44500.0,2024-09-08
+CUST-000351,Carlos Singh,carlos.singh351@example.com,+1 (238) 764-5269,Chicago,IL,Retail,Theo Brooks,602,74500.0,2021-10-03
+CUST-000352,Fatima Kumar,fatima.kumar352@example.com,+1 (338) 675-9210,Columbus,OH,SME,Dana Whitfield,664,49500.0,2020-01-01
+CUST-000353,Zara Ahmed,zara.ahmed353@example.com,+1 (876) 349-8921,Nashville,TN,Retail,Priya Nair,730,56000.0,2013-11-01
+CUST-000354,Wei Harris,wei.harris354@example.com,+1 (731) 569-7358,Chicago,IL,Retail,Theo Brooks,753,36000.0,2021-11-21
+CUST-000355,Arjun Anderson,arjun.anderson355@example.com,+1 (793) 757-3848,Miami,FL,Corporate,Sofia Alvarez,647,607000.0,2020-08-14
+CUST-000356,Nathan Rahman,nathan.rahman356@example.com,+1 (699) 693-1108,Miami,FL,SME,Jordan Lee,697,109500.0,2018-10-15
+CUST-000357,Javier Bennett,javier.bennett357@example.com,+1 (877) 435-7793,Seattle,WA,Retail,Priya Nair,711,51500.0,2023-11-15
+CUST-000358,Victor Ross,victor.ross358@example.com,+1 (223) 449-1706,San Francisco,CA,SME,Jordan Lee,762,170500.0,2017-04-23
+CUST-000359,Gabriel Davis,gabriel.davis359@example.com,+1 (730) 615-1305,Miami,FL,SME,Noah Williams,733,203500.0,2022-06-28
+CUST-000360,James Martinez,james.martinez360@example.com,+1 (839) 875-9369,Atlanta,GA,Premium,Noah Williams,769,731000.0,2022-06-13
+CUST-000361,Michael Young,michael.young361@example.com,+1 (408) 735-9263,Indianapolis,IN,Retail,Sofia Alvarez,667,48500.0,2026-02-26
+CUST-000362,Daniel Fischer,daniel.fischer362@example.com,+1 (716) 970-2925,San Francisco,CA,Corporate,Dana Whitfield,777,5744500.0,2014-08-10
+CUST-000363,Elias Wilson,elias.wilson363@example.com,+1 (735) 630-7068,Atlanta,GA,Retail,Alex Morgan,770,46500.0,2016-11-06
+CUST-000364,Sakib Harris,sakib.harris364@example.com,+1 (804) 959-2600,Raleigh,NC,SME,Sofia Alvarez,678,166000.0,2018-08-31
+CUST-000365,Victor Thomas,victor.thomas365@example.com,+1 (792) 735-2930,San Diego,CA,Retail,Alex Morgan,689,52500.0,2026-05-14
+CUST-000366,Jack Sanchez,jack.sanchez366@example.com,+1 (637) 867-5155,Raleigh,NC,Retail,Noah Williams,696,36500.0,2023-01-21
+CUST-000367,Sakib Pham,sakib.pham367@example.com,+1 (580) 772-8925,Jacksonville,FL,Corporate,Noah Williams,685,1168000.0,2022-07-08
+CUST-000368,Nadia Thomas,nadia.thomas368@example.com,+1 (966) 435-8317,Portland,OR,Premium,Jordan Lee,718,411500.0,2023-11-09
+CUST-000369,Zoe Lewis,zoe.lewis369@example.com,+1 (599) 851-1086,Raleigh,NC,Retail,Dana Whitfield,660,34500.0,2022-12-03
+CUST-000370,Valentina Young,valentina.young370@example.com,+1 (580) 281-1618,Atlanta,GA,Corporate,Sofia Alvarez,670,1270500.0,2021-07-21
+CUST-000371,Rafael Rivera,rafael.rivera371@example.com,+1 (856) 706-8192,Miami,FL,Corporate,Alex Morgan,641,1551000.0,2022-08-06
+CUST-000372,Laila Garcia,laila.garcia372@example.com,+1 (830) 373-1590,Los Angeles,CA,Retail,Priya Nair,609,68500.0,2021-05-01
+CUST-000373,Aarav Evans,aarav.evans373@example.com,+1 (293) 762-5661,Chicago,IL,Retail,Priya Nair,629,38000.0,2024-12-26
+CUST-000374,Kevin Harris,kevin.harris374@example.com,+1 (789) 204-5277,Atlanta,GA,Retail,Jordan Lee,653,83000.0,2017-06-19
+CUST-000375,David Perez,david.perez375@example.com,+1 (751) 788-5098,Chicago,IL,Retail,Theo Brooks,741,45000.0,2020-09-29
+CUST-000376,Victor Thomas,victor.thomas376@example.com,+1 (694) 319-5224,San Diego,CA,Premium,Dana Whitfield,788,428000.0,2025-11-29
+CUST-000377,Jasmine Ross,jasmine.ross377@example.com,+1 (918) 469-5067,Portland,OR,Retail,Noah Williams,757,34000.0,2026-04-23
+CUST-000378,Michael Bennett,michael.bennett378@example.com,+1 (424) 787-5408,Denver,CO,Retail,Jordan Lee,670,81500.0,2018-08-06
+CUST-000379,Ibrahim Moore,ibrahim.moore379@example.com,+1 (456) 833-6833,Minneapolis,MN,Premium,Jordan Lee,769,157500.0,2021-12-23
+CUST-000380,Elena Wong,elena.wong380@example.com,+1 (983) 754-1692,Chicago,IL,SME,Theo Brooks,683,313500.0,2026-05-18
+CUST-000381,Maya Moore,maya.moore381@example.com,+1 (608) 427-3101,Boston,MA,Retail,Alex Morgan,818,76000.0,2020-03-29
+CUST-000382,Sakib Mitchell,sakib.mitchell382@example.com,+1 (669) 323-9490,Denver,CO,Retail,Theo Brooks,677,28000.0,2022-08-10
+CUST-000383,Amelia Ahmed,amelia.ahmed383@example.com,+1 (392) 761-5306,Nashville,TN,Retail,Maya Chen,653,28000.0,2020-09-13
+CUST-000384,Michael Kumar,michael.kumar384@example.com,+1 (574) 610-5581,Philadelphia,PA,Retail,Theo Brooks,761,45000.0,2018-03-06
+CUST-000385,Elias Pham,elias.pham385@example.com,+1 (591) 400-3389,Nashville,TN,Retail,Jordan Lee,684,36000.0,2016-10-31
+CUST-000386,Amelia Fischer,amelia.fischer386@example.com,+1 (747) 937-6172,Charlotte,NC,Retail,Theo Brooks,732,42000.0,2014-12-06
+CUST-000387,Ava Lewis,ava.lewis387@example.com,+1 (661) 962-6483,Houston,TX,Retail,Noah Williams,715,52000.0,2024-05-14
+CUST-000388,Julia Kim,julia.kim388@example.com,+1 (791) 789-9821,New York,NY,Retail,Jordan Lee,629,41000.0,2022-01-24
+CUST-000389,Laila Kim,laila.kim389@example.com,+1 (829) 493-8598,Austin,TX,Premium,Jordan Lee,731,633000.0,2017-12-24
+CUST-000390,Michael Lopez,michael.lopez390@example.com,+1 (282) 365-6629,Miami,FL,Corporate,Maya Chen,634,1825500.0,2024-12-04
+CUST-000391,Liam Shah,liam.shah391@example.com,+1 (966) 801-9535,Dallas,TX,Retail,Theo Brooks,766,51000.0,2018-05-19
+CUST-000392,Henry Wang,henry.wang392@example.com,+1 (962) 917-2311,New York,NY,Retail,Maya Chen,624,31500.0,2020-11-18
+CUST-000393,David Chen,david.chen393@example.com,+1 (984) 285-2702,Chicago,IL,Retail,Noah Williams,783,82000.0,2014-10-10
+CUST-000394,Charlotte Robinson,charlotte.robinson394@example.com,+1 (654) 841-3071,Columbus,OH,SME,Jordan Lee,745,137500.0,2020-02-26
+CUST-000395,Grace Ali,grace.ali395@example.com,+1 (479) 761-8288,Los Angeles,CA,Retail,Jordan Lee,659,104500.0,2014-05-27
+CUST-000396,Hassan Rahman,hassan.rahman396@example.com,+1 (646) 736-9745,Atlanta,GA,Premium,Noah Williams,800,390500.0,2013-11-16
+CUST-000397,Victor Patel,victor.patel397@example.com,+1 (211) 200-9574,San Diego,CA,Corporate,Jordan Lee,726,3017500.0,2019-09-20
+CUST-000398,Valentina Patel,valentina.patel398@example.com,+1 (507) 209-8052,New York,NY,Retail,Noah Williams,723,58500.0,2015-10-29
+CUST-000399,Aarav Perez,aarav.perez399@example.com,+1 (426) 469-2297,Jacksonville,FL,SME,Sofia Alvarez,693,164500.0,2018-01-15
+CUST-000400,Karen Hoang,karen.hoang400@example.com,+1 (393) 270-3988,Miami,FL,SME,Jordan Lee,630,695500.0,2017-04-07
+CUST-000401,Tariq Rivera,tariq.rivera401@example.com,+1 (748) 222-4046,Indianapolis,IN,Retail,Dana Whitfield,694,29000.0,2025-05-31
+CUST-000402,Elias Shah,elias.shah402@example.com,+1 (216) 705-4558,Indianapolis,IN,Retail,Priya Nair,700,55500.0,2023-02-23
+CUST-000403,Yara Kumar,yara.kumar403@example.com,+1 (258) 472-7429,Indianapolis,IN,Retail,Dana Whitfield,774,52000.0,2023-04-02
+CUST-000404,Henry Garcia,henry.garcia404@example.com,+1 (325) 986-5078,Salt Lake City,UT,Retail,Sofia Alvarez,736,33500.0,2026-03-30
+CUST-000405,Sara Hassan,sara.hassan405@example.com,+1 (898) 519-6293,Minneapolis,MN,SME,Jordan Lee,692,237500.0,2017-10-19
+CUST-000406,Arjun Smith,arjun.smith406@example.com,+1 (404) 569-1853,Denver,CO,SME,Maya Chen,677,185500.0,2019-10-29
+CUST-000407,Jiah Roberts,jiah.roberts407@example.com,+1 (210) 243-8786,Charlotte,NC,Premium,Jordan Lee,737,377000.0,2021-01-27
+CUST-000408,Chloe Hassan,chloe.hassan408@example.com,+1 (978) 840-1983,Philadelphia,PA,Retail,Alex Morgan,718,45000.0,2018-12-08
+CUST-000409,Fatima Sanchez,fatima.sanchez409@example.com,+1 (650) 950-4161,Denver,CO,Retail,Alex Morgan,707,57000.0,2018-09-26
+CUST-000410,Naomi Singh,naomi.singh410@example.com,+1 (914) 701-4109,Phoenix,AZ,SME,Jordan Lee,835,296500.0,2014-05-09
+CUST-000411,Mei Singh,mei.singh411@example.com,+1 (744) 358-8362,Indianapolis,IN,Retail,Noah Williams,753,28000.0,2024-12-24
+CUST-000412,Nathan Miller,nathan.miller412@example.com,+1 (220) 834-6965,New York,NY,Corporate,Maya Chen,718,3071500.0,2022-05-14
+CUST-000413,Camila Rodriguez,camila.rodriguez413@example.com,+1 (828) 489-6285,Denver,CO,Retail,Sofia Alvarez,649,60000.0,2023-01-26
+CUST-000414,Diego Chen,diego.chen414@example.com,+1 (383) 232-4310,Seattle,WA,SME,Dana Whitfield,621,215000.0,2023-08-13
+CUST-000415,Daniel Anderson,daniel.anderson415@example.com,+1 (251) 575-4616,Boston,MA,Retail,Dana Whitfield,609,53000.0,2020-10-14
+CUST-000416,Jack Robinson,jack.robinson416@example.com,+1 (772) 961-7814,San Francisco,CA,Retail,Priya Nair,695,42000.0,2018-06-07
+CUST-000417,Benjamin Tran,benjamin.tran417@example.com,+1 (304) 942-4784,Atlanta,GA,SME,Sofia Alvarez,835,93500.0,2024-05-07
+CUST-000418,Jordan Pham,jordan.pham418@example.com,+1 (626) 964-2728,Miami,FL,Retail,Priya Nair,639,93500.0,2014-01-03
+CUST-000419,Sakib Williams,sakib.williams419@example.com,+1 (747) 814-8258,Houston,TX,SME,Priya Nair,669,117000.0,2022-12-24
+CUST-000420,Mei Wang,mei.wang420@example.com,+1 (824) 446-9939,Jacksonville,FL,Corporate,Maya Chen,786,1000500.0,2019-04-10
+CUST-000421,Julia Kumar,julia.kumar421@example.com,+1 (731) 338-5945,Indianapolis,IN,Retail,Alex Morgan,665,42500.0,2026-02-28
+CUST-000422,Jasmine Gupta,jasmine.gupta422@example.com,+1 (767) 723-3534,Sacramento,CA,Retail,Dana Whitfield,535,28000.0,2020-05-03
+CUST-000423,Naomi Diaz,naomi.diaz423@example.com,+1 (423) 951-2264,Phoenix,AZ,Retail,Priya Nair,666,35500.0,2013-10-06
+CUST-000424,Hassan Moore,hassan.moore424@example.com,+1 (239) 948-7251,Salt Lake City,UT,SME,Dana Whitfield,783,262000.0,2019-10-16
+CUST-000425,Mia Kim,mia.kim425@example.com,+1 (850) 996-7266,Salt Lake City,UT,SME,Alex Morgan,784,66000.0,2026-04-09
+CUST-000426,Arjun Johnson,arjun.johnson426@example.com,+1 (357) 251-7436,Denver,CO,Retail,Theo Brooks,758,48000.0,2021-07-29
+CUST-000427,Zara Brown,zara.brown427@example.com,+1 (786) 963-1807,San Diego,CA,SME,Sofia Alvarez,743,128500.0,2015-11-08
+CUST-000428,Rafael Morgan,rafael.morgan428@example.com,+1 (693) 772-4245,Charlotte,NC,Retail,Theo Brooks,732,56500.0,2023-07-03
+CUST-000429,Isabella Perez,isabella.perez429@example.com,+1 (316) 887-7776,Atlanta,GA,Retail,Sofia Alvarez,610,35000.0,2024-07-08
+CUST-000430,Ibrahim Johnson,ibrahim.johnson430@example.com,+1 (374) 558-8245,Jacksonville,FL,Retail,Jordan Lee,727,48000.0,2019-09-09
+CUST-000431,Javier Garcia,javier.garcia431@example.com,+1 (449) 835-3419,Nashville,TN,Retail,Noah Williams,707,31000.0,2025-04-21
+CUST-000432,Diego Jackson,diego.jackson432@example.com,+1 (417) 408-9952,Indianapolis,IN,Retail,Noah Williams,667,43500.0,2014-06-17
+CUST-000433,Ethan Sanchez,ethan.sanchez433@example.com,+1 (375) 261-5653,Portland,OR,Retail,Maya Chen,748,54500.0,2020-10-18
+CUST-000434,Karen Baker,karen.baker434@example.com,+1 (311) 219-5792,Indianapolis,IN,SME,Sofia Alvarez,672,153000.0,2018-06-13
+CUST-000435,Olivia Morgan,olivia.morgan435@example.com,+1 (404) 712-8503,Portland,OR,Retail,Alex Morgan,737,29500.0,2022-05-06
+CUST-000436,Lucas Khan,lucas.khan436@example.com,+1 (901) 560-6822,San Francisco,CA,Retail,Noah Williams,636,41000.0,2018-10-01
+CUST-000437,Zara Hill,zara.hill437@example.com,+1 (769) 486-4695,Raleigh,NC,Retail,Jordan Lee,535,29500.0,2025-11-12
+CUST-000438,Priya Rodriguez,priya.rodriguez438@example.com,+1 (628) 446-3502,Phoenix,AZ,Retail,Sofia Alvarez,835,28000.0,2021-06-04
+CUST-000439,Mia Martinez,mia.martinez439@example.com,+1 (342) 516-9582,Denver,CO,Premium,Jordan Lee,665,169500.0,2021-12-27
+CUST-000440,Ethan Robinson,ethan.robinson440@example.com,+1 (746) 936-2939,Boston,MA,Retail,Jordan Lee,647,70000.0,2014-01-10
+CUST-000441,Ethan Singh,ethan.singh441@example.com,+1 (356) 997-4079,New York,NY,Retail,Dana Whitfield,563,40500.0,2020-05-21
+CUST-000442,Andre Taylor,andre.taylor442@example.com,+1 (811) 437-4783,Atlanta,GA,Retail,Alex Morgan,737,55500.0,2021-05-07
+CUST-000443,Victor Davis,victor.davis443@example.com,+1 (704) 685-3253,Seattle,WA,Retail,Jordan Lee,668,72000.0,2017-11-01
+CUST-000444,Anika Lopez,anika.lopez444@example.com,+1 (976) 409-2083,Tampa,FL,Retail,Jordan Lee,660,68500.0,2021-12-23
+CUST-000445,Sara White,sara.white445@example.com,+1 (243) 822-7232,Atlanta,GA,Corporate,Priya Nair,713,1371000.0,2017-06-12
+CUST-000446,Anika Nguyen,anika.nguyen446@example.com,+1 (452) 731-9812,Houston,TX,Retail,Sofia Alvarez,701,37000.0,2025-07-29
+CUST-000447,Arjun Perez,arjun.perez447@example.com,+1 (512) 992-5684,Columbus,OH,Premium,Theo Brooks,787,479500.0,2017-08-07
+CUST-000448,Liam Rivera,liam.rivera448@example.com,+1 (940) 712-2854,Los Angeles,CA,Retail,Jordan Lee,704,42000.0,2024-07-01
+CUST-000449,Emma Lewis,emma.lewis449@example.com,+1 (666) 292-5097,Charlotte,NC,SME,Priya Nair,593,148500.0,2021-12-30
+CUST-000450,Gabriel Shah,gabriel.shah450@example.com,+1 (925) 593-9383,Minneapolis,MN,SME,Jordan Lee,747,165500.0,2014-10-11
+CUST-000451,Olivia Anderson,olivia.anderson451@example.com,+1 (349) 383-1840,Tampa,FL,Retail,Sofia Alvarez,769,31500.0,2022-11-21
+CUST-000452,Sofia Hoang,sofia.hoang452@example.com,+1 (823) 705-4897,Miami,FL,Retail,Maya Chen,606,45000.0,2026-05-25
+CUST-000453,Valentina Miller,valentina.miller453@example.com,+1 (835) 843-4401,Charlotte,NC,SME,Alex Morgan,831,154000.0,2020-04-15
+CUST-000454,Benjamin Robinson,benjamin.robinson454@example.com,+1 (540) 289-1803,Jacksonville,FL,Retail,Dana Whitfield,694,94500.0,2019-11-01
+CUST-000455,Hassan Evans,hassan.evans455@example.com,+1 (382) 666-6901,Nashville,TN,Retail,Alex Morgan,666,28500.0,2013-12-01
+CUST-000456,Lily Johnson,lily.johnson456@example.com,+1 (912) 481-6393,Jacksonville,FL,Retail,Sofia Alvarez,618,28000.0,2023-10-16
+CUST-000457,Jack Rivera,jack.rivera457@example.com,+1 (638) 823-6185,Los Angeles,CA,Retail,Noah Williams,835,43500.0,2020-02-01
+CUST-000458,Naomi Young,naomi.young458@example.com,+1 (705) 384-4812,Phoenix,AZ,Retail,Noah Williams,621,53000.0,2015-05-13
+CUST-000459,Aarav Clark,aarav.clark459@example.com,+1 (624) 246-6468,New York,NY,Premium,Priya Nair,738,391000.0,2017-03-24
+CUST-000460,James Ahmed,james.ahmed460@example.com,+1 (516) 507-9301,Miami,FL,SME,Priya Nair,672,115500.0,2025-01-02
+CUST-000461,Diego Ross,diego.ross461@example.com,+1 (399) 538-6536,Austin,TX,SME,Theo Brooks,701,97500.0,2022-08-03
+CUST-000462,Anika Robinson,anika.robinson462@example.com,+1 (544) 673-7782,Phoenix,AZ,Corporate,Alex Morgan,746,1305500.0,2014-06-26
+CUST-000463,Lily Pham,lily.pham463@example.com,+1 (563) 267-3446,Minneapolis,MN,Corporate,Noah Williams,831,2459500.0,2019-02-01
+CUST-000464,Michael Lee,michael.lee464@example.com,+1 (392) 809-2914,Miami,FL,Corporate,Noah Williams,764,1483500.0,2017-10-15
+CUST-000465,Maya Shah,maya.shah465@example.com,+1 (422) 737-5953,Los Angeles,CA,SME,Jordan Lee,752,138000.0,2019-09-27
+CUST-000466,Anika Thomas,anika.thomas466@example.com,+1 (695) 712-3524,San Antonio,TX,Retail,Maya Chen,650,77000.0,2025-12-19
+CUST-000467,Victor Singh,victor.singh467@example.com,+1 (893) 335-4361,Sacramento,CA,Retail,Alex Morgan,763,48500.0,2014-12-13
+CUST-000468,Diego Ahmed,diego.ahmed468@example.com,+1 (248) 305-9529,San Jose,CA,Retail,Noah Williams,782,48500.0,2016-01-21
+CUST-000469,Lucas Roberts,lucas.roberts469@example.com,+1 (888) 320-5467,San Antonio,TX,Retail,Jordan Lee,681,38500.0,2016-08-19
+CUST-000470,Diego Ahmed,diego.ahmed470@example.com,+1 (559) 762-6218,Atlanta,GA,Retail,Noah Williams,740,47000.0,2014-05-11
+CUST-000471,Laila Pham,laila.pham471@example.com,+1 (334) 229-8712,San Diego,CA,Retail,Alex Morgan,746,32000.0,2025-05-22
+CUST-000472,Ava Brown,ava.brown472@example.com,+1 (832) 564-6119,Charlotte,NC,Retail,Priya Nair,644,34500.0,2016-07-11
+CUST-000473,Charlotte Young,charlotte.young473@example.com,+1 (300) 666-6085,Tampa,FL,Corporate,Theo Brooks,835,3310500.0,2016-01-09
+CUST-000474,Jasmine Diaz,jasmine.diaz474@example.com,+1 (602) 387-6412,Sacramento,CA,Retail,Priya Nair,747,66000.0,2018-05-17
+CUST-000475,Andre Bennett,andre.bennett475@example.com,+1 (819) 788-3087,San Francisco,CA,Retail,Dana Whitfield,716,28000.0,2018-09-16
+CUST-000476,David Johnson,david.johnson476@example.com,+1 (673) 610-7773,Denver,CO,Retail,Maya Chen,651,75500.0,2014-07-30
+CUST-000477,Gabriel Mitchell,gabriel.mitchell477@example.com,+1 (781) 550-9921,Columbus,OH,SME,Maya Chen,690,100500.0,2016-10-05
+CUST-000478,Carlos Smith,carlos.smith478@example.com,+1 (534) 768-2599,Portland,OR,Retail,Theo Brooks,632,50000.0,2016-02-22
+CUST-000479,Rafael Bennett,rafael.bennett479@example.com,+1 (423) 342-1003,Atlanta,GA,Retail,Jordan Lee,604,61500.0,2024-06-30
+CUST-000480,Sofia Patel,sofia.patel480@example.com,+1 (411) 897-6187,San Jose,CA,SME,Noah Williams,715,136500.0,2022-02-20
+CUST-000481,Lily Wong,lily.wong481@example.com,+1 (579) 762-1870,Charlotte,NC,SME,Alex Morgan,777,229500.0,2025-02-15
+CUST-000482,Naomi Clark,naomi.clark482@example.com,+1 (929) 591-7652,Sacramento,CA,SME,Sofia Alvarez,619,151000.0,2019-05-23
+CUST-000483,James Rodriguez,james.rodriguez483@example.com,+1 (358) 495-3056,Philadelphia,PA,Retail,Jordan Lee,591,44000.0,2017-03-03
+CUST-000484,Amina Diaz,amina.diaz484@example.com,+1 (287) 340-7813,Minneapolis,MN,Retail,Theo Brooks,777,101000.0,2023-06-25
+CUST-000485,Sakib Rivera,sakib.rivera485@example.com,+1 (391) 634-1121,Philadelphia,PA,Corporate,Theo Brooks,780,1252500.0,2021-06-18
+CUST-000486,Jiah Shah,jiah.shah486@example.com,+1 (782) 694-7038,Seattle,WA,Corporate,Dana Whitfield,704,1564500.0,2025-09-04
+CUST-000487,Charlotte Diaz,charlotte.diaz487@example.com,+1 (846) 959-2279,Minneapolis,MN,SME,Noah Williams,731,173000.0,2015-12-06
+CUST-000488,Michael Patel,michael.patel488@example.com,+1 (788) 951-6431,Tampa,FL,SME,Sofia Alvarez,696,69500.0,2016-01-02
+CUST-000489,Liam Hoang,liam.hoang489@example.com,+1 (793) 373-1845,Philadelphia,PA,Retail,Noah Williams,670,87000.0,2015-11-30
+CUST-000490,Andre Hoang,andre.hoang490@example.com,+1 (459) 335-5603,San Francisco,CA,SME,Noah Williams,703,73500.0,2020-04-17
+CUST-000491,Amelia Smith,amelia.smith491@example.com,+1 (380) 467-4869,Houston,TX,Corporate,Theo Brooks,750,7111000.0,2018-03-26
+CUST-000492,Anika Khan,anika.khan492@example.com,+1 (444) 876-8211,Chicago,IL,Retail,Jordan Lee,605,61500.0,2017-12-07
+CUST-000493,Nadia Baker,nadia.baker493@example.com,+1 (509) 687-9724,Miami,FL,Retail,Maya Chen,751,28000.0,2015-11-05
+CUST-000494,Omar Mitchell,omar.mitchell494@example.com,+1 (900) 242-2595,Dallas,TX,Retail,Priya Nair,710,40000.0,2014-08-20
+CUST-000495,Samantha Rivera,samantha.rivera495@example.com,+1 (673) 991-4961,Miami,FL,Premium,Maya Chen,739,765000.0,2017-10-02
+CUST-000496,Henry Johnson,henry.johnson496@example.com,+1 (307) 901-8306,Denver,CO,Retail,Priya Nair,716,28000.0,2014-09-30
+CUST-000497,Laila Hernandez,laila.hernandez497@example.com,+1 (926) 322-2415,San Antonio,TX,Retail,Jordan Lee,721,28000.0,2023-10-18
+CUST-000498,Henry Wilson,henry.wilson498@example.com,+1 (877) 277-8429,Houston,TX,Retail,Noah Williams,664,54500.0,2016-01-20
+CUST-000499,Mei Hernandez,mei.hernandez499@example.com,+1 (465) 471-3915,Philadelphia,PA,SME,Theo Brooks,765,272000.0,2025-03-06
+CUST-000500,Isabella Rivera,isabella.rivera500@example.com,+1 (754) 987-8065,Columbus,OH,Retail,Maya Chen,711,28500.0,2023-04-20
+CUST-000501,David Wong,david.wong501@example.com,+1 (657) 219-9154,Indianapolis,IN,SME,Jordan Lee,779,232500.0,2020-11-27
+CUST-000502,Aarav Young,aarav.young502@example.com,+1 (601) 788-1060,Los Angeles,CA,SME,Theo Brooks,745,228500.0,2019-02-17
+CUST-000503,Rafael Wang,rafael.wang503@example.com,+1 (325) 780-9770,Minneapolis,MN,Retail,Priya Nair,685,115500.0,2015-09-18
+CUST-000504,Lily Lewis,lily.lewis504@example.com,+1 (283) 670-5750,Los Angeles,CA,Retail,Maya Chen,688,28000.0,2018-11-25
+CUST-000505,Arjun Lee,arjun.lee505@example.com,+1 (699) 286-8175,Nashville,TN,Retail,Maya Chen,755,28000.0,2018-06-20
+CUST-000506,Ibrahim Ali,ibrahim.ali506@example.com,+1 (712) 746-8361,Minneapolis,MN,Retail,Alex Morgan,640,30500.0,2019-08-17
+CUST-000507,Benjamin Khan,benjamin.khan507@example.com,+1 (670) 894-9791,Raleigh,NC,Retail,Jordan Lee,710,59000.0,2014-10-17
+CUST-000508,Javier Young,javier.young508@example.com,+1 (449) 918-3138,Chicago,IL,SME,Alex Morgan,794,245500.0,2025-07-01
+CUST-000509,Ava Wilson,ava.wilson509@example.com,+1 (309) 316-9145,San Jose,CA,Retail,Maya Chen,605,58000.0,2025-02-03
+CUST-000510,Isabella Martin,isabella.martin510@example.com,+1 (341) 529-4493,Austin,TX,Retail,Alex Morgan,619,54500.0,2014-04-14
+CUST-000511,Mia Bennett,mia.bennett511@example.com,+1 (650) 449-1666,Houston,TX,SME,Jordan Lee,739,67000.0,2022-10-29
+CUST-000512,Olivia Thomas,olivia.thomas512@example.com,+1 (208) 383-2460,Philadelphia,PA,Retail,Noah Williams,738,28000.0,2026-05-20
+CUST-000513,Valentina Sanchez,valentina.sanchez513@example.com,+1 (826) 908-1616,Phoenix,AZ,Retail,Jordan Lee,630,28000.0,2022-08-12
+CUST-000514,Chloe Roberts,chloe.roberts514@example.com,+1 (772) 441-4144,Salt Lake City,UT,SME,Dana Whitfield,703,285500.0,2026-06-04
+CUST-000515,Daniel Rivera,daniel.rivera515@example.com,+1 (399) 315-3444,Jacksonville,FL,Premium,Theo Brooks,714,466000.0,2025-05-03
+CUST-000516,Gabriel Rodriguez,gabriel.rodriguez516@example.com,+1 (646) 457-6477,Los Angeles,CA,Retail,Theo Brooks,661,28000.0,2021-10-29
+CUST-000517,Ava Young,ava.young517@example.com,+1 (630) 403-6336,Denver,CO,Retail,Maya Chen,763,44500.0,2019-03-20
+CUST-000518,Mei Harris,mei.harris518@example.com,+1 (585) 425-2204,Houston,TX,SME,Theo Brooks,655,112000.0,2022-01-15
+CUST-000519,Ava Williams,ava.williams519@example.com,+1 (477) 407-6503,Charlotte,NC,SME,Jordan Lee,772,166500.0,2018-06-26
+CUST-000520,Benjamin Hill,benjamin.hill520@example.com,+1 (376) 978-6629,Phoenix,AZ,Retail,Maya Chen,759,28000.0,2017-02-22
+CUST-000521,Gabriel Thompson,gabriel.thompson521@example.com,+1 (289) 621-9548,Raleigh,NC,Corporate,Theo Brooks,830,2307500.0,2021-05-17
+CUST-000522,James Rahman,james.rahman522@example.com,+1 (954) 452-5060,San Francisco,CA,Corporate,Priya Nair,835,2702500.0,2016-12-03
+CUST-000523,Jasmine Wilson,jasmine.wilson523@example.com,+1 (235) 635-9701,Boston,MA,Retail,Sofia Alvarez,835,73500.0,2015-03-21
+CUST-000524,Daniel Martinez,daniel.martinez524@example.com,+1 (910) 949-7662,San Francisco,CA,Retail,Maya Chen,738,29500.0,2026-04-01
+CUST-000525,Liam Hassan,liam.hassan525@example.com,+1 (666) 674-3271,Miami,FL,Retail,Sofia Alvarez,617,52000.0,2025-12-24
+CUST-000526,Nora Roberts,nora.roberts526@example.com,+1 (744) 233-5859,Indianapolis,IN,Retail,Sofia Alvarez,709,52000.0,2019-01-22
+CUST-000527,Jack Thompson,jack.thompson527@example.com,+1 (314) 592-6989,Nashville,TN,SME,Theo Brooks,793,234500.0,2025-05-15
+CUST-000528,Nathan Kumar,nathan.kumar528@example.com,+1 (927) 992-4354,Philadelphia,PA,SME,Jordan Lee,682,307000.0,2013-12-13
+CUST-000529,Jiah Patel,jiah.patel529@example.com,+1 (972) 962-4693,Houston,TX,Premium,Priya Nair,743,786000.0,2021-10-27
+CUST-000530,Karen Morgan,karen.morgan530@example.com,+1 (554) 663-8966,Nashville,TN,Retail,Dana Whitfield,572,42500.0,2018-03-01
+CUST-000531,Liam Martinez,liam.martinez531@example.com,+1 (393) 668-2430,Atlanta,GA,Retail,Dana Whitfield,634,33500.0,2025-01-20
+CUST-000532,Hassan Hoang,hassan.hoang532@example.com,+1 (709) 354-4346,Chicago,IL,Retail,Alex Morgan,539,30500.0,2023-03-17
+CUST-000533,Elias Mitchell,elias.mitchell533@example.com,+1 (438) 732-6503,Jacksonville,FL,Retail,Sofia Alvarez,727,36000.0,2026-01-12
+CUST-000534,Mei Moore,mei.moore534@example.com,+1 (656) 668-5982,Boston,MA,SME,Jordan Lee,717,262000.0,2014-03-23
+CUST-000535,Lucas Evans,lucas.evans535@example.com,+1 (352) 561-5659,Raleigh,NC,Corporate,Theo Brooks,835,727500.0,2025-06-19
+CUST-000536,Gabriel Shah,gabriel.shah536@example.com,+1 (366) 443-2915,Denver,CO,Premium,Alex Morgan,723,1304500.0,2023-01-31
+CUST-000537,Elias Martinez,elias.martinez537@example.com,+1 (352) 581-8347,Dallas,TX,Premium,Jordan Lee,719,394000.0,2018-10-25
+CUST-000538,Elena Wong,elena.wong538@example.com,+1 (670) 527-3556,New York,NY,Retail,Alex Morgan,607,39000.0,2023-04-08
+CUST-000539,Zara Khan,zara.khan539@example.com,+1 (779) 946-8243,Miami,FL,Premium,Priya Nair,707,665000.0,2023-03-25
+CUST-000540,Victor Wilson,victor.wilson540@example.com,+1 (226) 611-4610,Los Angeles,CA,SME,Theo Brooks,835,76500.0,2019-08-14
+CUST-000541,Mei Baker,mei.baker541@example.com,+1 (401) 223-2369,Atlanta,GA,Retail,Theo Brooks,713,57500.0,2020-04-17
+CUST-000542,Chloe Morgan,chloe.morgan542@example.com,+1 (258) 882-6915,Columbus,OH,SME,Sofia Alvarez,835,112000.0,2015-01-20
+CUST-000543,Sakib Kumar,sakib.kumar543@example.com,+1 (290) 420-8278,Columbus,OH,Retail,Sofia Alvarez,594,39500.0,2013-12-11
+CUST-000544,Laila Evans,laila.evans544@example.com,+1 (348) 412-5968,Raleigh,NC,SME,Theo Brooks,835,272500.0,2024-08-05
+CUST-000545,Mia Bennett,mia.bennett545@example.com,+1 (380) 769-8571,Boston,MA,Premium,Jordan Lee,633,599500.0,2017-03-25
+CUST-000546,Olivia Hoang,olivia.hoang546@example.com,+1 (800) 511-9095,Denver,CO,Retail,Theo Brooks,759,43500.0,2019-10-03
+CUST-000547,Aarav Diaz,aarav.diaz547@example.com,+1 (628) 383-9059,Dallas,TX,Retail,Maya Chen,670,30000.0,2020-01-28
+CUST-000548,Kevin Moore,kevin.moore548@example.com,+1 (780) 646-5225,Chicago,IL,Retail,Theo Brooks,667,50500.0,2015-10-01
+CUST-000549,Elena Kumar,elena.kumar549@example.com,+1 (566) 367-1866,Seattle,WA,Premium,Noah Williams,781,267500.0,2023-06-28
+CUST-000550,Naomi Baker,naomi.baker550@example.com,+1 (727) 398-4002,San Jose,CA,Retail,Dana Whitfield,741,29500.0,2024-10-20
+CUST-000551,Grace Patel,grace.patel551@example.com,+1 (748) 793-6761,Austin,TX,SME,Jordan Lee,677,238500.0,2024-05-17
+CUST-000552,Laila Kumar,laila.kumar552@example.com,+1 (305) 423-3532,Tampa,FL,Retail,Maya Chen,608,44500.0,2022-11-14
+CUST-000553,Diego Lopez,diego.lopez553@example.com,+1 (982) 550-3821,Indianapolis,IN,Corporate,Noah Williams,796,701500.0,2014-10-17
+CUST-000554,Elena Harris,elena.harris554@example.com,+1 (515) 328-4438,Phoenix,AZ,Retail,Jordan Lee,738,60500.0,2021-06-11
+CUST-000555,Sakib Sanchez,sakib.sanchez555@example.com,+1 (402) 310-1537,Tampa,FL,Premium,Alex Morgan,757,615000.0,2025-07-28
+CUST-000556,Julia Anderson,julia.anderson556@example.com,+1 (390) 886-6759,Chicago,IL,Retail,Alex Morgan,593,54000.0,2022-01-15
+CUST-000557,Kevin Zhang,kevin.zhang557@example.com,+1 (718) 783-2119,Boston,MA,Retail,Dana Whitfield,596,39500.0,2021-02-06
+CUST-000558,Amelia Nguyen,amelia.nguyen558@example.com,+1 (943) 301-4506,San Antonio,TX,Corporate,Theo Brooks,755,214500.0,2026-06-06
+CUST-000559,Henry Martinez,henry.martinez559@example.com,+1 (980) 521-3025,Nashville,TN,Retail,Theo Brooks,699,38000.0,2023-12-30
+CUST-000560,Emma Moore,emma.moore560@example.com,+1 (285) 535-9088,Tampa,FL,Retail,Dana Whitfield,730,39000.0,2025-08-13
+CUST-000561,Tariq Reed,tariq.reed561@example.com,+1 (272) 687-7020,Minneapolis,MN,Retail,Jordan Lee,661,41000.0,2022-04-17
+CUST-000562,Wei Ross,wei.ross562@example.com,+1 (323) 346-7468,Houston,TX,Retail,Sofia Alvarez,800,38500.0,2024-08-14
+CUST-000563,David Smith,david.smith563@example.com,+1 (943) 711-5563,Philadelphia,PA,SME,Noah Williams,741,118000.0,2016-12-31
+CUST-000564,Rafael Kim,rafael.kim564@example.com,+1 (457) 701-9147,San Francisco,CA,SME,Maya Chen,710,90500.0,2023-10-15
+CUST-000565,Emma Ali,emma.ali565@example.com,+1 (592) 819-6356,Houston,TX,SME,Jordan Lee,698,799000.0,2022-07-05
+CUST-000566,Daniel Taylor,daniel.taylor566@example.com,+1 (678) 406-5809,Chicago,IL,Retail,Theo Brooks,690,57500.0,2015-06-27
+CUST-000567,Kai Patel,kai.patel567@example.com,+1 (322) 592-8374,Austin,TX,Retail,Priya Nair,787,73000.0,2016-11-15
+CUST-000568,Sara Miller,sara.miller568@example.com,+1 (704) 641-3203,Los Angeles,CA,Corporate,Noah Williams,766,2897500.0,2022-11-05
+CUST-000569,Wei Taylor,wei.taylor569@example.com,+1 (688) 775-3560,Houston,TX,SME,Alex Morgan,643,208000.0,2015-12-28
+CUST-000570,Yara Rahman,yara.rahman570@example.com,+1 (529) 262-1461,Columbus,OH,Retail,Alex Morgan,666,51500.0,2020-02-23
+CUST-000571,Nathan Kim,nathan.kim571@example.com,+1 (622) 559-1924,Raleigh,NC,Retail,Maya Chen,733,69000.0,2018-07-06
+CUST-000572,Lucas Rahman,lucas.rahman572@example.com,+1 (752) 533-1612,Chicago,IL,Retail,Theo Brooks,720,36500.0,2026-01-31
+CUST-000573,Sakib Pham,sakib.pham573@example.com,+1 (587) 784-7394,Seattle,WA,SME,Priya Nair,686,322000.0,2019-06-06
+CUST-000574,Wei Chen,wei.chen574@example.com,+1 (984) 883-6563,Portland,OR,SME,Jordan Lee,639,238500.0,2015-04-02
+CUST-000575,Nathan Martin,nathan.martin575@example.com,+1 (420) 494-5344,San Antonio,TX,SME,Alex Morgan,737,176000.0,2014-07-05
+CUST-000576,Rafael Torres,rafael.torres576@example.com,+1 (480) 268-9700,San Diego,CA,Retail,Theo Brooks,581,65500.0,2018-12-21
+CUST-000577,Nadia Thompson,nadia.thompson577@example.com,+1 (521) 404-7788,Chicago,IL,Retail,Sofia Alvarez,710,52500.0,2014-06-01
+CUST-000578,Zoe Miller,zoe.miller578@example.com,+1 (843) 920-9457,Nashville,TN,Retail,Jordan Lee,631,56500.0,2026-02-09
+CUST-000579,James Rodriguez,james.rodriguez579@example.com,+1 (780) 944-1981,Salt Lake City,UT,SME,Maya Chen,778,292000.0,2016-10-18
+CUST-000580,Ethan Hassan,ethan.hassan580@example.com,+1 (621) 526-2055,Phoenix,AZ,Retail,Maya Chen,662,96000.0,2016-10-05
+CUST-000581,Karen Tran,karen.tran581@example.com,+1 (354) 396-1453,San Jose,CA,Corporate,Maya Chen,708,1845500.0,2023-12-24
+CUST-000582,Lucas Miller,lucas.miller582@example.com,+1 (407) 363-5468,San Francisco,CA,SME,Jordan Lee,676,201500.0,2025-09-11
+CUST-000583,Kevin Rodriguez,kevin.rodriguez583@example.com,+1 (522) 816-5882,Denver,CO,Retail,Dana Whitfield,804,86000.0,2024-08-23
+CUST-000584,Ravi Wilson,ravi.wilson584@example.com,+1 (942) 343-4867,Jacksonville,FL,Corporate,Dana Whitfield,770,11584500.0,2017-08-16
+CUST-000585,Zara Young,zara.young585@example.com,+1 (709) 292-4900,Houston,TX,SME,Dana Whitfield,835,206500.0,2020-11-17
+CUST-000586,Maya Khan,maya.khan586@example.com,+1 (634) 423-3363,Salt Lake City,UT,SME,Dana Whitfield,670,208500.0,2021-03-27
+CUST-000587,Kevin Martinez,kevin.martinez587@example.com,+1 (525) 758-7943,Charlotte,NC,Retail,Theo Brooks,633,29000.0,2023-12-29
+CUST-000588,Kevin Williams,kevin.williams588@example.com,+1 (516) 221-1570,Raleigh,NC,SME,Alex Morgan,715,373500.0,2018-04-12
+CUST-000589,Jiah Hernandez,jiah.hernandez589@example.com,+1 (748) 442-8248,Denver,CO,SME,Sofia Alvarez,673,128000.0,2023-10-16
+CUST-000590,Priya Young,priya.young590@example.com,+1 (650) 846-6196,Dallas,TX,Retail,Sofia Alvarez,570,58500.0,2022-12-07
+CUST-000591,Kevin White,kevin.white591@example.com,+1 (365) 915-5275,Chicago,IL,SME,Dana Whitfield,761,171000.0,2024-04-10
+CUST-000592,Mei Miller,mei.miller592@example.com,+1 (204) 610-4278,Portland,OR,Retail,Noah Williams,612,59500.0,2023-06-23
+CUST-000593,Charlotte Clark,charlotte.clark593@example.com,+1 (809) 902-7722,Philadelphia,PA,Retail,Priya Nair,699,28000.0,2023-08-11
+CUST-000594,Emma Hernandez,emma.hernandez594@example.com,+1 (404) 286-7791,Philadelphia,PA,Retail,Priya Nair,606,98000.0,2020-03-16
+CUST-000595,Olivia Zhang,olivia.zhang595@example.com,+1 (292) 673-4248,Salt Lake City,UT,Retail,Noah Williams,814,64500.0,2021-05-25
+CUST-000596,Grace Baker,grace.baker596@example.com,+1 (292) 576-3787,Columbus,OH,SME,Dana Whitfield,669,246500.0,2023-03-07
+CUST-000597,Samantha Thomas,samantha.thomas597@example.com,+1 (495) 964-9096,Indianapolis,IN,Retail,Sofia Alvarez,696,71500.0,2020-07-22
+CUST-000598,Jack Reed,jack.reed598@example.com,+1 (350) 229-5754,San Antonio,TX,Retail,Noah Williams,728,56000.0,2017-05-13
+CUST-000599,Sofia Wong,sofia.wong599@example.com,+1 (532) 909-7513,San Diego,CA,Retail,Maya Chen,681,33500.0,2023-07-16
+CUST-000600,Sakib Smith,sakib.smith600@example.com,+1 (254) 540-4847,Atlanta,GA,SME,Theo Brooks,714,135000.0,2025-03-17
+CUST-000601,Arjun Ahmed,arjun.ahmed601@example.com,+1 (773) 242-3938,Dallas,TX,Corporate,Noah Williams,835,1414500.0,2023-07-24
+CUST-000602,Yara Young,yara.young602@example.com,+1 (928) 743-8093,Austin,TX,Retail,Jordan Lee,677,61500.0,2019-05-30
+CUST-000603,Maya Anderson,maya.anderson603@example.com,+1 (490) 469-5321,Phoenix,AZ,Retail,Priya Nair,679,44000.0,2016-11-17
+CUST-000604,Grace Johnson,grace.johnson604@example.com,+1 (394) 352-1894,Minneapolis,MN,Retail,Maya Chen,743,79000.0,2025-05-02
+CUST-000605,Valentina Hernandez,valentina.hernandez605@example.com,+1 (653) 565-8949,Philadelphia,PA,Retail,Theo Brooks,822,58500.0,2025-08-11
+CUST-000606,Ethan Clark,ethan.clark606@example.com,+1 (480) 776-4479,Jacksonville,FL,Retail,Alex Morgan,685,34000.0,2015-02-12
+CUST-000607,Henry Lopez,henry.lopez607@example.com,+1 (898) 896-2998,Chicago,IL,Retail,Sofia Alvarez,732,31500.0,2020-02-25
+CUST-000608,David Walker,david.walker608@example.com,+1 (844) 475-1095,Austin,TX,Retail,Priya Nair,718,90500.0,2016-05-05
+CUST-000609,Sofia Johnson,sofia.johnson609@example.com,+1 (531) 256-2158,Minneapolis,MN,Premium,Sofia Alvarez,810,634500.0,2020-03-07
+CUST-000610,Julia Fischer,julia.fischer610@example.com,+1 (324) 505-9042,San Diego,CA,Retail,Sofia Alvarez,611,28000.0,2023-01-26
+CUST-000611,Lucas Wilson,lucas.wilson611@example.com,+1 (702) 656-7358,Nashville,TN,SME,Theo Brooks,757,213500.0,2022-01-16
+CUST-000612,Sakib Brown,sakib.brown612@example.com,+1 (645) 845-7979,Tampa,FL,Retail,Dana Whitfield,721,41000.0,2022-05-07
+CUST-000613,Michael Miller,michael.miller613@example.com,+1 (286) 497-8671,Nashville,TN,Retail,Sofia Alvarez,728,28000.0,2014-10-04
+CUST-000614,Victor Jackson,victor.jackson614@example.com,+1 (503) 782-1781,Phoenix,AZ,Retail,Dana Whitfield,746,37000.0,2016-12-07
+CUST-000615,Zoe Chen,zoe.chen615@example.com,+1 (564) 460-2339,Seattle,WA,Corporate,Alex Morgan,716,1246000.0,2020-11-04
+CUST-000616,Theo Fischer,theo.fischer616@example.com,+1 (627) 921-5876,Raleigh,NC,Retail,Priya Nair,626,31000.0,2024-08-28
+CUST-000617,Tariq Taylor,tariq.taylor617@example.com,+1 (417) 389-2281,Nashville,TN,SME,Noah Williams,641,136500.0,2022-04-30
+CUST-000618,David Martin,david.martin618@example.com,+1 (376) 871-8817,Denver,CO,Corporate,Theo Brooks,835,456500.0,2026-03-25
+CUST-000619,Wei Jackson,wei.jackson619@example.com,+1 (510) 289-3049,Atlanta,GA,SME,Jordan Lee,657,429000.0,2017-09-01
+CUST-000620,Diego Tran,diego.tran620@example.com,+1 (415) 692-3378,New York,NY,Retail,Maya Chen,551,53500.0,2025-12-04
+CUST-000621,Ibrahim Brown,ibrahim.brown621@example.com,+1 (957) 919-8295,San Jose,CA,Retail,Theo Brooks,664,56500.0,2023-02-09
+CUST-000622,Sofia Rahman,sofia.rahman622@example.com,+1 (253) 541-1129,San Diego,CA,Retail,Dana Whitfield,703,28000.0,2017-09-27
+CUST-000623,Samantha Lopez,samantha.lopez623@example.com,+1 (700) 609-8964,Sacramento,CA,SME,Theo Brooks,686,178000.0,2025-09-11
+CUST-000624,Benjamin Nguyen,benjamin.nguyen624@example.com,+1 (475) 863-7834,New York,NY,Retail,Theo Brooks,535,41500.0,2025-02-06
+CUST-000625,Nadia Martinez,nadia.martinez625@example.com,+1 (438) 719-4599,Portland,OR,Retail,Priya Nair,680,42500.0,2016-09-12
+CUST-000626,Theo Davis,theo.davis626@example.com,+1 (890) 868-6902,San Jose,CA,Corporate,Theo Brooks,691,2342000.0,2017-03-06
+CUST-000627,Gabriel Rivera,gabriel.rivera627@example.com,+1 (361) 820-9063,San Antonio,TX,SME,Dana Whitfield,696,71500.0,2022-01-19
+CUST-000628,Yara Jackson,yara.jackson628@example.com,+1 (233) 265-6533,San Diego,CA,SME,Sofia Alvarez,685,150000.0,2015-03-27
+CUST-000629,Javier Clark,javier.clark629@example.com,+1 (989) 770-5382,Denver,CO,Retail,Jordan Lee,660,34500.0,2025-06-24
+CUST-000630,Zoe Reed,zoe.reed630@example.com,+1 (776) 242-9311,Nashville,TN,Corporate,Dana Whitfield,801,4161000.0,2024-03-29
+CUST-000631,Elena White,elena.white631@example.com,+1 (358) 862-6959,San Antonio,TX,Retail,Priya Nair,595,34500.0,2024-04-19
+CUST-000632,Elena Wang,elena.wang632@example.com,+1 (452) 685-6592,San Antonio,TX,Corporate,Noah Williams,752,1209000.0,2026-05-19
+CUST-000633,Charlotte Hill,charlotte.hill633@example.com,+1 (632) 433-3260,Jacksonville,FL,Retail,Sofia Alvarez,660,58500.0,2014-08-25
+CUST-000634,Ravi Wilson,ravi.wilson634@example.com,+1 (231) 653-3385,Indianapolis,IN,Retail,Alex Morgan,658,88000.0,2018-05-31
+CUST-000635,Camila Brown,camila.brown635@example.com,+1 (847) 930-9516,Austin,TX,SME,Noah Williams,633,405000.0,2025-03-25
+CUST-000636,Lily Singh,lily.singh636@example.com,+1 (741) 825-3406,Minneapolis,MN,Retail,Sofia Alvarez,592,36500.0,2020-04-02
+CUST-000637,Jack Williams,jack.williams637@example.com,+1 (403) 508-2380,Denver,CO,Retail,Alex Morgan,640,57000.0,2017-06-15
+CUST-000638,Omar Singh,omar.singh638@example.com,+1 (491) 418-2520,Minneapolis,MN,Retail,Noah Williams,708,55000.0,2014-05-25
+CUST-000639,Gabriel Ali,gabriel.ali639@example.com,+1 (944) 632-9278,New York,NY,Retail,Dana Whitfield,684,83000.0,2019-09-17
+CUST-000640,Nora Hernandez,nora.hernandez640@example.com,+1 (660) 505-1085,Miami,FL,SME,Theo Brooks,821,181500.0,2023-09-24
+CUST-000641,Jiah Torres,jiah.torres641@example.com,+1 (507) 491-3293,Minneapolis,MN,Retail,Sofia Alvarez,613,96500.0,2018-09-02
+CUST-000642,Jordan Chen,jordan.chen642@example.com,+1 (666) 300-3401,Austin,TX,Retail,Sofia Alvarez,673,45500.0,2018-06-04
+CUST-000643,Charlotte Brown,charlotte.brown643@example.com,+1 (613) 802-9502,Los Angeles,CA,Corporate,Sofia Alvarez,761,1240000.0,2014-09-21
+CUST-000644,Yara Roberts,yara.roberts644@example.com,+1 (331) 696-8499,Charlotte,NC,Corporate,Jordan Lee,778,1217500.0,2015-03-08
+CUST-000645,Zoe White,zoe.white645@example.com,+1 (579) 321-7694,Seattle,WA,Premium,Dana Whitfield,647,291000.0,2013-12-27
+CUST-000646,Liam Anderson,liam.anderson646@example.com,+1 (511) 501-8961,Seattle,WA,Retail,Alex Morgan,706,30000.0,2018-02-16
+CUST-000647,Ethan Thompson,ethan.thompson647@example.com,+1 (958) 700-1034,Boston,MA,SME,Dana Whitfield,695,48000.0,2022-06-03
+CUST-000648,Camila White,camila.white648@example.com,+1 (664) 545-7181,Los Angeles,CA,Retail,Theo Brooks,734,39000.0,2013-11-02
+CUST-000649,Elias Taylor,elias.taylor649@example.com,+1 (292) 839-7711,Phoenix,AZ,Corporate,Sofia Alvarez,695,1417500.0,2019-03-26
+CUST-000650,Priya Khan,priya.khan650@example.com,+1 (370) 924-1406,Denver,CO,Retail,Noah Williams,709,42500.0,2024-07-16
+CUST-000651,Elena Robinson,elena.robinson651@example.com,+1 (715) 219-2970,Denver,CO,SME,Jordan Lee,779,216500.0,2015-11-08
+CUST-000652,Kevin Thompson,kevin.thompson652@example.com,+1 (287) 746-6249,San Antonio,TX,Premium,Sofia Alvarez,723,203500.0,2016-07-24
+CUST-000653,Wei White,wei.white653@example.com,+1 (464) 293-2878,New York,NY,SME,Dana Whitfield,782,146000.0,2017-12-16
+CUST-000654,Laila Diaz,laila.diaz654@example.com,+1 (618) 894-3772,Philadelphia,PA,Retail,Alex Morgan,700,37000.0,2019-08-24
+CUST-000655,Mei Fischer,mei.fischer655@example.com,+1 (465) 584-2981,New York,NY,SME,Alex Morgan,738,248500.0,2019-04-04
+CUST-000656,Jiah Moore,jiah.moore656@example.com,+1 (476) 262-6215,Seattle,WA,Retail,Theo Brooks,708,60500.0,2023-12-12
+CUST-000657,Camila Mitchell,camila.mitchell657@example.com,+1 (453) 981-3057,New York,NY,Retail,Noah Williams,724,41500.0,2024-04-01
+CUST-000658,Sofia Brown,sofia.brown658@example.com,+1 (583) 753-3755,Sacramento,CA,SME,Maya Chen,681,216000.0,2023-05-02
+CUST-000659,Sakib Wong,sakib.wong659@example.com,+1 (262) 693-5477,Denver,CO,Retail,Noah Williams,652,39000.0,2026-07-07
+CUST-000660,Olivia Kim,olivia.kim660@example.com,+1 (489) 246-3644,Salt Lake City,UT,Corporate,Dana Whitfield,835,2192000.0,2015-01-30
+CUST-000661,Priya Sanchez,priya.sanchez661@example.com,+1 (826) 716-6215,Houston,TX,Retail,Priya Nair,809,107000.0,2021-10-18
+CUST-000662,Sofia Hill,sofia.hill662@example.com,+1 (671) 813-6381,San Diego,CA,SME,Alex Morgan,711,232000.0,2021-10-20
+CUST-000663,Emma Robinson,emma.robinson663@example.com,+1 (865) 866-2270,New York,NY,Corporate,Alex Morgan,698,1813000.0,2024-09-15
+CUST-000664,Sara Ross,sara.ross664@example.com,+1 (597) 381-1138,Houston,TX,Corporate,Dana Whitfield,760,464000.0,2018-07-01
+CUST-000665,Ibrahim Martinez,ibrahim.martinez665@example.com,+1 (440) 705-6947,New York,NY,Retail,Alex Morgan,652,40000.0,2021-07-26
+CUST-000666,Jack Ahmed,jack.ahmed666@example.com,+1 (706) 374-4174,San Antonio,TX,Retail,Jordan Lee,657,30500.0,2015-04-22
+CUST-000667,Elias Smith,elias.smith667@example.com,+1 (830) 458-8437,Chicago,IL,Retail,Alex Morgan,697,56500.0,2014-07-29
+CUST-000668,Ava Wang,ava.wang668@example.com,+1 (708) 570-9474,Austin,TX,Corporate,Alex Morgan,745,518000.0,2016-01-23
+CUST-000669,Jasmine Baker,jasmine.baker669@example.com,+1 (284) 785-1415,Dallas,TX,Corporate,Maya Chen,732,4929500.0,2019-01-08
+CUST-000670,Sakib Bennett,sakib.bennett670@example.com,+1 (842) 840-2584,San Diego,CA,Premium,Alex Morgan,794,300500.0,2025-02-12
+CUST-000671,Andre Rahman,andre.rahman671@example.com,+1 (549) 255-6465,Raleigh,NC,Retail,Maya Chen,689,51500.0,2021-03-07
+CUST-000672,Sara Taylor,sara.taylor672@example.com,+1 (263) 234-7183,Houston,TX,Premium,Priya Nair,769,609000.0,2024-08-10
+CUST-000673,Camila Thompson,camila.thompson673@example.com,+1 (612) 298-7735,Phoenix,AZ,Corporate,Maya Chen,773,1258000.0,2017-12-21
+CUST-000674,Amelia Miller,amelia.miller674@example.com,+1 (548) 866-1425,Columbus,OH,Corporate,Theo Brooks,762,1282000.0,2024-04-03
+CUST-000675,Ibrahim Chen,ibrahim.chen675@example.com,+1 (463) 563-7897,Houston,TX,Retail,Theo Brooks,714,68500.0,2015-02-11
+CUST-000676,Sara Fischer,sara.fischer676@example.com,+1 (868) 972-6861,San Diego,CA,SME,Noah Williams,694,69500.0,2015-01-07
+CUST-000677,Ethan Diaz,ethan.diaz677@example.com,+1 (259) 443-9308,San Francisco,CA,SME,Alex Morgan,706,132000.0,2023-04-14
+CUST-000678,Isabella Garcia,isabella.garcia678@example.com,+1 (815) 909-6425,Miami,FL,Retail,Priya Nair,695,32000.0,2016-01-17
+CUST-000679,Riley Khan,riley.khan679@example.com,+1 (678) 838-4492,Philadelphia,PA,SME,Maya Chen,784,428000.0,2021-05-12
+CUST-000680,Mia Torres,mia.torres680@example.com,+1 (572) 210-2208,Minneapolis,MN,Retail,Priya Nair,650,39000.0,2026-05-17
+CUST-000681,Diego Diaz,diego.diaz681@example.com,+1 (404) 402-5654,San Jose,CA,Retail,Jordan Lee,736,40000.0,2025-11-10
+CUST-000682,Kai Singh,kai.singh682@example.com,+1 (401) 222-3884,Philadelphia,PA,Retail,Noah Williams,661,34500.0,2022-07-10
+CUST-000683,Amina Walker,amina.walker683@example.com,+1 (513) 667-4934,Nashville,TN,Corporate,Priya Nair,795,319000.0,2021-10-23
+CUST-000684,Grace Zhang,grace.zhang684@example.com,+1 (526) 813-8037,Seattle,WA,SME,Maya Chen,677,106000.0,2018-02-18
+CUST-000685,Ibrahim Wang,ibrahim.wang685@example.com,+1 (330) 720-9011,Denver,CO,Corporate,Maya Chen,757,996500.0,2020-03-30
+CUST-000686,Valentina Thompson,valentina.thompson686@example.com,+1 (970) 860-9342,Nashville,TN,SME,Priya Nair,793,208500.0,2017-10-27
+CUST-000687,Theo Fischer,theo.fischer687@example.com,+1 (475) 795-7569,Austin,TX,Retail,Alex Morgan,545,62000.0,2015-11-25
+CUST-000688,Isabella Martinez,isabella.martinez688@example.com,+1 (587) 785-3575,Sacramento,CA,Retail,Priya Nair,705,35000.0,2016-12-29
+CUST-000689,Charlotte Davis,charlotte.davis689@example.com,+1 (725) 836-6511,Tampa,FL,Retail,Sofia Alvarez,644,28000.0,2016-02-03
+CUST-000690,Samantha Lopez,samantha.lopez690@example.com,+1 (226) 383-8236,Jacksonville,FL,Retail,Maya Chen,751,62000.0,2017-12-13
+CUST-000691,Carlos Kim,carlos.kim691@example.com,+1 (434) 300-2942,Chicago,IL,Retail,Dana Whitfield,667,33500.0,2020-04-29
+CUST-000692,Isabella Khan,isabella.khan692@example.com,+1 (396) 922-3258,San Antonio,TX,Retail,Noah Williams,683,53000.0,2020-05-15
+CUST-000693,Lily Hoang,lily.hoang693@example.com,+1 (976) 679-8559,Salt Lake City,UT,Retail,Priya Nair,700,28000.0,2014-02-17
+CUST-000694,Maya Wang,maya.wang694@example.com,+1 (415) 649-8372,San Antonio,TX,SME,Alex Morgan,752,49000.0,2017-02-27
+CUST-000695,Elias Jackson,elias.jackson695@example.com,+1 (982) 997-9808,Minneapolis,MN,Retail,Noah Williams,612,65000.0,2017-06-24
+CUST-000696,Amina Pham,amina.pham696@example.com,+1 (591) 409-7400,Raleigh,NC,Retail,Dana Whitfield,732,57500.0,2017-10-04
+CUST-000697,Ibrahim Mitchell,ibrahim.mitchell697@example.com,+1 (233) 905-9005,Houston,TX,Retail,Alex Morgan,731,52000.0,2022-07-17
+CUST-000698,Camila Wong,camila.wong698@example.com,+1 (272) 665-1941,Columbus,OH,Retail,Priya Nair,766,36500.0,2014-10-07
+CUST-000699,Grace Johnson,grace.johnson699@example.com,+1 (690) 960-2126,Sacramento,CA,Retail,Sofia Alvarez,720,73000.0,2017-02-21
+CUST-000700,Jack Davis,jack.davis700@example.com,+1 (363) 818-6084,Sacramento,CA,Premium,Maya Chen,740,282000.0,2015-11-17
+CUST-000701,Tariq Hill,tariq.hill701@example.com,+1 (703) 671-8580,San Antonio,TX,Retail,Alex Morgan,715,28000.0,2013-10-04
+CUST-000702,Laila Robinson,laila.robinson702@example.com,+1 (601) 827-3869,Indianapolis,IN,SME,Sofia Alvarez,645,64000.0,2019-11-09
+CUST-000703,Samantha Miller,samantha.miller703@example.com,+1 (446) 361-5485,Columbus,OH,Retail,Noah Williams,637,64500.0,2025-07-19
+CUST-000704,Camila Sanchez,camila.sanchez704@example.com,+1 (622) 980-2986,Minneapolis,MN,SME,Priya Nair,687,243500.0,2015-06-17
+CUST-000705,David Morgan,david.morgan705@example.com,+1 (674) 227-2199,Tampa,FL,Retail,Theo Brooks,710,63500.0,2025-07-11
+CUST-000706,Rafael Wang,rafael.wang706@example.com,+1 (927) 339-6359,San Antonio,TX,Retail,Theo Brooks,724,41500.0,2023-12-15
+CUST-000707,Camila Brown,camila.brown707@example.com,+1 (366) 374-1295,Denver,CO,Retail,Dana Whitfield,629,67000.0,2020-04-07
+CUST-000708,Elena Patel,elena.patel708@example.com,+1 (894) 479-3514,Minneapolis,MN,Retail,Theo Brooks,714,41500.0,2026-04-11
+CUST-000709,James Shah,james.shah709@example.com,+1 (857) 878-2684,Los Angeles,CA,Retail,Sofia Alvarez,673,82500.0,2014-10-19
+CUST-000710,Sara Baker,sara.baker710@example.com,+1 (217) 631-1457,Atlanta,GA,SME,Alex Morgan,718,151000.0,2024-06-23
+CUST-000711,Ibrahim Ross,ibrahim.ross711@example.com,+1 (531) 775-4105,Nashville,TN,Retail,Maya Chen,756,69000.0,2019-03-11
+CUST-000712,Priya Zhang,priya.zhang712@example.com,+1 (532) 377-1245,Charlotte,NC,Corporate,Sofia Alvarez,774,710500.0,2018-07-12
+CUST-000713,Amelia Lee,amelia.lee713@example.com,+1 (245) 268-4580,San Antonio,TX,SME,Sofia Alvarez,745,171500.0,2018-04-02
+CUST-000714,Yara Chen,yara.chen714@example.com,+1 (815) 532-7366,Portland,OR,Retail,Jordan Lee,612,61000.0,2024-05-26
+CUST-000715,Maya Wang,maya.wang715@example.com,+1 (724) 855-4808,Nashville,TN,Retail,Alex Morgan,630,44000.0,2017-12-13
+CUST-000716,Elena Jackson,elena.jackson716@example.com,+1 (262) 340-7136,San Diego,CA,Retail,Theo Brooks,641,91000.0,2024-09-29
+CUST-000717,Fatima Lee,fatima.lee717@example.com,+1 (957) 536-3199,San Antonio,TX,Retail,Noah Williams,663,51500.0,2016-07-28
+CUST-000718,Arjun Nguyen,arjun.nguyen718@example.com,+1 (411) 752-1885,Raleigh,NC,Retail,Maya Chen,535,65500.0,2021-02-03
+CUST-000719,Jasmine Reed,jasmine.reed719@example.com,+1 (272) 397-1853,Sacramento,CA,SME,Jordan Lee,706,149500.0,2015-07-02
+CUST-000720,Elias Brown,elias.brown720@example.com,+1 (442) 719-2280,Philadelphia,PA,Corporate,Sofia Alvarez,758,3030000.0,2021-12-10
+CUST-000721,Lucas Evans,lucas.evans721@example.com,+1 (851) 406-5454,Minneapolis,MN,SME,Theo Brooks,673,103000.0,2016-06-21
+CUST-000722,Nathan Lewis,nathan.lewis722@example.com,+1 (825) 952-8101,Columbus,OH,Retail,Jordan Lee,659,29500.0,2015-03-12
+CUST-000723,Victor Ali,victor.ali723@example.com,+1 (357) 766-3878,Tampa,FL,Corporate,Noah Williams,763,446500.0,2014-06-24
+CUST-000724,Lucas Miller,lucas.miller724@example.com,+1 (542) 339-8688,San Jose,CA,Retail,Maya Chen,559,36000.0,2024-11-29
+CUST-000725,Ibrahim Ahmed,ibrahim.ahmed725@example.com,+1 (594) 701-6043,New York,NY,Retail,Dana Whitfield,639,38500.0,2018-02-27
+CUST-000726,Anika Wong,anika.wong726@example.com,+1 (982) 646-5182,Houston,TX,Retail,Priya Nair,719,37000.0,2022-03-03
+CUST-000727,Wei Roberts,wei.roberts727@example.com,+1 (449) 689-1565,Portland,OR,Retail,Priya Nair,644,40500.0,2020-12-28
+CUST-000728,Andre Sanchez,andre.sanchez728@example.com,+1 (898) 350-5166,Nashville,TN,SME,Maya Chen,752,222000.0,2016-04-23
+CUST-000729,Gabriel Ahmed,gabriel.ahmed729@example.com,+1 (731) 393-7929,Houston,TX,SME,Jordan Lee,762,405000.0,2024-09-21
+CUST-000730,Julia Sanchez,julia.sanchez730@example.com,+1 (801) 515-7743,San Jose,CA,Corporate,Dana Whitfield,726,1402500.0,2017-12-10
+CUST-000731,Nadia Tran,nadia.tran731@example.com,+1 (373) 703-1025,Phoenix,AZ,Retail,Dana Whitfield,689,36500.0,2026-05-20
+CUST-000732,Riley Nguyen,riley.nguyen732@example.com,+1 (381) 583-4053,Charlotte,NC,Retail,Jordan Lee,600,68500.0,2022-09-13
+CUST-000733,Henry Morgan,henry.morgan733@example.com,+1 (978) 396-5249,Houston,TX,Retail,Sofia Alvarez,697,37000.0,2022-06-06
+CUST-000734,David White,david.white734@example.com,+1 (328) 483-2052,Miami,FL,Retail,Priya Nair,708,32000.0,2018-01-20
+CUST-000735,Jiah Mitchell,jiah.mitchell735@example.com,+1 (882) 796-1685,San Francisco,CA,Retail,Dana Whitfield,779,51500.0,2026-05-13
+CUST-000736,Aarav Lee,aarav.lee736@example.com,+1 (698) 684-6521,Atlanta,GA,Retail,Sofia Alvarez,726,66000.0,2020-07-25
+CUST-000737,Michael Johnson,michael.johnson737@example.com,+1 (539) 302-1050,Salt Lake City,UT,Retail,Theo Brooks,625,33500.0,2018-07-17
+CUST-000738,Rafael Singh,rafael.singh738@example.com,+1 (744) 486-5072,Salt Lake City,UT,Corporate,Priya Nair,803,2638500.0,2023-10-09
+CUST-000739,Valentina Morgan,valentina.morgan739@example.com,+1 (895) 654-4826,Charlotte,NC,Retail,Theo Brooks,797,31500.0,2019-03-24
+CUST-000740,Charlotte Kim,charlotte.kim740@example.com,+1 (952) 594-5814,Charlotte,NC,Retail,Maya Chen,580,43000.0,2024-04-10
+CUST-000741,Zara Anderson,zara.anderson741@example.com,+1 (373) 656-2895,Phoenix,AZ,SME,Theo Brooks,808,179500.0,2016-01-21
+CUST-000742,Jiah Hassan,jiah.hassan742@example.com,+1 (365) 534-7283,San Antonio,TX,SME,Noah Williams,543,228500.0,2025-11-14
+CUST-000743,Julia Rodriguez,julia.rodriguez743@example.com,+1 (790) 984-2059,San Francisco,CA,Retail,Priya Nair,704,54500.0,2021-07-04
+CUST-000744,Olivia Robinson,olivia.robinson744@example.com,+1 (319) 497-2436,Miami,FL,Retail,Dana Whitfield,639,42500.0,2020-09-18
+CUST-000745,Ibrahim Smith,ibrahim.smith745@example.com,+1 (519) 263-9775,Houston,TX,Retail,Maya Chen,668,48000.0,2026-06-28
+CUST-000746,Sakib Johnson,sakib.johnson746@example.com,+1 (733) 879-4639,Tampa,FL,Corporate,Dana Whitfield,808,774500.0,2023-09-11
+CUST-000747,Tariq Johnson,tariq.johnson747@example.com,+1 (816) 490-3389,Phoenix,AZ,Retail,Alex Morgan,706,62000.0,2023-03-22
+CUST-000748,Lucas Morgan,lucas.morgan748@example.com,+1 (707) 498-7171,Portland,OR,SME,Alex Morgan,797,274000.0,2021-09-08
+CUST-000749,Mia Diaz,mia.diaz749@example.com,+1 (384) 699-7419,Salt Lake City,UT,Premium,Noah Williams,779,1767500.0,2025-05-07
+CUST-000750,Gabriel Ali,gabriel.ali750@example.com,+1 (557) 975-7412,Denver,CO,Premium,Sofia Alvarez,725,386000.0,2015-11-28
+CUST-000751,Laila Hoang,laila.hoang751@example.com,+1 (927) 511-8496,Portland,OR,Retail,Jordan Lee,644,47000.0,2025-04-24
+CUST-000752,Sara Sanchez,sara.sanchez752@example.com,+1 (967) 400-1149,San Francisco,CA,SME,Priya Nair,803,139000.0,2021-08-20
+CUST-000753,David Ross,david.ross753@example.com,+1 (565) 685-3943,Raleigh,NC,SME,Alex Morgan,784,415500.0,2024-05-16
+CUST-000754,Zoe Robinson,zoe.robinson754@example.com,+1 (322) 446-7498,Austin,TX,Retail,Theo Brooks,578,52500.0,2025-10-06
+CUST-000755,Hassan Robinson,hassan.robinson755@example.com,+1 (866) 591-5509,Minneapolis,MN,Retail,Theo Brooks,713,33500.0,2016-02-16
+CUST-000756,Elena Clark,elena.clark756@example.com,+1 (431) 223-8856,Chicago,IL,Retail,Noah Williams,608,28000.0,2015-02-04
+CUST-000757,Daniel Thompson,daniel.thompson757@example.com,+1 (302) 533-2040,Boston,MA,SME,Jordan Lee,673,93500.0,2023-09-20
+CUST-000758,Amina Lewis,amina.lewis758@example.com,+1 (931) 867-3033,Denver,CO,Retail,Maya Chen,641,46000.0,2014-06-09
+CUST-000759,Elena Fischer,elena.fischer759@example.com,+1 (241) 331-4378,Sacramento,CA,Premium,Jordan Lee,643,515500.0,2023-10-08
+CUST-000760,Julia Wang,julia.wang760@example.com,+1 (376) 633-1001,Tampa,FL,Retail,Maya Chen,654,45500.0,2014-04-26
+CUST-000761,Liam Rodriguez,liam.rodriguez761@example.com,+1 (821) 751-9365,Denver,CO,Retail,Maya Chen,666,41000.0,2018-08-18
+CUST-000762,Arjun Hassan,arjun.hassan762@example.com,+1 (338) 816-4539,Los Angeles,CA,SME,Priya Nair,645,112000.0,2021-09-12
+CUST-000763,Sakib Bennett,sakib.bennett763@example.com,+1 (461) 892-7968,Denver,CO,Retail,Jordan Lee,738,34000.0,2024-08-28
+CUST-000764,Carlos Roberts,carlos.roberts764@example.com,+1 (932) 581-9379,Minneapolis,MN,Retail,Jordan Lee,656,28500.0,2022-03-16
+CUST-000765,Fatima Johnson,fatima.johnson765@example.com,+1 (745) 312-9984,Raleigh,NC,Retail,Sofia Alvarez,671,43000.0,2023-09-25
+CUST-000766,Chloe Kumar,chloe.kumar766@example.com,+1 (481) 210-2604,Austin,TX,Retail,Sofia Alvarez,675,57000.0,2021-06-18
+CUST-000767,Jasmine Lee,jasmine.lee767@example.com,+1 (298) 741-6716,Houston,TX,Premium,Noah Williams,625,623500.0,2015-07-19
+CUST-000768,Daniel Wilson,daniel.wilson768@example.com,+1 (765) 808-7597,Los Angeles,CA,Retail,Theo Brooks,670,40000.0,2014-08-08
+CUST-000769,Kai Ahmed,kai.ahmed769@example.com,+1 (255) 942-7064,Nashville,TN,SME,Maya Chen,751,183000.0,2020-07-12
+CUST-000770,Riley Shah,riley.shah770@example.com,+1 (639) 733-4748,Indianapolis,IN,SME,Noah Williams,752,340500.0,2020-05-04
+CUST-000771,Chloe Zhang,chloe.zhang771@example.com,+1 (296) 369-1940,San Jose,CA,SME,Dana Whitfield,731,156000.0,2021-02-21
+CUST-000772,Yara Torres,yara.torres772@example.com,+1 (915) 327-7643,Sacramento,CA,SME,Alex Morgan,724,83500.0,2014-08-02
+CUST-000773,Aarav Shah,aarav.shah773@example.com,+1 (901) 823-1693,Charlotte,NC,SME,Theo Brooks,715,425500.0,2014-09-06
+CUST-000774,Jasmine Fischer,jasmine.fischer774@example.com,+1 (253) 632-9118,Chicago,IL,Premium,Sofia Alvarez,835,398000.0,2018-08-08
+CUST-000775,Diego Khan,diego.khan775@example.com,+1 (695) 500-5337,Nashville,TN,Retail,Maya Chen,692,30500.0,2019-10-26
+CUST-000776,Priya Gupta,priya.gupta776@example.com,+1 (833) 699-1942,San Jose,CA,Retail,Priya Nair,661,50000.0,2016-02-21
+CUST-000777,Tariq Khan,tariq.khan777@example.com,+1 (403) 286-9668,San Jose,CA,Retail,Jordan Lee,673,63500.0,2015-06-29
+CUST-000778,Wei Ahmed,wei.ahmed778@example.com,+1 (605) 583-5903,Phoenix,AZ,Retail,Priya Nair,711,58500.0,2015-12-21
+CUST-000779,Henry Patel,henry.patel779@example.com,+1 (568) 926-4251,Raleigh,NC,Retail,Dana Whitfield,751,55000.0,2026-05-25
+CUST-000780,Arjun Davis,arjun.davis780@example.com,+1 (365) 882-4260,Columbus,OH,Retail,Theo Brooks,764,41500.0,2025-10-26
+CUST-000781,Karen Clark,karen.clark781@example.com,+1 (714) 943-7370,Charlotte,NC,Premium,Jordan Lee,729,450500.0,2017-07-23
+CUST-000782,David Thompson,david.thompson782@example.com,+1 (986) 900-4874,New York,NY,Retail,Alex Morgan,662,30000.0,2026-03-22
+CUST-000783,Michael Martin,michael.martin783@example.com,+1 (454) 832-3498,Atlanta,GA,SME,Jordan Lee,695,281500.0,2016-11-27
+CUST-000784,Diego White,diego.white784@example.com,+1 (918) 947-9230,Dallas,TX,Retail,Jordan Lee,754,60000.0,2024-03-19
+CUST-000785,Fatima Harris,fatima.harris785@example.com,+1 (738) 513-4791,Houston,TX,Retail,Maya Chen,705,39000.0,2017-05-23
+CUST-000786,Victor Baker,victor.baker786@example.com,+1 (476) 572-5596,Seattle,WA,Retail,Priya Nair,700,42500.0,2024-01-22
+CUST-000787,Jordan Johnson,jordan.johnson787@example.com,+1 (642) 389-5133,Los Angeles,CA,SME,Theo Brooks,701,231500.0,2024-04-07
+CUST-000788,Lily Clark,lily.clark788@example.com,+1 (540) 569-6920,Houston,TX,Retail,Priya Nair,735,66000.0,2023-08-09
+CUST-000789,Kevin Gupta,kevin.gupta789@example.com,+1 (243) 800-4120,Boston,MA,Retail,Maya Chen,755,28000.0,2023-10-30
+CUST-000790,Daniel Bennett,daniel.bennett790@example.com,+1 (980) 406-9741,Denver,CO,SME,Jordan Lee,781,216000.0,2015-11-22
+CUST-000791,Ibrahim Lopez,ibrahim.lopez791@example.com,+1 (647) 269-8910,Denver,CO,Retail,Sofia Alvarez,635,48000.0,2023-11-23
+CUST-000792,Zara Thompson,zara.thompson792@example.com,+1 (497) 246-1996,New York,NY,Retail,Maya Chen,750,32500.0,2023-08-20
+CUST-000793,Priya Moore,priya.moore793@example.com,+1 (594) 775-7393,Nashville,TN,SME,Sofia Alvarez,767,193000.0,2015-02-07
+CUST-000794,Jack Fischer,jack.fischer794@example.com,+1 (726) 666-9254,New York,NY,SME,Noah Williams,740,113500.0,2026-04-30
+CUST-000795,Jasmine Hoang,jasmine.hoang795@example.com,+1 (241) 854-3427,Portland,OR,Retail,Noah Williams,701,37000.0,2019-12-25
+CUST-000796,Karen White,karen.white796@example.com,+1 (533) 285-9999,Raleigh,NC,Corporate,Noah Williams,826,301000.0,2018-04-01
+CUST-000797,Ravi Wilson,ravi.wilson797@example.com,+1 (751) 873-2743,Atlanta,GA,SME,Sofia Alvarez,703,102000.0,2026-03-05
+CUST-000798,Julia White,julia.white798@example.com,+1 (426) 532-5403,Miami,FL,Premium,Maya Chen,785,610000.0,2016-08-10
+CUST-000799,Priya Diaz,priya.diaz799@example.com,+1 (708) 385-8526,Indianapolis,IN,SME,Jordan Lee,627,63500.0,2024-06-04
+CUST-000800,Hassan Garcia,hassan.garcia800@example.com,+1 (222) 517-3669,Boston,MA,Corporate,Jordan Lee,835,1332500.0,2020-03-14
+CUST-000801,Ibrahim Bennett,ibrahim.bennett801@example.com,+1 (942) 739-3249,Phoenix,AZ,Corporate,Alex Morgan,835,630500.0,2024-04-11
+CUST-000802,Olivia Lee,olivia.lee802@example.com,+1 (309) 755-6544,New York,NY,SME,Dana Whitfield,628,300000.0,2026-04-26
+CUST-000803,Victor Taylor,victor.taylor803@example.com,+1 (843) 756-3016,Boston,MA,Retail,Alex Morgan,692,34500.0,2020-07-11
+CUST-000804,David Patel,david.patel804@example.com,+1 (351) 561-5699,San Jose,CA,Corporate,Maya Chen,828,848000.0,2017-11-18
+CUST-000805,Omar Ross,omar.ross805@example.com,+1 (489) 565-2249,Portland,OR,Corporate,Priya Nair,769,2335000.0,2024-03-30
+CUST-000806,Charlotte Wilson,charlotte.wilson806@example.com,+1 (543) 814-3971,Los Angeles,CA,Retail,Sofia Alvarez,714,49500.0,2014-08-18
+CUST-000807,Lily Rivera,lily.rivera807@example.com,+1 (203) 352-3401,Salt Lake City,UT,Retail,Priya Nair,659,32500.0,2024-10-24
+CUST-000808,Sofia Singh,sofia.singh808@example.com,+1 (316) 791-8003,Raleigh,NC,Retail,Noah Williams,723,67000.0,2025-01-06
+CUST-000809,Mei Davis,mei.davis809@example.com,+1 (817) 851-6463,Philadelphia,PA,Retail,Jordan Lee,623,60500.0,2017-03-29
+CUST-000810,Jordan Lee,jordan.lee810@example.com,+1 (746) 749-4770,Charlotte,NC,SME,Sofia Alvarez,714,201500.0,2015-06-24
+CUST-000811,Riley Nguyen,riley.nguyen811@example.com,+1 (203) 408-1281,Boston,MA,Retail,Priya Nair,694,129500.0,2018-05-31
+CUST-000812,Emma Wong,emma.wong812@example.com,+1 (502) 671-3361,Houston,TX,Retail,Sofia Alvarez,714,28000.0,2023-05-27
+CUST-000813,Jasmine Baker,jasmine.baker813@example.com,+1 (256) 918-2736,Minneapolis,MN,Retail,Dana Whitfield,835,57000.0,2018-03-11
+CUST-000814,Gabriel Ali,gabriel.ali814@example.com,+1 (213) 782-7823,Phoenix,AZ,Retail,Jordan Lee,714,40500.0,2024-10-18
+CUST-000815,Valentina Smith,valentina.smith815@example.com,+1 (655) 860-1216,Phoenix,AZ,SME,Noah Williams,693,432000.0,2018-12-17
+CUST-000816,Benjamin Williams,benjamin.williams816@example.com,+1 (897) 665-5227,Miami,FL,Retail,Noah Williams,746,45000.0,2017-01-09
+CUST-000817,Sakib Young,sakib.young817@example.com,+1 (611) 833-1917,Philadelphia,PA,SME,Maya Chen,609,138000.0,2021-10-10
+CUST-000818,Carlos Tran,carlos.tran818@example.com,+1 (590) 368-1895,Portland,OR,Retail,Priya Nair,789,43500.0,2017-06-10
+CUST-000819,Ibrahim Hill,ibrahim.hill819@example.com,+1 (489) 366-9873,Houston,TX,SME,Dana Whitfield,721,93000.0,2021-02-25
+CUST-000820,Amelia Taylor,amelia.taylor820@example.com,+1 (447) 475-2393,San Jose,CA,Retail,Alex Morgan,638,34000.0,2025-10-19
+CUST-000821,Victor Anderson,victor.anderson821@example.com,+1 (523) 969-7400,Los Angeles,CA,SME,Priya Nair,700,80000.0,2022-02-26
+CUST-000822,Daniel Khan,daniel.khan822@example.com,+1 (354) 224-7260,Charlotte,NC,Premium,Theo Brooks,799,977500.0,2015-04-07
+CUST-000823,Anika Hoang,anika.hoang823@example.com,+1 (421) 897-3307,Philadelphia,PA,SME,Jordan Lee,731,90500.0,2021-05-01
+CUST-000824,Zara Nguyen,zara.nguyen824@example.com,+1 (659) 334-6554,Minneapolis,MN,Premium,Noah Williams,725,570500.0,2018-11-14
+CUST-000825,Samantha Anderson,samantha.anderson825@example.com,+1 (357) 780-9151,Portland,OR,Retail,Dana Whitfield,710,62000.0,2024-11-04
+CUST-000826,Ethan Thomas,ethan.thomas826@example.com,+1 (711) 296-8451,Sacramento,CA,SME,Priya Nair,788,39000.0,2024-07-27
+CUST-000827,Liam Evans,liam.evans827@example.com,+1 (465) 684-5194,Chicago,IL,Retail,Theo Brooks,720,35000.0,2016-03-11
+CUST-000828,Emma Zhang,emma.zhang828@example.com,+1 (494) 610-7701,Houston,TX,SME,Jordan Lee,731,480000.0,2018-05-17
+CUST-000829,Zoe Wang,zoe.wang829@example.com,+1 (899) 243-1934,Atlanta,GA,Retail,Maya Chen,661,75500.0,2020-08-18
+CUST-000830,Amelia Diaz,amelia.diaz830@example.com,+1 (609) 274-4654,Sacramento,CA,SME,Sofia Alvarez,649,92000.0,2013-09-27
+CUST-000831,Chloe Kim,chloe.kim831@example.com,+1 (950) 310-7503,Indianapolis,IN,Corporate,Sofia Alvarez,767,1272500.0,2022-06-26
+CUST-000832,Mia Bennett,mia.bennett832@example.com,+1 (920) 959-8802,Austin,TX,Retail,Dana Whitfield,664,34000.0,2021-10-04
+CUST-000833,Anika Patel,anika.patel833@example.com,+1 (571) 640-8756,Phoenix,AZ,Retail,Maya Chen,789,28000.0,2025-02-15
+CUST-000834,Amina Zhang,amina.zhang834@example.com,+1 (286) 345-2134,Tampa,FL,Retail,Noah Williams,682,54000.0,2022-07-30
+CUST-000835,Lily White,lily.white835@example.com,+1 (256) 294-8021,Portland,OR,Retail,Priya Nair,717,42500.0,2022-05-26
+CUST-000836,Lily Evans,lily.evans836@example.com,+1 (749) 905-3632,San Antonio,TX,Premium,Sofia Alvarez,835,360000.0,2015-11-11
+CUST-000837,Omar Tran,omar.tran837@example.com,+1 (532) 880-6185,New York,NY,Retail,Alex Morgan,719,68000.0,2023-04-14
+CUST-000838,Tariq Young,tariq.young838@example.com,+1 (470) 733-1060,Phoenix,AZ,Retail,Theo Brooks,778,45000.0,2017-05-30
+CUST-000839,Elias Roberts,elias.roberts839@example.com,+1 (631) 913-9947,Indianapolis,IN,Premium,Jordan Lee,835,627500.0,2022-04-26
+CUST-000840,James Kim,james.kim840@example.com,+1 (217) 509-6029,San Antonio,TX,SME,Dana Whitfield,733,195500.0,2018-05-14
+CUST-000841,Tariq Lopez,tariq.lopez841@example.com,+1 (317) 380-8517,Charlotte,NC,SME,Sofia Alvarez,571,72000.0,2018-12-29
+CUST-000842,Gabriel Patel,gabriel.patel842@example.com,+1 (850) 490-2625,Charlotte,NC,Retail,Dana Whitfield,760,28000.0,2016-09-18
+CUST-000843,David Brown,david.brown843@example.com,+1 (884) 496-7891,Miami,FL,SME,Maya Chen,666,240500.0,2025-10-17
+CUST-000844,Tariq Perez,tariq.perez844@example.com,+1 (623) 860-7484,Columbus,OH,Retail,Alex Morgan,638,74000.0,2016-02-14
+CUST-000845,Jasmine Morgan,jasmine.morgan845@example.com,+1 (890) 447-1068,San Jose,CA,Corporate,Sofia Alvarez,711,537000.0,2017-03-23
+CUST-000846,Andre Diaz,andre.diaz846@example.com,+1 (544) 374-8045,Raleigh,NC,Retail,Maya Chen,807,28000.0,2019-05-29
+CUST-000847,Priya Garcia,priya.garcia847@example.com,+1 (852) 599-3846,Atlanta,GA,Retail,Sofia Alvarez,714,82500.0,2023-08-21
+CUST-000848,Gabriel Martin,gabriel.martin848@example.com,+1 (981) 842-5263,San Diego,CA,Corporate,Jordan Lee,683,1423000.0,2017-09-25
+CUST-000849,Jack Brown,jack.brown849@example.com,+1 (786) 591-1414,Chicago,IL,Premium,Jordan Lee,688,621500.0,2024-10-04
+CUST-000850,Naomi Fischer,naomi.fischer850@example.com,+1 (749) 451-7194,San Diego,CA,Premium,Noah Williams,692,553500.0,2022-03-07
+CUST-000851,Kevin Brown,kevin.brown851@example.com,+1 (811) 325-2754,Phoenix,AZ,SME,Jordan Lee,688,262000.0,2016-03-24
+CUST-000852,Henry Brown,henry.brown852@example.com,+1 (601) 303-9045,Chicago,IL,Retail,Alex Morgan,677,44500.0,2021-11-11
+CUST-000853,Wei Roberts,wei.roberts853@example.com,+1 (365) 384-5894,Chicago,IL,Retail,Alex Morgan,753,31500.0,2016-05-31
+CUST-000854,Anika Clark,anika.clark854@example.com,+1 (735) 959-5169,Austin,TX,Corporate,Dana Whitfield,703,1994000.0,2022-12-22
+CUST-000855,Andre Patel,andre.patel855@example.com,+1 (231) 535-3270,New York,NY,Retail,Maya Chen,701,47500.0,2021-08-29
+CUST-000856,Elias Hill,elias.hill856@example.com,+1 (926) 764-5822,Dallas,TX,Retail,Theo Brooks,744,34000.0,2018-09-16
+CUST-000857,Yara Martin,yara.martin857@example.com,+1 (306) 797-6105,Seattle,WA,SME,Jordan Lee,764,129000.0,2017-09-18
+CUST-000858,Wei Martin,wei.martin858@example.com,+1 (838) 310-7275,Indianapolis,IN,SME,Sofia Alvarez,636,130500.0,2019-05-18
+CUST-000859,Naomi Kumar,naomi.kumar859@example.com,+1 (801) 619-5808,Miami,FL,Retail,Priya Nair,802,68500.0,2020-11-06
+CUST-000860,Diego Fischer,diego.fischer860@example.com,+1 (452) 274-4525,Raleigh,NC,Retail,Priya Nair,596,28000.0,2018-07-03
+CUST-000861,Maya Clark,maya.clark861@example.com,+1 (268) 594-5646,New York,NY,Retail,Maya Chen,724,35500.0,2013-12-06
+CUST-000862,David Perez,david.perez862@example.com,+1 (899) 974-8130,Dallas,TX,Retail,Priya Nair,570,88500.0,2017-01-25
+CUST-000863,Isabella Garcia,isabella.garcia863@example.com,+1 (664) 375-6355,Los Angeles,CA,Corporate,Sofia Alvarez,816,3273500.0,2023-09-29
+CUST-000864,Amina Hoang,amina.hoang864@example.com,+1 (673) 491-3147,New York,NY,Retail,Sofia Alvarez,686,92500.0,2026-06-03
+CUST-000865,Arjun Khan,arjun.khan865@example.com,+1 (482) 524-6665,Miami,FL,Retail,Sofia Alvarez,718,28000.0,2019-10-11
+CUST-000866,Maya Moore,maya.moore866@example.com,+1 (706) 856-2989,Atlanta,GA,Retail,Priya Nair,637,28500.0,2016-05-01
+CUST-000867,David Ali,david.ali867@example.com,+1 (291) 395-7043,San Diego,CA,Corporate,Alex Morgan,732,616500.0,2022-09-16
+CUST-000868,Ava Hernandez,ava.hernandez868@example.com,+1 (477) 915-3790,Raleigh,NC,Corporate,Jordan Lee,698,963000.0,2018-01-05
+CUST-000869,Elena Davis,elena.davis869@example.com,+1 (878) 701-5596,Austin,TX,SME,Priya Nair,763,152500.0,2015-10-22
+CUST-000870,Victor Harris,victor.harris870@example.com,+1 (562) 771-4971,Chicago,IL,SME,Maya Chen,761,126000.0,2024-09-01
+CUST-000871,Carlos Moore,carlos.moore871@example.com,+1 (308) 548-4418,Los Angeles,CA,SME,Priya Nair,655,71000.0,2015-08-04
+CUST-000872,Lucas Shah,lucas.shah872@example.com,+1 (334) 424-6957,Indianapolis,IN,SME,Sofia Alvarez,723,533000.0,2024-02-27
+CUST-000873,Zoe Garcia,zoe.garcia873@example.com,+1 (351) 672-2755,Tampa,FL,Premium,Dana Whitfield,663,416000.0,2024-03-27
+CUST-000874,Tariq Fischer,tariq.fischer874@example.com,+1 (287) 562-8069,Dallas,TX,Retail,Maya Chen,731,43000.0,2014-03-08
+CUST-000875,Zara Martin,zara.martin875@example.com,+1 (950) 632-4177,Seattle,WA,Retail,Noah Williams,677,36500.0,2017-12-12
+CUST-000876,Hassan Reed,hassan.reed876@example.com,+1 (312) 897-1817,Dallas,TX,Retail,Maya Chen,703,47000.0,2016-10-20
+CUST-000877,Jasmine Clark,jasmine.clark877@example.com,+1 (432) 835-7628,Los Angeles,CA,Premium,Sofia Alvarez,747,1106500.0,2020-05-07
+CUST-000878,Jasmine Singh,jasmine.singh878@example.com,+1 (376) 408-6695,Salt Lake City,UT,Retail,Noah Williams,761,65500.0,2021-11-29
+CUST-000879,Laila Singh,laila.singh879@example.com,+1 (905) 444-3789,New York,NY,SME,Priya Nair,691,75500.0,2019-09-05
+CUST-000880,Grace Fischer,grace.fischer880@example.com,+1 (222) 381-5322,Austin,TX,SME,Dana Whitfield,649,67000.0,2019-01-13
+CUST-000881,Amelia Reed,amelia.reed881@example.com,+1 (897) 497-4740,Jacksonville,FL,Retail,Jordan Lee,772,44500.0,2013-10-20
+CUST-000882,Daniel Chen,daniel.chen882@example.com,+1 (953) 559-9940,San Jose,CA,SME,Noah Williams,780,293000.0,2015-07-10
+CUST-000883,Julia Kumar,julia.kumar883@example.com,+1 (316) 476-9508,Indianapolis,IN,SME,Alex Morgan,681,81000.0,2015-08-31
+CUST-000884,Ravi Wang,ravi.wang884@example.com,+1 (232) 450-8056,San Diego,CA,Retail,Priya Nair,571,51500.0,2015-05-12
+CUST-000885,Chloe Garcia,chloe.garcia885@example.com,+1 (380) 471-6715,Columbus,OH,Retail,Priya Nair,741,105000.0,2014-09-16
+CUST-000886,Riley Zhang,riley.zhang886@example.com,+1 (919) 551-3014,Dallas,TX,Retail,Sofia Alvarez,652,39000.0,2014-11-11
+CUST-000887,Nadia Hoang,nadia.hoang887@example.com,+1 (736) 496-3664,Houston,TX,SME,Noah Williams,686,487500.0,2023-02-27
+CUST-000888,Camila Torres,camila.torres888@example.com,+1 (701) 513-1083,San Jose,CA,Retail,Sofia Alvarez,630,30500.0,2025-05-02
+CUST-000889,Aarav Baker,aarav.baker889@example.com,+1 (931) 477-3337,Dallas,TX,Retail,Maya Chen,761,68000.0,2024-08-06
+CUST-000890,Charlotte Hoang,charlotte.hoang890@example.com,+1 (633) 608-2607,San Diego,CA,Retail,Noah Williams,670,28000.0,2017-11-11
+CUST-000891,Lucas Fischer,lucas.fischer891@example.com,+1 (457) 338-7820,Boston,MA,Corporate,Maya Chen,766,676000.0,2022-01-19
+CUST-000892,Charlotte Jackson,charlotte.jackson892@example.com,+1 (585) 647-2573,Boston,MA,Retail,Jordan Lee,660,79500.0,2022-05-31
+CUST-000893,Maya Morgan,maya.morgan893@example.com,+1 (673) 228-1432,Nashville,TN,Retail,Sofia Alvarez,635,60000.0,2017-04-29
+CUST-000894,Emma Rivera,emma.rivera894@example.com,+1 (331) 835-9900,San Jose,CA,Retail,Noah Williams,716,73500.0,2018-02-27
+CUST-000895,Priya Davis,priya.davis895@example.com,+1 (287) 256-5426,Columbus,OH,Retail,Dana Whitfield,695,56500.0,2025-04-22
+CUST-000896,Daniel Tran,daniel.tran896@example.com,+1 (325) 958-9369,San Jose,CA,Retail,Alex Morgan,620,52500.0,2025-02-28
+CUST-000897,Ethan Perez,ethan.perez897@example.com,+1 (697) 838-4288,Minneapolis,MN,SME,Dana Whitfield,757,577500.0,2026-05-20
+CUST-000898,Fatima Reed,fatima.reed898@example.com,+1 (686) 225-9287,Houston,TX,Retail,Theo Brooks,757,46000.0,2024-03-15
+CUST-000899,Elena Jackson,elena.jackson899@example.com,+1 (828) 897-8194,Columbus,OH,Retail,Dana Whitfield,700,44500.0,2020-09-08
+CUST-000900,Amina Fischer,amina.fischer900@example.com,+1 (724) 959-9956,Phoenix,AZ,Retail,Maya Chen,802,88000.0,2022-09-12
