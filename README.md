@@ -10,12 +10,6 @@ The demo portfolio contains **1,600 loans across 900 customers**, 18 months of m
 
 ![Portfolio overview](docs/screenshots/overview.png)
 
-### Brand identity
-
-The product has a custom vector identity: an N monogram built as a continuous route, a small gold north point, and an editorial Fraunces wordmark. The primary lockup, reversed, monochrome, stacked and mark-only cuts are available in [`assets/`](assets/), with palette, clearspace and usage guidance in the [brand guide](docs/brand.md).
-
-![Northstar brand board](docs/brand/northstar-brand-board.png)
-
 ---
 
 ## Documentation
