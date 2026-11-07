@@ -1,13 +1,18 @@
-"""Reusable presentation helpers and the dashboard's visual theme."""
+"""Visual system and reusable presentation components for the dashboard."""
 
 from __future__ import annotations
 
 from datetime import date
 from html import escape
 
+import pandas as pd
 import streamlit as st
 
-from .config import APP_NAME, APP_TAGLINE
+from .config import APP_NAME, COLORS, PRODUCT_COLORS
+
+# ---------------------------------------------------------------------------
+# Formatting helpers
+# ---------------------------------------------------------------------------
 
 
 def compact_currency(value: float | int | None, decimals: int = 1) -> str:
@@ -23,10 +28,6 @@ def compact_currency(value: float | int | None, decimals: int = 1) -> str:
     return f"{sign}${value:,.0f}"
 
 
-def full_currency(value: float | int | None) -> str:
-    return f"${float(value or 0):,.0f}"
-
-
 def compact_number(value: float | int | None) -> str:
     value = float(value or 0)
     if value >= 1_000_000:
@@ -34,6 +35,10 @@ def compact_number(value: float | int | None) -> str:
     if value >= 1_000:
         return f"{value / 1_000:,.1f}K"
     return f"{value:,.0f}"
+
+
+def _pct(value: float | int | None, decimals: int = 1) -> str:
+    return f"{float(value or 0):.{decimals}f}%"
 
 
 def format_date(value: date | str | None) -> str:
@@ -44,642 +49,1366 @@ def format_date(value: date | str | None) -> str:
     return value.strftime("%d %b %Y")
 
 
+# ---------------------------------------------------------------------------
+# Application shell
+# ---------------------------------------------------------------------------
+
+
 def inject_css() -> None:
     st.markdown(
         """
         <style>
         :root {
-            --ink: #0F172A;
-            --muted: #64748B;
-            --primary: #4F46E5;
-            --teal: #0D9488;
-            --amber: #D97706;
-            --red: #DC2626;
-            --border: #E7ECF3;
-            --canvas: #F4F6FA;
-            --white: #FFFFFF;
+            --ink: #171B18;
+            --ink-soft: #333934;
+            --muted: #6C726D;
+            --subtle: #91968F;
+            --primary: #225C4B;
+            --primary-hover: #194939;
+            --primary-soft: #EAF1ED;
+            --accent: #B08A5A;
+            --danger: #A9443C;
+            --amber: #A46B2A;
+            --border: #E4E1D9;
+            --border-strong: #D5D1C7;
+            --surface: #FFFFFF;
+            --surface-soft: #FAF9F5;
+            --canvas: #F3F1EB;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+            --font-mono: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
         }
 
         html, body, [class*="css"] {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: var(--font-sans);
+        }
+        html, body {
+            background: var(--canvas);
         }
         [data-testid="stAppViewContainer"] {
-            background:
-                radial-gradient(circle at 8% 0%, rgba(224, 231, 255, 0.75) 0, rgba(244, 246, 250, 0) 30%),
-                radial-gradient(circle at 96% 12%, rgba(204, 251, 241, 0.55) 0, rgba(244, 246, 250, 0) 28%),
-                #F4F6FA;
+            background: var(--canvas);
         }
         [data-testid="stMain"] .block-container {
-            max-width: 1460px;
-            padding: 1.25rem 2.1rem 3rem;
+            max-width: 1380px;
+            padding: 2.2rem 2.6rem 2.6rem;
         }
         [data-testid="stHeader"] {
             background: transparent;
             height: 0;
+            overflow: visible;
         }
-        [data-testid="stToolbar"], [data-testid="stDecoration"], #MainMenu, footer {
+        [data-testid="stToolbar"] {
+            display: flex !important;
+            visibility: visible !important;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100001;
+            width: auto;
+            height: auto !important;
+            padding: 0;
+            background: transparent;
+            pointer-events: none;
+        }
+        [data-testid="stToolbarActions"],
+        [data-testid="stBaseButton-header"],
+        [data-testid="stMainMenu"],
+        [data-testid="stDecoration"],
+        #MainMenu,
+        footer {
             visibility: hidden;
             display: none;
         }
+        [data-testid="stExpandSidebarButton"] {
+            display: flex !important;
+            position: fixed !important;
+            top: 14px !important;
+            left: 14px !important;
+            z-index: 100002 !important;
+            align-items: center;
+            justify-content: center;
+            visibility: visible !important;
+            width: 34px !important;
+            height: 34px !important;
+            padding: 0 !important;
+            border: 1px solid var(--border-strong) !important;
+            border-radius: 7px !important;
+            background: #FFFFFF !important;
+            color: var(--ink-soft) !important;
+            box-shadow: 0 1px 2px rgba(23, 27, 24, 0.04);
+            pointer-events: auto;
+        }
+        [data-testid="stExpandSidebarButton"]:hover {
+            border-color: #AABCB2 !important;
+            color: var(--primary) !important;
+        }
+        [data-testid="stExpandSidebarButton"] span {
+            font-size: 17px !important;
+        }
+        [data-testid="stMarkdownContainer"] p {
+            line-height: 1.55;
+        }
+
+        /* Sidebar */
         [data-testid="stSidebar"] {
-            background: #0B1220;
-            border-right: 1px solid #1E293B;
+            background: #F8F6F1;
+            border-right: 1px solid var(--border);
         }
         [data-testid="stSidebar"] > div:first-child {
-            padding-top: 1.25rem;
+            padding: 1.55rem 1.15rem 1.5rem;
+        }
+        [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+            gap: 0.7rem;
         }
         [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
-            color: #CBD5E1;
+            color: var(--muted);
         }
-        [data-testid="stSidebar"] label,
-        [data-testid="stSidebar"] .stSelectbox label,
-        [data-testid="stSidebar"] .stMultiSelect label,
-        [data-testid="stSidebar"] .stDateInput label {
-            color: #CBD5E1 !important;
-            font-size: 0.78rem !important;
+        [data-testid="stSidebar"] [data-testid="stWidgetLabel"] p {
+            color: #505650 !important;
+            font-size: 0.72rem !important;
             font-weight: 600 !important;
+            letter-spacing: 0.005em;
         }
-        [data-testid="stSidebar"] [data-baseweb="select"] > div,
-        [data-testid="stSidebar"] [data-testid="stMultiSelect"] [role="group"],
-        [data-testid="stSidebar"] [data-testid="stMultiSelectTagsContainer"],
+        [data-testid="stSidebar"] [data-testid="stTooltipIcon"] {
+            display: none;
+        }
         [data-testid="stSidebar"] [data-testid="stDateInputField"],
-        [data-testid="stSidebar"] [data-testid="stDateInput"] input {
-            background: #111C30 !important;
-            border-color: #243247 !important;
-            color: #F1F5F9 !important;
-        }
         [data-testid="stSidebar"] [data-testid="stMultiSelect"] [role="group"] {
-            border-radius: 9px;
+            background: #FFFFFF !important;
+            border: 1px solid #DDD9CF !important;
+            border-radius: 7px !important;
+            min-height: 38px;
+            box-shadow: none !important;
         }
-        [data-testid="stSidebar"] [data-testid="stMultiSelect"] input,
-        [data-testid="stSidebar"] [data-testid="stDateInput"] input {
-            color: #F1F5F9 !important;
-            background: transparent !important;
+        [data-testid="stSidebar"] [data-testid="stDateInputField"]:focus-within,
+        [data-testid="stSidebar"] [data-testid="stMultiSelect"] [role="group"]:focus-within {
+            border-color: #93B4A7 !important;
+            box-shadow: 0 0 0 2px rgba(34, 92, 75, 0.08) !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stDateInputField"] span,
+        [data-testid="stSidebar"] [data-testid="stMultiSelect"] input {
+            color: var(--ink) !important;
+            font-size: 0.76rem !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stDateInputField"] [data-type="literal"],
+        [data-testid="stSidebar"] [data-testid="stDateInputField"] > div > span {
+            color: #989D96 !important;
         }
         [data-testid="stSidebar"] [data-testid="stMultiSelect"] input::placeholder {
-            color: #94A3B8 !important;
+            color: #979C95 !important;
             opacity: 1 !important;
         }
         [data-testid="stSidebar"] [data-testid="stMultiSelect"] svg,
         [data-testid="stSidebar"] [data-testid="stDateInput"] svg {
-            color: #94A3B8 !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stDateInputField"] span {
-            color: #F1F5F9 !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stDateInputField"] [data-type="literal"],
-        [data-testid="stSidebar"] [data-testid="stDateInputField"] > div > span {
-            color: #94A3B8 !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stDateInput"] [aria-hidden="true"] {
-            color: #94A3B8 !important;
+            color: #8B918A !important;
         }
         [data-testid="stSidebar"] [data-testid="stMultiSelect"] [data-tag] {
-            background: #1E293B !important;
-            color: #C7D2FE !important;
-            border: 1px solid #334155 !important;
-            border-radius: 6px !important;
+            background: #EDF2EF !important;
+            border: 1px solid #DCE6E0 !important;
+            color: #295845 !important;
+            border-radius: 4px !important;
+            font-size: 0.69rem !important;
+            font-weight: 550 !important;
         }
         [data-testid="stSidebar"] [data-testid="stMultiSelect"] [data-tag] span {
-            color: #C7D2FE !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stDateInputField"] {
-            border: 1px solid #243247 !important;
-            border-radius: 9px !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stDateInput"] > div {
-            background: transparent;
-        }
-        [data-testid="stSidebar"] hr {
-            border-color: #1E293B;
+            color: #295845 !important;
         }
         [data-testid="stSidebar"] .stButton button {
-            background: #111C30;
-            color: #CBD5E1;
-            border: 1px solid #243247;
-            border-radius: 9px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            width: 100%;
+            width: auto;
+            min-height: 0;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: #747A74;
+            font-size: 0.7rem;
+            font-weight: 550;
+            line-height: 1.4;
+            justify-content: flex-start;
         }
         [data-testid="stSidebar"] .stButton button:hover {
-            border-color: #4F46E5;
-            color: #E0E7FF;
+            color: var(--primary);
+            background: transparent;
+            border: 0;
         }
-
-        .block-container > div {
-            gap: 0.75rem;
-        }
-        [data-testid="stTabs"] [role="tablist"] {
-            gap: 0.32rem;
-            background: #FFFFFF;
-            padding: 0.38rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            width: fit-content;
-            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
-            margin-bottom: 0.55rem;
-        }
-        [data-testid="stTab"] {
+        [class*="st-key-sidebar_reset"] {
             display: flex;
-            align-items: center;
-            min-height: 36px;
-            border-radius: 8px;
-            padding: 0.35rem 0.95rem;
-            color: var(--muted) !important;
-            background: transparent !important;
-            cursor: pointer;
-            transition: background 120ms ease, color 120ms ease;
+            justify-content: flex-end;
         }
-        [data-testid="stTab"] [data-testid="stMarkdownContainer"] p {
-            color: inherit !important;
-            font-size: 0.82rem;
-            font-weight: 600;
-            margin: 0;
-        }
-        [data-testid="stTab"]:hover {
-            background: #F1F5F9 !important;
-        }
-        [data-testid="stTab"][aria-selected="true"] {
-            background: #0F172A !important;
-            color: #FFFFFF !important;
-        }
-        [data-testid="stTab"][aria-selected="true"] [data-testid="stMarkdownContainer"] p {
-            color: #FFFFFF !important;
-        }
-        [data-testid="stTab"] .react-aria-SelectionIndicator {
-            display: none;
-        }
-        [data-testid="stTabs"] [role="tablist"] > div:first-child {
-            border-radius: 8px;
-        }
-
-        [data-testid="stVerticalBlockBorderWrapper"] {
-            border: 1px solid var(--border) !important;
-            border-radius: 16px !important;
-            background: #FFFFFF;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
-        }
-        [data-testid="stVerticalBlockBorderWrapper"] > div {
-            padding: 0.25rem 0.35rem;
-        }
-        .stButton button[kind="primary"] {
-            background: #4F46E5;
-            border-radius: 9px;
-            border: none;
-            font-weight: 600;
-        }
-        .stButton button[kind="primary"]:hover {
-            background: #4338CA;
-        }
-        .stDownloadButton button {
-            border-radius: 9px;
-            border-color: #D8DFEA;
-            font-weight: 600;
-            color: #334155;
-        }
-        .stDownloadButton button:hover {
-            border-color: #4F46E5;
-            color: #4F46E5;
-        }
-        [data-testid="stDataFrame"] {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        [data-testid="stFileUploader"] {
-            border-radius: 12px;
-        }
-        [data-testid="stFileUploaderDropzone"] {
-            background: #F8FAFC;
-            border-color: #CBD5E1;
-            border-radius: 12px;
-        }
-        .stAlert {
-            border-radius: 12px;
-        }
-        [data-testid="stMarkdownContainer"] h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--ink);
-            margin: 0.15rem 0 0.55rem;
+        [class*="st-key-sidebar_reset"] button {
+            margin-left: auto;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.1rem 0.1rem 1.1rem;
+            gap: 0.62rem;
+            padding: 0.05rem 0.1rem 0.6rem;
         }
-        .brand-logo {
-            width: 38px;
-            height: 38px;
-            border-radius: 11px;
+        .brand-mark {
+            width: 26px;
+            height: 26px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #FFFFFF;
-            font-weight: 800;
-            font-size: 1.05rem;
-            background: linear-gradient(145deg, #6366F1 0%, #4F46E5 55%, #0D9488 130%);
-            box-shadow: 0 5px 18px rgba(79, 70, 229, 0.4);
+            border: 1px solid #CFDBD5;
+            border-radius: 7px;
+            background: #F2F7F4;
         }
         .brand-name {
-            color: #F8FAFC;
-            font-weight: 700;
+            color: var(--ink);
             font-size: 0.98rem;
-            letter-spacing: -0.01em;
-            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.1;
         }
         .brand-sub {
-            color: #64748B;
-            font-size: 0.64rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-top: 0.22rem;
+            color: #858B84;
+            font-size: 0.62rem;
+            letter-spacing: 0.02em;
+            margin-top: 0.17rem;
         }
-        .sidebar-eyebrow {
-            color: #64748B;
-            font-size: 0.63rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            margin: 0.15rem 0 0.6rem;
-        }
-        .sidebar-rule {
+        .side-rule {
             height: 1px;
-            background: #1E293B;
-            margin: 1.2rem 0 1.1rem;
+            background: #E7E3DA;
+            margin: 0.55rem 0 0.4rem;
         }
-        .sidebar-foot {
-            padding: 0.9rem 0.95rem;
-            border: 1px solid #1E293B;
-            border-radius: 12px;
-            background: #0F172A;
-            margin-top: 1.3rem;
+        .side-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.35rem 0.05rem 0.1rem;
         }
-        .sidebar-foot .dot {
-            width: 7px;
-            height: 7px;
+        .side-heading span:first-child {
+            color: #777D77;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+        .side-heading span:last-child {
+            color: #989D96;
+            font-size: 0.62rem;
+        }
+        .side-meta {
+            border-top: 1px solid #E7E3DA;
+            margin-top: 0.7rem;
+            padding: 0.95rem 0.08rem 0.1rem;
+        }
+        .side-meta-title {
+            color: #777D77;
+            font-size: 0.61rem;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .side-meta-date {
+            color: var(--ink-soft);
+            font-size: 0.71rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .side-meta-grid {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.55rem;
+            color: #6C726C;
+            font-size: 0.68rem;
+        }
+        .side-meta-grid strong {
+            color: var(--ink);
+            font-weight: 650;
+            font-variant-numeric: tabular-nums;
+        }
+        .side-meta-foot {
+            display: flex;
+            align-items: center;
+            gap: 0.42rem;
+            color: #8A8F89;
+            font-size: 0.63rem;
+            line-height: 1.5;
+            margin-top: 0.75rem;
+        }
+        .db-dot {
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
-            background: #34D399;
+            background: #4E8B70;
             display: inline-block;
-            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.13);
-            margin-right: 0.45rem;
+            flex: none;
         }
-        .sidebar-foot strong {
-            color: #E2E8F0;
+
+        /* Page header */
+        .page-kicker {
+            color: #7D837D;
+            font-size: 0.61rem;
+            letter-spacing: 0.13em;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.55rem;
+        }
+        .page-title {
+            font-family: var(--font-serif) !important;
+            color: var(--ink) !important;
+            font-size: clamp(1.75rem, 2.4vw, 2.28rem) !important;
+            font-weight: 500 !important;
+            line-height: 1.1 !important;
+            letter-spacing: -0.035em !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .page-subtitle {
+            color: #6A706B;
+            font-size: 0.79rem;
+            line-height: 1.55;
+            margin: 0.55rem 0 0;
+            max-width: 560px;
+        }
+        .page-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.52rem;
+            margin-top: 0.8rem;
+            color: #878D87;
+            font-size: 0.68rem;
+        }
+        .page-meta .live-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #4E8B70;
+            display: inline-block;
+            margin-right: 0.12rem;
+        }
+        .page-meta strong {
+            color: #5C625C;
+            font-weight: 600;
+        }
+        .page-meta .sep {
+            color: #C2C5BF;
+        }
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
+            padding: 0 0.48rem;
+            border-radius: 4px;
+            background: var(--primary-soft);
+            color: #38614F;
+            font-size: 0.61rem;
+            font-weight: 600;
+        }
+        [class*="st-key-header_action_box"] {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end !important;
+        }
+        [class*="st-key-header_action_box"] [data-testid="stElementContainer"] {
+            margin-left: auto !important;
+            width: fit-content;
+        }
+        [class*="st-key-header_action_box"] [data-testid="stDownloadButton"] button {
+            min-height: 35px;
+            border: 1px solid var(--border-strong);
+            border-radius: 7px;
+            background: #FFFFFF;
+            color: var(--ink-soft);
+            font-size: 0.71rem;
+            font-weight: 600;
+            box-shadow: none;
+        }
+        [class*="st-key-header_action_box"] [data-testid="stDownloadButton"] button:hover {
+            border-color: #AABDB3;
+            color: var(--primary);
+            background: #FCFDFC;
+        }
+
+        /* Tabs */
+        [data-testid="stTabs"] {
+            margin-top: 1.5rem;
+        }
+        [data-testid="stTabs"] [role="tablist"] {
+            gap: 1.55rem;
+            width: 100%;
+            padding: 0;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            margin-bottom: 1.2rem;
+        }
+        [data-testid="stTab"] {
+            min-height: 0;
+            padding: 0 0 0.72rem;
+            border-radius: 0;
+            background: transparent !important;
+            color: #7C827C !important;
+            cursor: pointer;
+        }
+        [data-testid="stTab"] [data-testid="stMarkdownContainer"] p {
+            color: inherit !important;
             font-size: 0.72rem;
             font-weight: 600;
-        }
-        .sidebar-foot small {
-            display: block;
-            color: #64748B;
-            font-size: 0.66rem;
-            line-height: 1.55;
-            margin-top: 0.42rem;
-        }
-        .filter-count {
-            display: inline-flex;
-            align-items: center;
-            border-radius: 999px;
-            background: #1E293B;
-            color: #A5B4FC;
-            font-size: 0.66rem;
-            font-weight: 700;
-            padding: 0.22rem 0.55rem;
-            margin-bottom: 0.55rem;
-        }
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            padding: 1.6rem 2rem 1.4rem;
-            background:
-                radial-gradient(circle at 86% 8%, rgba(99, 102, 241, 0.38) 0, transparent 34%),
-                radial-gradient(circle at 100% 110%, rgba(13, 148, 136, 0.30) 0, transparent 35%),
-                linear-gradient(118deg, #0B1220 0%, #111C35 55%, #172554 100%);
-            border: 1px solid rgba(148, 163, 184, 0.14);
-            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.16);
-            margin: 0.2rem 0 0.8rem;
-        }
-        .hero:after {
-            content: "";
-            position: absolute;
-            width: 360px;
-            height: 360px;
-            right: -120px;
-            top: -210px;
-            border-radius: 50%;
-            border: 1px solid rgba(165, 180, 252, 0.22);
-            box-shadow: 0 0 0 36px rgba(165, 180, 252, 0.035), 0 0 0 80px rgba(165, 180, 252, 0.025);
-        }
-        .hero-eyebrow {
-            color: #A5B4FC;
-            font-size: 0.64rem;
-            letter-spacing: 0.19em;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 0.55rem;
-        }
-        .hero-title {
-            color: #F8FAFC;
-            font-size: clamp(1.65rem, 2.6vw, 2.35rem);
-            line-height: 1.1;
-            letter-spacing: -0.035em;
-            font-weight: 750;
+            letter-spacing: 0.005em;
             margin: 0;
         }
-        .hero-title span {
-            color: #A5B4FC;
+        [data-testid="stTab"]:hover {
+            background: transparent !important;
+            color: var(--ink) !important;
         }
-        .hero-copy {
-            color: #94A3B8;
-            font-size: 0.85rem;
-            margin-top: 0.58rem;
-            max-width: 610px;
-            line-height: 1.55;
+        [data-testid="stTab"][aria-selected="true"] {
+            color: var(--ink) !important;
+            box-shadow: inset 0 -1.5px 0 var(--ink);
         }
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-top: 1.05rem;
+        [data-testid="stTab"][aria-selected="true"] [data-testid="stMarkdownContainer"] p {
+            color: var(--ink) !important;
         }
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            background: rgba(15, 23, 42, 0.35);
-            color: #CBD5E1;
-            font-size: 0.68rem;
-            font-weight: 600;
-            border-radius: 999px;
-            padding: 0.32rem 0.68rem;
-            backdrop-filter: blur(5px);
-        }
-        .hero-pill .pulse {
-            width: 6px;
-            height: 6px;
-            background: #34D399;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
+        [data-testid="stTab"] .react-aria-SelectionIndicator {
+            display: none;
         }
 
-        .kpi-card {
-            background: #FFFFFF;
+        /* Metric strip */
+        .metric-strip {
+            display: grid;
+            grid-template-columns: repeat(var(--metric-cols, 4), minmax(0, 1fr));
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.05rem 1.15rem 1rem;
-            min-height: 132px;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
-            position: relative;
+            border-radius: 10px;
             overflow: hidden;
+            margin-bottom: 1rem;
         }
-        .kpi-card:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--accent, #4F46E5);
-            opacity: 0.85;
+        .metric-cell {
+            padding: 1.05rem 1.15rem 1rem;
+            min-width: 0;
+            border-right: 1px solid var(--border);
         }
-        .kpi-top {
+        .metric-cell:last-child {
+            border-right: 0;
+        }
+        .metric-label {
+            display: flex;
+            align-items: center;
+            gap: 0.38rem;
+            color: #777D77;
+            font-size: 0.66rem;
+            font-weight: 600;
+        }
+        .metric-label .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex: none;
+        }
+        .metric-value {
+            color: var(--ink);
+            font-size: 1.72rem;
+            font-weight: 620;
+            letter-spacing: -0.045em;
+            line-height: 1.05;
+            margin-top: 0.45rem;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+        .metric-detail {
+            color: #858B85;
+            font-size: 0.64rem;
+            line-height: 1.45;
+            margin-top: 0.42rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .metric-detail strong {
+            color: #5E645E;
+            font-weight: 600;
+        }
+
+        /* Panels and cards */
+        [class*="st-key-card_"] {
+            border: 1px solid var(--border) !important;
+            border-radius: 10px !important;
+            background: var(--surface) !important;
+            box-shadow: none !important;
+            padding: 1rem 1.15rem 0.6rem !important;
+            min-height: 385px;
+        }
+        [class*="st-key-ops_"] {
+            border: 1px solid var(--border) !important;
+            border-radius: 10px !important;
+            background: var(--surface) !important;
+            box-shadow: none !important;
+            padding: 1rem 1.15rem 0.9rem !important;
+        }
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.15rem 1.05rem;
+            height: 100%;
+            min-height: 385px;
+        }
+        .panel .grow {
+            flex: 1;
+        }
+        .card-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.7rem;
+        }
+        .card-title {
+            color: var(--ink);
+            font-size: 0.8rem;
+            font-weight: 650;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+            margin: 0;
+        }
+        .card-sub {
+            color: #858B85;
+            font-size: 0.66rem;
+            line-height: 1.4;
+            margin-top: 0.2rem;
+        }
+        .card-aside {
+            color: var(--ink-soft);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-align: right;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.35;
+        }
+        .card-aside small {
+            display: block;
+            color: #989D96;
+            font-size: 0.55rem;
+            font-weight: 650;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin-top: 0.16rem;
+        }
+        .panel-foot {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 0.75rem;
-            margin-bottom: 0.65rem;
+            border-top: 1px solid #EFEDE7;
+            margin-top: auto;
+            padding-top: 0.65rem;
+            color: #888E88;
+            font-size: 0.62rem;
+            line-height: 1.45;
         }
-        .kpi-label {
-            color: var(--muted);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
+        .panel-foot strong {
+            color: #5D635D;
+            font-weight: 600;
         }
-        .kpi-icon {
-            width: 34px;
-            height: 34px;
-            min-width: 34px;
-            border-radius: 10px;
+        .panel-note {
+            color: #7E847E;
+            font-size: 0.63rem;
+            line-height: 1.5;
+            border-top: 1px solid #EFEDE7;
+            padding-top: 0.62rem;
+            margin-top: 0.7rem;
+        }
+        .empty-block {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--icon-bg, #EEF2FF);
-            color: var(--accent, #4F46E5);
-        }
-        .kpi-value {
-            color: var(--ink);
-            font-size: 1.78rem;
-            font-weight: 750;
-            letter-spacing: -0.035em;
-            line-height: 1.1;
-            font-variant-numeric: tabular-nums;
-        }
-        .kpi-detail {
-            color: var(--muted);
-            font-size: 0.69rem;
-            margin-top: 0.52rem;
-            line-height: 1.5;
-        }
-        .kpi-detail strong {
-            color: #334155;
-            font-weight: 650;
+            min-height: 140px;
+            color: var(--subtle);
+            font-size: 0.72rem;
         }
 
-        .section-head {
+        /* Allocation */
+        .allocation-panel {
             display: flex;
+            flex-direction: column;
+        }
+        .allocation-list {
+            display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: flex-end;
-            gap: 1rem;
-            margin: 1.05rem 0 0.35rem;
+            flex: 1;
+            margin-top: 0.25rem;
         }
-        .section-kicker {
-            color: #94A3B8;
-            font-size: 0.58rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            margin-bottom: 0.22rem;
+        .alloc-row {
+            padding: 0.52rem 0 0.48rem;
+            border-bottom: 1px solid #F1EFEA;
         }
-        .section-title {
-            color: var(--ink);
-            font-size: 1.04rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin: 0;
+        .alloc-row:last-child {
+            border-bottom: 0;
         }
-        .section-note {
-            color: var(--muted);
+        .alloc-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.8rem;
             font-size: 0.68rem;
-            text-align: right;
-            line-height: 1.4;
-            max-width: 360px;
+            line-height: 1.35;
         }
-
-        .risk-panel {
-            background: #FFFFFF;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.15rem 1.2rem 1.05rem;
-            min-height: 330px;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
-        }
-        .risk-panel-head {
+        .alloc-name {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
+            gap: 0.42rem;
+            color: #555B56;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .risk-panel-title {
+        .alloc-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            display: inline-block;
+            flex: none;
+        }
+        .alloc-value {
             color: var(--ink);
-            font-size: 0.93rem;
-            font-weight: 700;
-            letter-spacing: -0.015em;
+            font-weight: 600;
+            font-size: 0.67rem;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
         }
-        .risk-panel-badge {
-            border-radius: 999px;
-            background: #FFF7ED;
-            border: 1px solid #FED7AA;
-            color: #C2410C;
+        .alloc-share {
+            color: #91968F;
+            font-weight: 450;
+            margin-left: 0.22rem;
+        }
+        .alloc-track {
+            height: 3px;
+            background: #F1EFEA;
+            border-radius: 2px;
+            margin-top: 0.43rem;
+            overflow: hidden;
+        }
+        .alloc-track span {
+            display: block;
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        /* Risk panel */
+        .risk-panel {
+            display: flex;
+            flex-direction: column;
+        }
+        .risk-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            border-bottom: 1px solid #EFEDE7;
+            padding-bottom: 0.8rem;
+        }
+        .risk-stat span {
+            display: block;
+            color: #838983;
+            font-size: 0.62rem;
+            line-height: 1.45;
+        }
+        .risk-stat strong {
+            display: block;
+            color: var(--ink);
+            font-size: 1.25rem;
+            font-weight: 620;
+            letter-spacing: -0.035em;
+            margin-top: 0.22rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .risk-bar-label {
+            display: flex;
+            justify-content: space-between;
+            color: #8A908A;
+            font-size: 0.59rem;
+            margin: 0.8rem 0 0.38rem;
+        }
+        .risk-bar {
+            display: flex;
+            height: 9px;
+            border-radius: 3px;
+            overflow: hidden;
+            background: #F1EFEA;
+        }
+        .risk-bar span {
+            display: block;
+            height: 100%;
+        }
+        .risk-legend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.38rem 0.85rem;
+            margin-top: 0.65rem;
+        }
+        .risk-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.38rem;
+            color: #7E847E;
             font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            padding: 0.2rem 0.5rem;
-            text-transform: uppercase;
+            line-height: 1.45;
+            min-width: 0;
         }
-        .risk-row {
+        .risk-legend-item i {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex: none;
+        }
+        .risk-legend-item span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .risk-legend-item strong {
+            color: #545A55;
+            font-weight: 600;
+            margin-left: auto;
+            font-variant-numeric: tabular-nums;
+        }
+        .risk-insight {
+            color: #6E746E;
+            background: #FAF9F5;
+            border: 1px solid #EFECE5;
+            border-radius: 6px;
+            font-size: 0.62rem;
+            line-height: 1.5;
+            padding: 0.55rem 0.65rem;
+            margin-top: 0.65rem;
+        }
+        .risk-insight strong {
+            color: #565C57;
+        }
+
+        /* Standard data table */
+        .table-panel {
+            display: flex;
+            flex-direction: column;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-top: 0.25rem;
+        }
+        .data-table th {
+            color: #92978F;
+            font-size: 0.58rem;
+            font-weight: 650;
+            letter-spacing: 0.035em;
+            line-height: 1.35;
+            text-align: left;
+            padding: 0 0.38rem 0.45rem;
+            border-bottom: 1px solid #EAE7E0;
+            white-space: nowrap;
+        }
+        .data-table th.num,
+        .data-table td.num {
+            text-align: right;
+        }
+        .data-table td {
+            color: #5D635D;
+            font-size: 0.68rem;
+            line-height: 1.4;
+            padding: 0.58rem 0.38rem;
+            border-bottom: 1px solid #F2F0EB;
+            vertical-align: middle;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+        .data-table tr:last-child td {
+            border-bottom: 0;
+        }
+        .row-title {
+            display: block;
+            color: var(--ink-soft);
+            font-weight: 600;
+        }
+        .row-sub {
+            display: block;
+            color: #92978F;
+            font-size: 0.61rem;
+            margin-top: 0.12rem;
+        }
+        .data-table .risk-text {
+            color: var(--danger);
+        }
+        .data-table .warn-text {
+            color: var(--amber);
+        }
+        .table-footer {
+            color: #808680;
+            font-size: 0.62rem;
+            line-height: 1.5;
+            border-top: 1px solid #EFEDE7;
+            padding-top: 0.62rem;
+            margin-top: auto;
+        }
+        .table-footer strong {
+            color: #585E59;
+            font-weight: 600;
+        }
+
+        /* Exposure list */
+        .exposure-list {
+            margin-top: 0.1rem;
+        }
+        .exposure-row {
+            display: grid;
+            grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+            gap: 0.55rem;
+            align-items: center;
+            padding: 0.48rem 0;
+            border-bottom: 1px solid #F2F0EB;
+        }
+        .exposure-row:last-child {
+            border-bottom: 0;
+        }
+        .exposure-rank {
+            color: #A4A8A2;
+            font-family: var(--font-mono);
+            font-size: 0.59rem;
+            letter-spacing: -0.04em;
+        }
+        .exposure-person {
+            color: var(--ink-soft);
+            font-size: 0.68rem;
+            font-weight: 600;
+            line-height: 1.35;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .exposure-meta {
+            color: #92978F;
+            font-size: 0.6rem;
+            line-height: 1.4;
+            margin-top: 0.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .exposure-value {
+            color: var(--ink);
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-align: right;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+        .risk-tag {
+            display: block;
+            color: #A76A2D;
+            font-size: 0.56rem;
+            font-weight: 550;
+            margin-top: 0.12rem;
+        }
+
+        /* Quality */
+        .quality-panel {
+            min-height: 0;
             margin-bottom: 0.9rem;
         }
-        .risk-row-top {
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #39745B;
+            background: #EFF6F2;
+            border: 1px solid #DDE9E2;
+            border-radius: 4px;
+            font-size: 0.57rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.24rem 0.38rem;
+            white-space: nowrap;
+        }
+        .status-pill:before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #4B8A6D;
+        }
+        .status-pill.review {
+            color: #9D632C;
+            background: #FBF4E9;
+            border-color: #F0E0C9;
+        }
+        .status-pill.review:before {
+            background: #B47736;
+        }
+        .quality-columns {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0 2.4rem;
+        }
+        .quality-col-head {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 62px 32px;
+            gap: 0.7rem;
+            color: #969A94;
+            font-size: 0.55rem;
+            font-weight: 650;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.1rem 0.1rem 0.45rem;
+            border-bottom: 1px solid #EAE7E0;
+        }
+        .quality-col-head span:nth-child(2),
+        .quality-col-head span:nth-child(3) {
+            text-align: right;
+        }
+        .quality-entry {
+            border-bottom: 1px solid #F2F0EB;
+        }
+        .quality-entry:last-child {
+            border-bottom: 0;
+        }
+        .quality-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 62px 32px;
+            gap: 0.7rem;
+            align-items: center;
+            padding: 0.56rem 0.1rem;
+        }
+        .quality-name {
+            color: #4C524D;
+            font-size: 0.67rem;
+            font-weight: 550;
+            line-height: 1.35;
+        }
+        .quality-scope {
+            color: #989D96;
+            font-size: 0.57rem;
+            line-height: 1.35;
+            margin-top: 0.1rem;
+        }
+        .quality-finding {
+            color: #A9443C;
+            background: #FCF3F1;
+            border-radius: 4px;
+            font-size: 0.59rem;
+            line-height: 1.45;
+            padding: 0.35rem 0.45rem;
+            margin: 0 0.1rem 0.45rem;
+        }
+        .quality-count {
+            text-align: right;
+            color: #858B85;
+            font-size: 0.64rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .quality-summary {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: #5F655F;
+            font-size: 0.68rem;
+            line-height: 1.5;
+            margin: 0.1rem 0 0.2rem;
+        }
+        .quality-summary .check-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4B8A6D;
+        }
+
+        /* Completeness */
+        .completeness-panel {
+            min-height: 0;
+            margin-bottom: 0.7rem;
+        }
+        .completeness-wide {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 2rem;
+            padding-top: 0.15rem;
+        }
+        .coverage-top {
+            padding: 0.1rem 0 0;
+        }
+        .coverage-line {
             display: flex;
             align-items: baseline;
             justify-content: space-between;
             gap: 1rem;
-            margin-bottom: 0.34rem;
         }
-        .risk-label {
-            color: var(--muted);
-            font-size: 0.7rem;
-            font-weight: 600;
+        .coverage-label {
+            color: #7D837D;
+            font-size: 0.64rem;
         }
-        .risk-value {
+        .coverage-value {
             color: var(--ink);
-            font-size: 0.9rem;
-            font-weight: 750;
+            font-size: 1.23rem;
+            font-weight: 620;
+            letter-spacing: -0.035em;
             font-variant-numeric: tabular-nums;
         }
-        .meter {
-            height: 6px;
-            border-radius: 999px;
-            background: #F1F5F9;
+        .coverage-track {
+            height: 5px;
+            border-radius: 3px;
+            background: #F0EEE8;
+            margin-top: 0.5rem;
             overflow: hidden;
         }
-        .meter span {
+        .coverage-track span {
             display: block;
             height: 100%;
-            border-radius: 999px;
-            background: var(--meter, #4F46E5);
+            border-radius: 3px;
+            background: #4B8A6D;
         }
-        .risk-foot {
+        .coverage-caption {
+            color: #8B918A;
+            font-size: 0.6rem;
+            line-height: 1.5;
+            margin-top: 0.45rem;
+        }
+        .optional-list {
+            border-left: 1px solid #EFEDE7;
+            padding-left: 2rem;
+        }
+        .optional-title {
+            color: #8B918A;
+            font-size: 0.55rem;
+            font-weight: 650;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+        }
+        .coverage-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-top: 1px solid #F1F5F9;
-            margin-top: 0.4rem;
-            padding-top: 0.7rem;
-            color: var(--muted);
-            font-size: 0.65rem;
-        }
-        .risk-foot strong {
-            color: #334155;
-        }
-
-        .mini-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 0.8rem;
-            margin: 0.2rem 0 0.5rem;
-        }
-        .mini-card {
-            background: #FFFFFF;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 0.85rem 1rem;
-        }
-        .mini-label {
-            color: var(--muted);
+            gap: 1rem;
+            padding: 0.48rem 0;
+            border-bottom: 1px solid #F2F0EB;
             font-size: 0.64rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
         }
-        .mini-value {
-            color: var(--ink);
-            font-size: 1.25rem;
-            font-weight: 750;
-            margin-top: 0.28rem;
-            letter-spacing: -0.025em;
+        .coverage-row:last-child {
+            border-bottom: 0;
         }
-        .mini-hint {
-            color: #94A3B8;
-            font-size: 0.63rem;
-            margin-top: 0.2rem;
+        .coverage-field {
+            color: #646A64;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-
-        .eyebrow-note {
-            color: #94A3B8;
-            font-size: 0.68rem;
+        .coverage-missing {
+            color: #8F958F;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+        .coverage-note {
+            color: #8C918B;
+            font-size: 0.6rem;
             line-height: 1.5;
+            border-top: 1px solid #EFEDE7;
+            padding-top: 0.62rem;
+            margin-top: 0.8rem;
         }
-        .hero + div, .section-head + div {
-            margin-top: 0.2rem;
-        }
-        .app-footer {
-            color: #94A3B8;
-            font-size: 0.64rem;
-            line-height: 1.6;
-            text-align: center;
-            margin-top: 2rem;
-            border-top: 1px solid #E7ECF3;
-            padding-top: 1rem;
-        }
-        .import-step {
-            color: #64748B;
+
+        /* General controls */
+        .stButton button[kind="primary"] {
+            background: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 7px;
+            color: #FFFFFF;
             font-size: 0.72rem;
-            line-height: 1.7;
+            font-weight: 600;
+            min-height: 36px;
+            box-shadow: none;
         }
-        .import-step strong {
-            color: #334155;
+        .stButton button[kind="primary"]:hover {
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
         }
-        .metric-inline {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            color: #64748B;
+        .stButton button[kind="secondary"] {
+            border-radius: 7px;
+            border: 1px solid var(--border-strong);
+            color: var(--ink-soft);
+            font-size: 0.7rem;
+            font-weight: 550;
+            min-height: 35px;
+            background: #FFFFFF;
+        }
+        [data-testid="stDownloadButton"] button {
+            border-radius: 7px;
+            border: 1px solid var(--border);
+            color: #535953;
+            background: #FFFFFF;
+            font-size: 0.68rem;
+            font-weight: 550;
+            min-height: 34px;
+            box-shadow: none;
+        }
+        [data-testid="stDownloadButton"] button:hover {
+            border-color: #AABCB2;
+            color: var(--primary);
+            background: #FCFDFC;
+        }
+        [data-testid="stTextInput"] input {
+            background: #FFFFFF;
+            border: 1px solid #DDD9CF;
+            border-radius: 7px;
+            color: var(--ink);
+            font-size: 0.76rem;
+            min-height: 38px;
+        }
+        [data-testid="stTextInput"] > div > div {
+            border-color: #DDD9CF !important;
+            border-radius: 7px !important;
+        }
+        [data-testid="stTextInput"] input::placeholder {
+            color: #9A9F98 !important;
+        }
+        [data-testid="stFileUploader"] label {
+            color: #505650 !important;
+            font-size: 0.72rem !important;
+            font-weight: 600 !important;
+        }
+        [data-testid="stFileUploader"] {
+            background: #FBFAF7;
+            border: 1px dashed #D8D4CA;
+            border-radius: 8px;
+            padding: 0.35rem;
+        }
+        [data-testid="stFileUploaderDropzone"] {
+            background: transparent;
+            border: 0;
+            border-radius: 7px;
+            padding: 0.45rem;
+        }
+        [data-testid="stFileUploaderDropzone"] button {
+            border-radius: 6px;
+            border-color: #D3CFC5;
+            font-size: 0.68rem;
+            min-height: 32px;
+        }
+        [data-testid="stFileUploaderDropzone"] small {
+            color: #979C95;
+        }
+        [data-testid="stDataFrame"] {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #FFFFFF;
+        }
+        [data-testid="stExpander"] {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #FFFFFF;
+        }
+        [data-testid="stExpander"] summary {
+            color: #5F655F;
             font-size: 0.7rem;
         }
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #10B981;
-            display: inline-block;
+        .stAlert {
+            border-radius: 7px;
+            border-width: 1px;
+            font-size: 0.72rem;
+        }
+        .stAlert p {
+            font-size: 0.72rem;
+            line-height: 1.5;
+        }
+        div[data-testid="stSpinner"] {
+            color: var(--primary);
+        }
+
+        /* Data operations */
+        .ops-intro {
+            color: #6D736D;
+            font-size: 0.71rem;
+            line-height: 1.6;
+            margin: 0 0 0.75rem;
+        }
+        .ops-intro strong {
+            color: #4F5550;
+            font-weight: 600;
+        }
+        .required-fields {
+            color: #8B918A;
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            line-height: 1.7;
+            margin-top: -0.3rem;
+            margin-bottom: 0.6rem;
+            word-break: break-word;
+        }
+        .data-note {
+            color: #989D96;
+            font-size: 0.6rem;
+            line-height: 1.5;
+            margin-top: 0.5rem;
+        }
+        .workspace-strip {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr 1fr 1fr;
+            gap: 1rem;
+            align-items: center;
+            background: #F8F6F1;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 0.85rem 1rem;
+            margin-top: 1rem;
+        }
+        .workspace-strip .ws-label {
+            color: #888E88;
+            font-size: 0.6rem;
+            line-height: 1.45;
+        }
+        .workspace-strip .ws-value {
+            color: var(--ink-soft);
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            margin-top: 0.16rem;
+        }
+        .workspace-strip .ws-path {
+            color: #8B918A;
+            font-family: var(--font-mono);
+            font-size: 0.56rem;
+            line-height: 1.45;
+            margin-top: 0.15rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .section-note {
+            color: #858B85;
+            font-size: 0.66rem;
+            line-height: 1.5;
+        }
+        .app-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            color: #969B95;
+            font-size: 0.6rem;
+            line-height: 1.5;
+            border-top: 1px solid var(--border);
+            margin-top: 1.8rem;
+            padding-top: 0.9rem;
+        }
+        .app-footer span:last-child {
+            text-align: right;
+        }
+
+        @media (max-width: 1200px) {
+            .metric-detail {
+                white-space: normal;
+            }
+            .metric-value {
+                font-size: 1.55rem;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            [role="tabpanel"] [data-testid="stHorizontalBlock"] {
+                flex-wrap: wrap !important;
+                row-gap: 0.9rem;
+            }
+            [role="tabpanel"] [data-testid="stColumn"] {
+                flex: 1 1 100% !important;
+                width: 100% !important;
+                min-width: 100% !important;
+            }
         }
 
         @media (max-width: 900px) {
-            [data-testid="stMain"] .block-container { padding: 1rem 1rem 2rem; }
-            .hero { padding: 1.3rem 1.25rem; }
-            .kpi-card { min-height: 120px; }
-            .kpi-value { font-size: 1.5rem; }
-            .section-note { display: none; }
-            .mini-grid { grid-template-columns: 1fr; }
+            [data-testid="stMain"] .block-container {
+                padding: 3.6rem 1rem 2rem;
+            }
+            .page-title {
+                font-size: 1.9rem !important;
+            }
+            .metric-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .metric-cell {
+                border-bottom: 1px solid var(--border);
+            }
+            .metric-cell:nth-child(2n) {
+                border-right: 0;
+            }
+            .metric-cell:nth-last-child(-n+2) {
+                border-bottom: 0;
+            }
+            [data-testid="stTabs"] [role="tablist"] {
+                gap: 1.1rem;
+                overflow-x: auto;
+            }
+            .data-table th:nth-child(6),
+            .data-table td:nth-child(6) {
+                display: none;
+            }
+            .workspace-strip {
+                grid-template-columns: 1fr 1fr;
+            }
+            .completeness-wide {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .optional-list {
+                border-left: 0;
+                border-top: 1px solid #EFEDE7;
+                padding-left: 0;
+                padding-top: 0.6rem;
+            }
+            .app-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .app-footer span:last-child {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 620px) {
+            [data-testid="stSidebar"] > div:first-child {
+                padding: 1.1rem 0.9rem 1.2rem;
+            }
+            .page-title {
+                font-size: 1.65rem !important;
+            }
+            .page-subtitle {
+                font-size: 0.76rem;
+            }
+            .page-meta {
+                font-size: 0.62rem;
+            }
+            [data-testid="stTabs"] [role="tablist"] {
+                gap: 0.9rem;
+            }
+            [data-testid="stTab"] [data-testid="stMarkdownContainer"] p {
+                font-size: 0.67rem;
+            }
+            .quality-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .quality-columns > div + div {
+                margin-top: 0.7rem;
+            }
+            .metric-cell {
+                padding: 0.9rem;
+            }
+            .metric-value {
+                font-size: 1.35rem;
+            }
+            .workspace-strip {
+                grid-template-columns: 1fr;
+            }
         }
         </style>
         """,
@@ -689,249 +1418,484 @@ def inject_css() -> None:
 
 def render_brand() -> None:
     st.markdown(
-        f"""
-        <div class="brand">
-            <div class="brand-logo">N</div>
-            <div>
-                <div class="brand-name">{escape(APP_NAME)}</div>
-                <div class="brand-sub">{escape(APP_TAGLINE)}</div>
-            </div>
-        </div>
-        """,
+        '<div class="brand">'
+        '<div class="brand-mark">'
+        '<svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">'
+        '<path d="M10 1.6 11.95 8.05 18.4 10 11.95 11.95 10 18.4 8.05 11.95 1.6 10 8.05 8.05 10 1.6Z" fill="#225C4B"/>'
+        '</svg>'
+        '</div>'
+        f'<div><div class="brand-name">{escape(APP_NAME.lower())}</div>'
+        '<div class="brand-sub">Credit analytics</div></div>'
+        '</div>'
+        '<div class="side-rule"></div>',
         unsafe_allow_html=True,
     )
 
 
-def render_hero(as_of: str, loan_count: int, customer_count: int) -> None:
+def render_sidebar_footer(
+    loans: int,
+    customers: int,
+    db_size: str,
+    min_date: date | str,
+    max_date: date | str,
+) -> None:
     st.markdown(
-        f"""
-        <div class="hero">
-            <div class="hero-eyebrow">Credit portfolio / command center</div>
-            <h1 class="hero-title">Loan Portfolio <span>Analytics</span></h1>
-            <div class="hero-copy">
-                A single view of origination momentum, outstanding exposure, delinquency
-                and credit quality across the lending book.
-            </div>
-            <div class="hero-meta">
-                <span class="hero-pill"><span class="pulse"></span> Live portfolio view</span>
-                <span class="hero-pill">As of {escape(as_of)}</span>
-                <span class="hero-pill">{loan_count:,} loans · {customer_count:,} borrowers</span>
-            </div>
-        </div>
-        """,
+        '<div class="side-meta">'
+        '<div class="side-meta-title">Data coverage</div>'
+        f'<div class="side-meta-date">{format_date(min_date)} – {format_date(max_date)}</div>'
+        '<div class="side-meta-grid">'
+        f'<span><strong>{loans:,}</strong> loans</span>'
+        f'<span><strong>{customers:,}</strong> customers</span>'
+        '</div>'
+        f'<div class="side-meta-foot"><span class="db-dot"></span>Local SQLite · {escape(db_size)}</div>'
+        '<div class="side-meta-foot">Synthetic demonstration portfolio</div>'
+        '</div>',
         unsafe_allow_html=True,
     )
 
 
-def _kpi_icon(kind: str) -> str:
-    icons = {
-        "loans": (
-            '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" '
-            'xmlns="http://www.w3.org/2000/svg"><path d="M4 7.5h16M6.5 4h11A2.5 2.5 0 0 1 20 6.5v11'
-            'a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4Z" '
-            'stroke="currentColor" stroke-width="1.7"/><path d="M8 12h8M8 16h5" '
-            'stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
-        ),
-        "balance": (
-            '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" '
-            'xmlns="http://www.w3.org/2000/svg"><path d="M4 8.5h16v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9Z" '
-            'stroke="currentColor" stroke-width="1.7"/><path d="M4 8.5V7a2 2 0 0 1 2-2h10.5" '
-            'stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M15.5 14.2h1" '
-            'stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'
-        ),
-        "overdue": (
-            '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" '
-            'xmlns="http://www.w3.org/2000/svg"><path d="M12 4 3.8 18.2A1.1 1.1 0 0 0 4.8 20h14.4'
-            'a1.1 1.1 0 0 0 1-1.8L12 4Z" stroke="currentColor" stroke-width="1.7" '
-            'stroke-linejoin="round"/><path d="M12 9v4.5" stroke="currentColor" stroke-width="1.8" '
-            'stroke-linecap="round"/><circle cx="12" cy="16.8" r="0.9" fill="currentColor"/></svg>'
-        ),
-        "default": (
-            '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" '
-            'xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5 19 6v5.2c0 4.4-2.9 7.8-7 9.3-4.1-1.5-7-4.9-7-9.3V6l7-2.5Z" '
-            'stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9.2 11.8 1.9 1.9 3.8-4" '
-            'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-        ),
-    }
-    return icons[kind]
-
-
-def _kpi_card(
-    label: str,
-    value: str,
-    detail: str,
-    icon: str,
-    accent: str,
-    icon_bg: str,
-) -> str:
-    return f"""
-        <div class="kpi-card" style="--accent:{accent}; --icon-bg:{icon_bg};">
-            <div class="kpi-top">
-                <span class="kpi-label">{label}</span>
-                <span class="kpi-icon">{_kpi_icon(icon)}</span>
-            </div>
-            <div class="kpi-value">{value}</div>
-            <div class="kpi-detail">{detail}</div>
-        </div>
-    """
-
-
-def render_kpi_cards(kpis: dict) -> None:
-    columns = st.columns(4, gap="medium")
-    cards = [
-        _kpi_card(
-            "Total loans",
-            f"{int(kpis.get('total_loans', 0)):,}",
-            (
-                f"<strong>{int(kpis.get('customers', 0)):,}</strong> borrowers"
-                f" · <strong>{kpis.get('active_share', 0):.0f}%</strong> active"
-            ),
-            "loans",
-            "#4F46E5",
-            "#EEF2FF",
-        ),
-        _kpi_card(
-            "Outstanding balance",
-            compact_currency(kpis.get("outstanding_balance", 0)),
-            (
-                f"<strong>{kpis.get('outstanding_ratio', 0):.1f}%</strong> of originated capital"
-            ),
-            "balance",
-            "#0D9488",
-            "#CCFBF1",
-        ),
-        _kpi_card(
-            "Overdue loans",
-            f"{int(kpis.get('overdue_loans', 0)):,}",
-            (
-                f"<strong>{compact_currency(kpis.get('overdue_balance', 0))}</strong> overdue"
-                f" · {kpis.get('overdue_rate', 0):.1f}% of book"
-            ),
-            "overdue",
-            "#D97706",
-            "#FEF3C7",
-        ),
-        _kpi_card(
-            "Default rate",
-            f"{kpis.get('default_rate', 0):.1f}%",
-            (
-                f"<strong>{int(kpis.get('defaulted_loans', 0)):,}</strong> defaults"
-                f" · {kpis.get('default_rate_balance', 0):.1f}% by balance"
-            ),
-            "default",
-            "#DC2626",
-            "#FEE2E2",
-        ),
-    ]
-    for column, card in zip(columns, cards):
-        with column:
-            st.markdown(card, unsafe_allow_html=True)
-
-
-def section_header(kicker: str, title: str, note: str = "") -> None:
-    note_html = f'<div class="section-note">{escape(note)}</div>' if note else ""
-    st.markdown(
-        f"""
-        <div class="section-head">
-            <div>
-                <div class="section-kicker">{escape(kicker)}</div>
-                <div class="section-title">{escape(title)}</div>
-            </div>
-            {note_html}
-        </div>
-        """,
-        unsafe_allow_html=True,
+def render_page_header(
+    as_of: str,
+    loans: int,
+    customers: int,
+    active_filters: int,
+) -> None:
+    filter_chip = (
+        f'<span class="filter-chip">{active_filters} filter'
+        f'{"s" if active_filters != 1 else ""} applied</span>'
+        if active_filters
+        else ""
     )
-
-
-def render_risk_posture(kpis: dict, concentration: float, top_product: str) -> None:
-    par30 = float(kpis.get("par30_rate", 0))
-    avg_rate = float(kpis.get("weighted_avg_rate", 0))
-    avg_dpd = float(kpis.get("avg_dpd", 0))
-    overdue_rate = float(kpis.get("overdue_rate", 0))
-
-    def meter(value: float, maximum: float, color: str) -> str:
-        width = max(2.0, min(100.0, (value / maximum) * 100 if maximum else 0))
-        return f'<div class="meter"><span style="width:{width:.1f}%; --meter:{color};"></span></div>'
-
     st.markdown(
-        f"""
-        <div class="risk-panel">
-            <div class="risk-panel-head">
-                <div class="risk-panel-title">Portfolio risk posture</div>
-                <span class="risk-panel-badge">Monitor</span>
-            </div>
-            <div class="risk-row">
-                <div class="risk-row-top">
-                    <span class="risk-label">Portfolio at risk · 30+ DPD</span>
-                    <span class="risk-value">{par30:.1f}%</span>
-                </div>
-                {meter(par30, 20, "#DC2626")}
-            </div>
-            <div class="risk-row">
-                <div class="risk-row-top">
-                    <span class="risk-label">Overdue balance share</span>
-                    <span class="risk-value">{overdue_rate:.1f}%</span>
-                </div>
-                {meter(overdue_rate, 20, "#D97706")}
-            </div>
-            <div class="risk-row">
-                <div class="risk-row-top">
-                    <span class="risk-label">Top product concentration</span>
-                    <span class="risk-value">{concentration:.0f}%</span>
-                </div>
-                {meter(concentration, 60, "#4F46E5")}
-            </div>
-            <div class="risk-row">
-                <div class="risk-row-top">
-                    <span class="risk-label">Average days past due</span>
-                    <span class="risk-value">{avg_dpd:.0f} days</span>
-                </div>
-                {meter(avg_dpd, 60, "#0D9488")}
-            </div>
-            <div class="risk-foot">
-                <span>Weighted average rate <strong>{avg_rate:.2f}%</strong></span>
-                <span>Largest: <strong>{escape(top_product or "—")}</strong></span>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-def render_mini_metrics(items: list[tuple[str, str, str]]) -> None:
-    cards = "".join(
-        f'<div class="mini-card">'
-        f'<div class="mini-label">{escape(label)}</div>'
-        f'<div class="mini-value">{escape(value)}</div>'
-        f'<div class="mini-hint">{escape(hint)}</div>'
-        f'</div>'
-        for label, value, hint in items
-    )
-    st.markdown(f'<div class="mini-grid">{cards}</div>', unsafe_allow_html=True)
-
-
-def render_sidebar_footer(loans: int, customers: int, db_size: str = "") -> None:
-    size_note = f" · {db_size}" if db_size else ""
-    st.markdown(
-        f"""
-        <div class="sidebar-foot">
-            <strong><span class="dot"></span>Database connected</strong>
-            <small>{loans:,} loans · {customers:,} customers{size_note}<br>
-            Seeded demo portfolio for local analytics.</small>
-        </div>
-        """,
+        '<div class="page-heading">'
+        '<div class="page-kicker">Portfolio analytics</div>'
+        '<h1 class="page-title">Loan portfolio</h1>'
+        '<p class="page-subtitle">Exposure, origination and credit quality across the '
+        'lending book.</p>'
+        '<div class="page-meta">'
+        f'<span><span class="live-dot"></span>As of {escape(as_of)}</span>'
+        '<span class="sep">/</span>'
+        f'<span><strong>{loans:,}</strong> loans</span>'
+        '<span class="sep">/</span>'
+        f'<span><strong>{customers:,}</strong> customers</span>'
+        '<span class="sep">/</span>'
+        '<span>USD</span>'
+        f'{filter_chip}'
+        '</div>'
+        '</div>',
         unsafe_allow_html=True,
     )
 
 
 def render_app_footer() -> None:
     st.markdown(
-        """
-        <div class="app-footer">
-            Northstar Credit · Loan Portfolio Analytics · Synthetic demonstration data.
-            Built with Streamlit, Pandas, Plotly and SQLite.
-        </div>
-        """,
+        '<div class="app-footer">'
+        '<span>Northstar Credit Analytics</span>'
+        '<span>Synthetic portfolio · Local SQLite workspace · Streamlit / Pandas / Plotly</span>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Content components
+# ---------------------------------------------------------------------------
+
+
+def card_header(
+    title: str,
+    subtitle: str = "",
+    meta: str = "",
+    meta_label: str = "",
+) -> None:
+    aside = ""
+    if meta:
+        label = f"<small>{escape(meta_label)}</small>" if meta_label else ""
+        aside = f'<div class="card-aside">{escape(meta)}{label}</div>'
+    subtitle_html = f'<div class="card-sub">{escape(subtitle)}</div>' if subtitle else ""
+    st.markdown(
+        '<div class="card-head">'
+        f'<div><div class="card-title">{escape(title)}</div>{subtitle_html}</div>'
+        f'{aside}'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def render_metric_strip(items: list[dict], columns: int | None = None) -> None:
+    cols = columns or len(items)
+    cells = []
+    for item in items:
+        color = item.get("color", COLORS["primary"])
+        detail = item.get("detail", "")
+        cells.append(
+            '<div class="metric-cell">'
+            '<div class="metric-label">'
+            f'<span class="dot" style="background:{escape(color)}"></span>'
+            f'{escape(item["label"])}</div>'
+            f'<div class="metric-value">{escape(item["value"])}</div>'
+            f'<div class="metric-detail">{escape(detail)}</div>'
+            '</div>'
+        )
+    st.markdown(
+        f'<div class="metric-strip" style="--metric-cols:{int(cols)}">{"".join(cells)}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def _card_head_html(
+    title: str,
+    subtitle: str = "",
+    meta: str = "",
+    meta_label: str = "",
+) -> str:
+    aside = ""
+    if meta:
+        label = f"<small>{escape(meta_label)}</small>" if meta_label else ""
+        aside = f'<div class="card-aside">{escape(meta)}{label}</div>'
+    subtitle_html = f'<div class="card-sub">{escape(subtitle)}</div>' if subtitle else ""
+    return (
+        '<div class="card-head">'
+        f'<div><div class="card-title">{escape(title)}</div>{subtitle_html}</div>'
+        f'{aside}'
+        '</div>'
+    )
+
+
+def render_product_allocation(mix: pd.DataFrame) -> None:
+    total = float(mix["outstanding_balance"].sum()) if not mix.empty else 0.0
+    header = _card_head_html(
+        "Outstanding by product",
+        "Share of open balance",
+        compact_currency(total),
+        "open",
+    )
+    if mix.empty or total <= 0:
+        body = '<div class="empty-block">No outstanding balance in this selection.</div>'
+    else:
+        rows = []
+        for row in mix.sort_values("outstanding_balance", ascending=False).itertuples(index=False):
+            share = float(row.outstanding_balance) / total * 100 if total else 0
+            color = PRODUCT_COLORS.get(row.loan_type, COLORS["primary"])
+            rows.append(
+                '<div class="alloc-row">'
+                '<div class="alloc-line">'
+                '<span class="alloc-name">'
+                f'<span class="alloc-dot" style="background:{escape(color)}"></span>'
+                f'{escape(row.loan_type)}</span>'
+                '<span class="alloc-value">'
+                f'{compact_currency(row.outstanding_balance)}'
+                f'<span class="alloc-share">{share:.1f}%</span>'
+                '</span>'
+                '</div>'
+                f'<div class="alloc-track"><span style="width:{max(share, 1.2):.2f}%;background:{escape(color)}"></span></div>'
+                '</div>'
+            )
+        body = f'<div class="allocation-list">{"".join(rows)}</div>'
+    st.markdown(
+        f'<div class="panel allocation-panel">{header}{body}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def render_risk_panel(kpis: dict, dpd: pd.DataFrame) -> None:
+    overdue = dpd[dpd["bucket"] != "Current"].copy() if not dpd.empty else dpd
+    total_overdue = float(overdue["outstanding_balance"].sum()) if not overdue.empty else 0.0
+    total_open = float(dpd["outstanding_balance"].sum()) if not dpd.empty else 0.0
+    current_share = (
+        float(dpd.loc[dpd["bucket"] == "Current", "outstanding_balance"].sum()) / total_open * 100
+        if total_open
+        else 0
+    )
+    bucket_colors = {
+        "1–29 days": "#C9B576",
+        "30–59 days": "#BE8254",
+        "60–89 days": "#A85B47",
+        "90+ days": "#963A32",
+    }
+    header = _card_head_html(
+        "Credit quality",
+        "Past-due balance by ageing bucket",
+        f'{int(kpis.get("overdue_loans", 0)):,}',
+        "overdue loans",
+    )
+    stat_html = (
+        '<div class="risk-top">'
+        '<div class="risk-stat"><span>PAR 30+</span>'
+        f'<strong>{_pct(kpis.get("par30_rate", 0))}</strong></div>'
+        '<div class="risk-stat"><span>90+ DPD exposure</span>'
+        f'<strong>{compact_currency(kpis.get("par90_balance", 0))}</strong></div>'
+        '</div>'
+    )
+    if overdue.empty or total_overdue <= 0:
+        bar_html = '<div class="empty-block" style="min-height:90px">No overdue exposure.</div>'
+        insight = "No past-due balances in the current selection."
+    else:
+        bar_parts = []
+        legend_parts = []
+        for row in overdue.itertuples(index=False):
+            share = float(row.outstanding_balance) / total_overdue * 100 if total_overdue else 0
+            color = bucket_colors.get(row.bucket, COLORS["primary"])
+            bar_parts.append(
+                f'<span style="width:{share:.2f}%;background:{color}" title="{escape(row.bucket)}"></span>'
+            )
+            legend_parts.append(
+                '<span class="risk-legend-item">'
+                f'<i style="background:{color}"></i>'
+                f'<span>{escape(row.bucket)}</span><strong>{share:.0f}%</strong></span>'
+            )
+        bar_html = (
+            '<div class="risk-bar-label"><span>Composition of past-due balance</span>'
+            f'<span>{compact_currency(total_overdue)}</span></div>'
+            f'<div class="risk-bar">{"".join(bar_parts)}</div>'
+            f'<div class="risk-legend">{"".join(legend_parts)}</div>'
+        )
+        highest = overdue.sort_values("outstanding_balance", ascending=False).iloc[0]
+        highest_share = float(highest["outstanding_balance"]) / total_overdue * 100
+        insight = (
+            f'Accounts <strong>{escape(highest["bucket"])}</strong> past due carry '
+            f'{highest_share:.0f}% of past-due balance.'
+        )
+    insight_html = f'<div class="risk-insight">{insight}</div>'
+    footer = (
+        '<div class="panel-foot">'
+        f'<span>Current book <strong>{current_share:.1f}%</strong></span>'
+        f'<span>Weighted rate <strong>{_pct(kpis.get("weighted_avg_rate", 0), 2)}</strong></span>'
+        '</div>'
+    )
+    st.markdown(
+        f'<div class="panel risk-panel">{header}{stat_html}{bar_html}{insight_html}{footer}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def render_segment_table(segment: pd.DataFrame) -> None:
+    header = _card_head_html(
+        "Segment performance",
+        "Exposure and credit quality by customer type",
+        f"{len(segment):,}",
+        "segments",
+    )
+    if segment.empty:
+        body = '<div class="empty-block">No segment data in this selection.</div>'
+        footer = ""
+    else:
+        rows = []
+        for row in segment.itertuples(index=False):
+            default_class = "risk-text" if row.default_rate >= 5 else ("warn-text" if row.default_rate >= 3 else "")
+            par_class = "risk-text" if row.par30_rate >= 5 else ("warn-text" if row.par30_rate >= 2 else "")
+            rows.append(
+                '<tr>'
+                f'<td><span class="row-title">{escape(row.segment)}</span>'
+                f'<span class="row-sub">{int(row.customer_count):,} customers</span></td>'
+                f'<td class="num">{int(row.loan_count):,}</td>'
+                f'<td class="num">{compact_currency(row.outstanding_balance)}</td>'
+                f'<td class="num {default_class}">{_pct(row.default_rate)}</td>'
+                f'<td class="num {par_class}">{_pct(row.par30_rate)}</td>'
+                f'<td class="num">{_pct(row.avg_rate, 2)}</td>'
+                '</tr>'
+            )
+        body = (
+            '<table class="data-table">'
+            '<thead><tr>'
+            '<th>Segment</th><th class="num">Loans</th><th class="num">Outstanding</th>'
+            '<th class="num">Default</th><th class="num">PAR 30+</th><th class="num">Avg rate</th>'
+            '</tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table>'
+        )
+        riskiest = segment.sort_values("par30_rate", ascending=False).iloc[0]
+        footer = (
+            '<div class="table-footer">'
+            f'<strong>{escape(riskiest["segment"])}</strong> has the highest PAR 30+ at '
+            f'{riskiest["par30_rate"]:.1f}%. Default rate is calculated on originated principal.'
+            '</div>'
+        )
+    st.markdown(
+        f'<div class="panel table-panel">{header}{body}{footer}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def render_exposure_list(top_exposures: pd.DataFrame, total_outstanding: float) -> None:
+    header = _card_head_html(
+        "Largest exposures",
+        "Borrowers ranked by open balance",
+        f"Top {len(top_exposures):,}" if not top_exposures.empty else "Top exposures",
+    )
+    if top_exposures.empty:
+        body = '<div class="empty-block">No open exposures in this selection.</div>'
+        footer = ""
+    else:
+        rows = []
+        for index, row in enumerate(top_exposures.itertuples(index=False), start=1):
+            risk_tag = ""
+            if int(row.defaulted_loans) > 0:
+                risk_tag = '<span class="risk-tag">Defaulted</span>'
+            elif int(row.max_dpd) > 0:
+                risk_tag = f'<span class="risk-tag">{int(row.max_dpd)} DPD</span>'
+            rows.append(
+                '<div class="exposure-row">'
+                f'<div class="exposure-rank">{index:02d}</div>'
+                '<div>'
+                f'<div class="exposure-person">{escape(row.full_name)}</div>'
+                f'<div class="exposure-meta">{escape(row.segment)} · {int(row.loan_count):,} loans</div>'
+                '</div>'
+                '<div>'
+                f'<div class="exposure-value">{compact_currency(row.exposure)}</div>'
+                f'{risk_tag}'
+                '</div>'
+                '</div>'
+            )
+        exposure_sum = float(top_exposures["exposure"].sum())
+        share = exposure_sum / total_outstanding * 100 if total_outstanding else 0
+        footer = (
+            '<div class="panel-foot">'
+            f'<span>Top {len(top_exposures):,} share <strong>{share:.1f}%</strong> of open balance</span>'
+            '</div>'
+        )
+        body = f'<div class="exposure-list">{"".join(rows)}</div>'
+    st.markdown(
+        f'<div class="panel table-panel">{header}{body}{footer}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def render_segment_risk_table(segment: pd.DataFrame) -> None:
+    header = _card_head_html(
+        "Segment risk",
+        "Default and delinquency by customer type",
+        "Watchlist",
+    )
+    if segment.empty:
+        body = '<div class="empty-block">No segment data in this selection.</div>'
+        footer = ""
+    else:
+        rows = []
+        for row in segment.sort_values("par30_rate", ascending=False).itertuples(index=False):
+            default_class = "risk-text" if row.default_rate >= 5 else ("warn-text" if row.default_rate >= 3 else "")
+            par_class = "risk-text" if row.par30_rate >= 5 else ("warn-text" if row.par30_rate >= 2 else "")
+            rows.append(
+                '<tr>'
+                f'<td><span class="row-title">{escape(row.segment)}</span>'
+                f'<span class="row-sub">{int(row.customer_count):,} customers</span></td>'
+                f'<td class="num {par_class}">{_pct(row.par30_rate)}</td>'
+                f'<td class="num {default_class}">{_pct(row.default_rate)}</td>'
+                f'<td class="num">{int(row.avg_dpd)} days</td>'
+                '</tr>'
+            )
+        body = (
+            '<table class="data-table">'
+            '<thead><tr><th>Segment</th><th class="num">PAR 30+</th>'
+            '<th class="num">Default</th><th class="num">Avg DPD</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table>'
+        )
+        footer = (
+            '<div class="table-footer">'
+            'PAR and default rates are balance-weighted as of the latest refresh.'
+            '</div>'
+        )
+    st.markdown(
+        f'<div class="panel table-panel">{header}{body}{footer}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def render_quality_checks(checks: pd.DataFrame) -> None:
+    passed = int((checks["status"] == "Passed").sum()) if not checks.empty else 0
+    header = _card_head_html(
+        "Validation controls",
+        "Run against the complete database, independent of filters",
+        f"{passed}/{len(checks):,}",
+        "passed",
+    )
+    if checks.empty:
+        body = '<div class="empty-block">No validation controls available.</div>'
+    else:
+        split_at = (len(checks) + 1) // 2
+        check_columns = [checks.iloc[:split_at], checks.iloc[split_at:]]
+        columns_html = []
+        for column in check_columns:
+            entries = []
+            for row in column.itertuples(index=False):
+                pill_class = "status-pill" if row.status == "Passed" else "status-pill review"
+                finding = (
+                    f'<div class="quality-finding">{escape(row.finding)}</div>'
+                    if row.status != "Passed"
+                    else ""
+                )
+                entries.append(
+                    '<div class="quality-entry">'
+                    '<div class="quality-item">'
+                    '<div>'
+                    f'<div class="quality-name">{escape(row.check)}</div>'
+                    f'<div class="quality-scope">{escape(row.scope)} · {escape(row.severity)}</div>'
+                    '</div>'
+                    f'<div><span class="{pill_class}">{escape(row.status)}</span></div>'
+                    f'<div class="quality-count">{int(row.issues):,}</div>'
+                    '</div>'
+                    f'{finding}'
+                    '</div>'
+                )
+            columns_html.append(
+                '<div>'
+                '<div class="quality-col-head"><span>Control</span><span>Result</span><span>Issues</span></div>'
+                f'{"".join(entries)}'
+                '</div>'
+            )
+        body = f'<div class="quality-columns">{"".join(columns_html)}</div>'
+    st.markdown(
+        f'<div class="panel quality-panel">{header}{body}</div>',
+        unsafe_allow_html=True,
+    )
+
+
+def render_completeness(missing: pd.DataFrame) -> None:
+    header = _card_head_html(
+        "Field completeness",
+        "Missing-value profile across the database",
+        "",
+    )
+    if missing.empty:
+        body = '<div class="empty-block">No field-level data available.</div>'
+    else:
+        critical = missing[missing["critical"]]
+        critical_complete = int((critical["missing"] == 0).sum())
+        critical_total = len(critical)
+        coverage = 100 * critical_complete / critical_total if critical_total else 100.0
+        optional = missing[(~missing["critical"]) & (missing["missing"] > 0)].sort_values(
+            "missing", ascending=False
+        )
+        optional_rows = []
+        for row in optional.head(8).itertuples(index=False):
+            optional_rows.append(
+                '<div class="coverage-row">'
+                f'<span class="coverage-field">{escape(row.table)}.{escape(row.column)}</span>'
+                f'<span class="coverage-missing">{int(row.missing):,} blank</span>'
+                '</div>'
+            )
+        optional_html = (
+            '<div class="optional-list">'
+            '<div class="optional-title">Expected blank fields</div>'
+            f'{"".join(optional_rows)}'
+            '</div>'
+            if optional_rows
+            else ""
+        )
+        body = (
+            '<div class="completeness-wide">'
+            '<div class="coverage-top">'
+            '<div class="coverage-line"><span class="coverage-label">Critical field coverage</span>'
+            f'<span class="coverage-value">{coverage:.1f}%</span></div>'
+            f'<div class="coverage-track"><span style="width:{coverage:.1f}%"></span></div>'
+            f'<div class="coverage-caption">{critical_complete} of {critical_total} critical fields '
+            'fully populated across the database.</div>'
+            '<div class="coverage-note">Optional lifecycle dates are blank until a loan is closed '
+            'or defaults. Critical-field completeness is scored separately.</div>'
+            '</div>'
+            f'{optional_html}'
+            '</div>'
+        )
+    st.markdown(
+        f'<div class="panel completeness-panel">{header}{body}</div>',
         unsafe_allow_html=True,
     )

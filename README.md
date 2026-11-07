@@ -1,6 +1,8 @@
 # Northstar — Loan Portfolio Analytics Dashboard
 
-A clean, local-first analytics dashboard for a consumer and commercial lending book. It combines a relational SQLite database, parameterized SQL analytics, Streamlit, Pandas and Plotly into a single application that runs with minimal setup.
+A local-first portfolio analytics workspace for a consumer and commercial lending book. It combines a relational SQLite database, parameterized SQL analytics, Streamlit, Pandas and Plotly into one lightweight application.
+
+The interface is intentionally calm and typography-led: a warm neutral canvas, a light filter sidebar, deep green accents, hairline card borders and compact analytical tables. There are no external UI libraries or font CDNs to configure.
 
 The demo portfolio contains **1,600 loans across 900 customers**, 18 months of month-end snapshots, realistic delinquency and default behaviour, and a complete CSV import/export workflow.
 
@@ -10,11 +12,11 @@ The demo portfolio contains **1,600 loans across 900 customers**, 18 months of m
 
 ## Highlights
 
-- **Executive overview** — total loans, outstanding balance, overdue loans and default rate, plus monthly disbursements, portfolio mix, overdue trends, segment scorecard and largest exposures.
-- **Risk & delinquency** — PAR 30+, 90+ DPD exposure, weighted average rate, DPD buckets, default rate by risk grade, quarterly vintage quality and segment-level risk.
-- **Loan explorer** — searchable loan-level table, live totals and an export of the current search result.
+- **Executive overview** — total loans, outstanding balance, overdue loans and default rate, plus origination activity, product allocation, delinquency trends, segment performance and largest exposures.
+- **Risk & delinquency** — PAR 30+, 90+ DPD exposure, weighted average rate, DPD buckets, default rate by risk grade, completed-vintage quality and segment-level risk.
+- **Loan explorer** — a clean searchable loan grid, live totals and an export of the current search result.
 - **Data quality center** — 15 duplicate, missing-value, referential-integrity and business-rule checks, plus a field-level completeness scan.
-- **CSV operations** — validated loan import with row-level errors and safe defaults, plus filtered loan book, portfolio summary, monthly origination and segment scorecard exports.
+- **CSV operations** — validated loan import with row-level errors and safe defaults, plus filtered loan-book, portfolio-summary, monthly-origination and segment-performance exports.
 - **Interactive filters** — disbursement date range, loan type, loan status and customer segment, applied consistently across every tab through SQL.
 - **Reproducible demo data** — seeded generator and one-command database reset.
 
@@ -98,18 +100,19 @@ The images in `docs/screenshots/` were captured at **1440 px wide**, with all si
 To refresh them:
 
 1. Run the app with `streamlit run app.py`.
-2. Clear **all sidebar filters** with **Reset filters**; leave the date range at its full default span.
-3. Use a browser viewport of **1440 px** wide and wait for all Plotly charts to finish animating.
+2. Use **Reset** at the top of the filter sidebar to clear every filter, then leave the disbursement period at full coverage.
+3. Set a browser viewport of **1440 px** wide and wait for the Plotly transitions to finish.
 4. Capture each tab at full page height. Recommended filenames:
    - `docs/screenshots/overview.png` — Overview tab
    - `docs/screenshots/risk.png` — Risk & delinquency tab
    - `docs/screenshots/quality.png` — Data quality tab
    - `docs/screenshots/import_export.png` — Import & export tab
    - `docs/screenshots/explorer.png` — Loan explorer tab
-5. Keep the dark sidebar, the full hero panel and the footer in frame. A viewport height of roughly 1,300–2,300 px works depending on the tab.
-6. If you take screenshots with a different viewport, keep the same names so the README images stay current.
+5. Keep the light filter sidebar, the page header and the footer in frame. Current tabs are roughly 850–1,800 px tall at this width.
+6. Use **Overview** for the primary README screenshot and keep the **Overview** tab active so the navigation underline and content agree.
+7. If you use a different viewport, keep the same filenames so the README images stay current.
 
-> The screenshots in this repository are illustrative and were generated from the seeded synthetic portfolio on **8 Nov 2026**.
+> The screenshots in this repository are illustrative and were generated from the seeded synthetic portfolio on **8 Nov 2026**. The dashboard uses responsive column stacking below 1,100 px and collapses the filter sidebar on smaller screens; a visible chevron button restores it.
 
 ---
 
@@ -127,12 +130,12 @@ To refresh them:
 
 All dashboard tabs use the same four filters in the sidebar:
 
-- **Disbursement date range** — inclusive start and end date.
+- **Disbursement period** — inclusive start and end date.
 - **Loan type** — one or more of the seven supported products.
-- **Loan status** — `Active`, `Closed` or `Defaulted`.
+- **Status** — `Active`, `Closed` or `Defaulted`.
 - **Customer segment** — `Retail`, `SME`, `Corporate` or `Premium`.
 
-An empty multi-select means **all values**. The active filter counter shows how many dimensions are narrowed. **Reset filters** restores full coverage.
+An empty multi-select means **all values**. The active filter counter appears in the page header when a view is narrowed. **Reset** at the top of the sidebar restores full coverage.
 
 ### Metric definitions
 

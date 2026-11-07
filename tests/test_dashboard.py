@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import tempfile
 import unittest
-from datetime import date, timedelta
+from datetime import timedelta
 from pathlib import Path
 
 import pandas as pd
@@ -12,12 +12,10 @@ import pandas as pd
 from loan_dashboard.config import DB_PATH
 from loan_dashboard.csv_io import (
     build_import_template,
-    validate_loan_csv,
     validate_upload_against_database,
 )
 from loan_dashboard.database import (
     fetch_customer_ids,
-    fetch_existing_loan_ids,
     initialize_database,
     table_counts,
     upsert_loans,

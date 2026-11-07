@@ -11,8 +11,8 @@ SAMPLE_DIR = DATA_DIR / "sample"
 DB_PATH = Path(os.environ.get("LOAN_DB_PATH", DATA_DIR / "loan_portfolio.db"))
 
 APP_TITLE = "Northstar | Loan Portfolio Analytics"
-APP_NAME = "Northstar Credit"
-APP_TAGLINE = "Portfolio Intelligence"
+APP_NAME = "Northstar"
+APP_TAGLINE = "Credit Analytics"
 
 LOAN_TYPES = (
     "Personal Loan",
@@ -27,49 +27,54 @@ STATUSES = ("Active", "Closed", "Defaulted")
 SEGMENTS = ("Retail", "SME", "Corporate", "Premium")
 RISK_GRADES = ("A", "B", "C", "D", "E")
 
-# Cohesive palette shared by Plotly and the custom CSS.
+# Quiet, editorial palette shared by Plotly and the custom CSS.
 COLORS = {
-    "ink": "#0F172A",
-    "muted": "#64748B",
-    "primary": "#4F46E5",
-    "primary_soft": "#EEF2FF",
-    "teal": "#0D9488",
-    "teal_soft": "#CCFBF1",
-    "amber": "#D97706",
-    "amber_soft": "#FEF3C7",
-    "orange": "#EA580C",
-    "red": "#DC2626",
-    "red_soft": "#FEE2E2",
-    "green": "#059669",
-    "green_soft": "#D1FAE5",
-    "border": "#E2E8F0",
+    "ink": "#171B18",
+    "muted": "#6C726D",
+    "subtle": "#91968F",
+    "primary": "#225C4B",
+    "primary_hover": "#194939",
+    "primary_soft": "#EAF1ED",
+    "accent": "#B08A5A",
+    "amber": "#A46B2A",
+    "amber_soft": "#F6EDE0",
+    "orange": "#B26A42",
+    "red": "#A9443C",
+    "red_soft": "#F4E8E5",
+    "green": "#2F7259",
+    "green_soft": "#EAF1ED",
+    "info": "#3D5F78",
+    "border": "#E4E1D9",
+    "border_strong": "#D5D1C7",
     "surface": "#FFFFFF",
-    "canvas": "#F4F6FA",
-    "slate_900": "#0B1220",
+    "surface_soft": "#FAF9F5",
+    "canvas": "#F3F1EB",
+    "sidebar": "#F8F6F1",
+    "ink_soft": "#333934",
 }
 
 PRODUCT_COLORS = {
-    "Personal Loan": "#4F46E5",
-    "Home Loan": "#0D9488",
-    "Auto Loan": "#0EA5E9",
-    "Education Loan": "#8B5CF6",
-    "Business Loan": "#F59E0B",
-    "Equipment Loan": "#EC4899",
-    "Credit Card": "#94A3B8",
+    "Home Loan": "#2E5D4B",
+    "Business Loan": "#496275",
+    "Auto Loan": "#A17C56",
+    "Personal Loan": "#7A6889",
+    "Education Loan": "#B39A60",
+    "Equipment Loan": "#747E67",
+    "Credit Card": "#A6A299",
 }
 
 STATUS_COLORS = {
-    "Active": "#4F46E5",
-    "Closed": "#94A3B8",
-    "Defaulted": "#DC2626",
+    "Active": "#2E5D4B",
+    "Closed": "#A6A299",
+    "Defaulted": "#A9443C",
 }
 
 RISK_COLORS = {
-    "A": "#0D9488",
-    "B": "#65A30D",
-    "C": "#D97706",
-    "D": "#EA580C",
-    "E": "#DC2626",
+    "A": "#2F7259",
+    "B": "#748354",
+    "C": "#A98243",
+    "D": "#B56A45",
+    "E": "#A9443C",
 }
 
 CHART_CONFIG = {

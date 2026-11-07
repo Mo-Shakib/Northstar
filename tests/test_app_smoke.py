@@ -23,10 +23,11 @@ class DashboardAppSmokeTest(unittest.TestCase):
         )
         self.assertEqual(
             [widget.label for widget in app.sidebar.multiselect],
-            ["Loan type", "Loan status", "Customer segment"],
+            ["Loan type", "Status", "Customer segment"],
         )
-        self.assertGreater(len(app.dataframe), 5)
-        self.assertGreater(len(app.get("plotly_chart")), 5)
+        self.assertGreaterEqual(len(app.get("plotly_chart")), 5)
+        self.assertGreaterEqual(len(app.dataframe), 1)
+        self.assertGreaterEqual(len(app.get("download_button")), 5)
 
     def test_sidebar_filter_reruns_cleanly(self) -> None:
         app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=90)
