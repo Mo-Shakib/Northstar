@@ -18,6 +18,24 @@ The product has a custom vector identity: an N monogram built as a continuous ro
 
 ---
 
+## Documentation
+
+Full project documentation lives in [`docs/`](docs/README.md):
+
+| Document | Covers |
+|---|---|
+| [Documentation home](docs/README.md) | Product overview, use cases, conventions and quick navigation |
+| [Architecture](docs/architecture.md) | Components, request lifecycle, filtering, snapshots, import architecture, caching and scaling |
+| [Data model](docs/data-model.md) | Schema, field dictionary, lifecycle rules, generation logic and CSV contract |
+| [Metrics and analytics](docs/metrics.md) | Every KPI definition, denominator, query catalogue and interpretation caveats |
+| [User guide](docs/user-guide.md) | Tab-by-tab walkthrough, filter semantics, imports, exports and workflows |
+| [Implementation guide](docs/implementation-guide.md) | Use cases, real-data mapping, pilot options, production gaps and phased roadmap |
+| [Operations](docs/operations.md) | Setup, runbook, backups, security, scaling, testing and troubleshooting |
+| [Glossary](docs/glossary.md) | Definitions for DPD, PAR, ECL and other terms |
+| [Brand guide](docs/brand.md) | Identity system, palette, typography and usage |
+
+---
+
 ## Highlights
 
 - **Executive overview** — total loans, outstanding balance, overdue loans and default rate, plus origination activity, product allocation, delinquency trends, segment performance and largest exposures.
@@ -310,10 +328,18 @@ The seeded database passes all 15 checks.
 │       ├── portfolio_snapshots_sample.csv
 │       └── import_template.csv
 ├── docs/
+│   ├── README.md                   # Documentation index and product overview
+│   ├── architecture.md             # Components, lifecycles and scaling
+│   ├── data-model.md               # Schema, data dictionary and CSV contract
+│   ├── metrics.md                  # KPI definitions and query catalogue
+│   ├── user-guide.md               # Tab-by-tab user walkthrough
+│   ├── implementation-guide.md     # Use cases, delivery paths and roadmap
+│   ├── operations.md               # Runbook, security, backups and troubleshooting
+│   ├── glossary.md                 # Shared vocabulary
 │   ├── brand.md                    # Identity, palette and usage guidance
-│   ├── brand/                      # Brand board
+│   ├── brand/                      # Brand board and logo preview
 │   └── screenshots/                # README screenshots
-└── tests/                          # Database, SQL, CSV, render and quality tests
+└── tests/                          # Database, SQL, CSV, render, brand and quality tests
 ```
 
 ### Design principles
